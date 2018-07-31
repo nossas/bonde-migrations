@@ -9,6 +9,14 @@
 
 ### bonde-migrations
 
+## how to configure env
+
+`mv .env.sample .env`
+
+`echo DATABASE_URL=postgres://postgres@localhost:5432/<database_name> .env`
+
+`cargo install diesel_cli`
+
 
 ## database roles
 
