@@ -15,3 +15,4 @@ Cargo.lock
 
 .env
 src/schema.rs
+*/.gitkeep
