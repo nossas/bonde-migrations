@@ -38,5 +38,5 @@ create role admin;
 
 `docker run --net=host -e DATABASE_URL="postgres://postgres@localhost:5432/db" -it nossas/bonde-migrations diesel migration run`
 
-## run specs
-`docker run -t --net host --rm -v $(pwd)/specs:/specs nossas/docker-pgtap:develop -h localhost -u postgres -w password -d db_test -t '/specs/**/**/*.sql'`
+## run sql-specs
+`./run_sql_test.sh`
