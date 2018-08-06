@@ -9,15 +9,6 @@
 
 ### bonde-migrations
 
-## how to configure env
-
-`mv .env.sample .env`
-
-`echo DATABASE_URL=postgres://postgres@localhost:5432/<database_name> .env`
-
-`cargo install diesel_cli`
-
-
 ## database roles
 
 ```
@@ -29,14 +20,19 @@ create role admin;
 
 ## create a new migration
 
-`diesel migration generate migration_name`
+`diesel migration --database-url="postgres://postgres@localhost:5432/db" generate migration_name`
 
 
 ## running migrations
 
-`diesel migration run`
+`diesel migration --database-url="postgres://postgres@localhost:5432/db "run`
 
 
 ## rollback your migration
 
-`diesel migration redo`
+`diesel migration --database-url="postgres://postgres@localhost:5432/db" redo`
+
+
+## how to run with docker
+
+`docker run --net=host -e DATABASE_URL="postgres://postgres@localhost:5432/db" -it nossas/bonde-migrations diesel migration run`
