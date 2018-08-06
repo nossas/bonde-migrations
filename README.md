@@ -2,10 +2,11 @@
 
 > TODO
 
-- [ ] create dockerfile
+- [x] create dockerfile
 - [ ] create config for deploy
 - [x] create initial schema from database
 - [ ] run sql specs in this repo
+- [ ] create makefile to simplify to run migrations and specs
 
 ### bonde-migrations
 
@@ -36,3 +37,6 @@ create role admin;
 ## how to run with docker
 
 `docker run --net=host -e DATABASE_URL="postgres://postgres@localhost:5432/db" -it nossas/bonde-migrations diesel migration run`
+
+## run specs
+`docker run -t --net host --rm -v $(pwd)/specs:/specs nossas/docker-pgtap:develop -h localhost -u postgres -w password -d db_test -t '/specs/**/**/*.sql'`
