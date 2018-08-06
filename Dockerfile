@@ -1,13 +1,4 @@
-FROM clux/muslrust:stable as builder
+FROM clux/diesel-cli as builder
 
-RUN cargo install diesel_cli --no-default-features --features postgres
-RUN mkdir -p /out && cp /root/.cargo/bin/diesel /out/
+COPY . .
 
-FROM alpine:latest
-COPY --from=builder /out/diesel /bin/
-
-RUN apk add --no-cache ca-certificates
-
-COPY migrations /
-
-CMD diesel
