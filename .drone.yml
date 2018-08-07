@@ -1,0 +1,24 @@
+pipeline:
+
+  staging-publish:
+    image: plugins/docker
+    repo: nossas/bonde-migrations
+    group: publishing
+    secrets: [ docker_username, docker_password ]
+    tags:
+      - ${DRONE_BRANCH/\//-}
+    when:
+      status: success
+      branch: [hotfix/*, release/*, feature/*, support/*, develop]
+
+  staging-deploy:
+    image: peloton/drone-rancher
+    url: http://cluster.bonde.org
+    service: workers/migrations
+    docker_image: nossas/bonde-migrations:${DRONE_BRANCH/\//-}
+    timeout: 360
+    confirm: true
+    secrets: [ rancher_access_key, rancher_secret_key ]
+    when:
+      status: success
+      branch: [hotfix/*, release/*, feature/*, support/*, develop]
