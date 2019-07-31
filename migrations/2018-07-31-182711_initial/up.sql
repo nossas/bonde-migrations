@@ -17,134 +17,134 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: microservices; Type: SCHEMA; Schema: -; Owner: postgres
+-- Name: microservices; Type: SCHEMA; Schema: -; Owner: monkey_user
 --
 
 CREATE SCHEMA microservices;
 
 
-ALTER SCHEMA microservices OWNER TO postgres;
+ALTER SCHEMA microservices OWNER TO monkey_user;
 
 --
--- Name: pgjwt; Type: SCHEMA; Schema: -; Owner: postgres
+-- Name: pgjwt; Type: SCHEMA; Schema: -; Owner: monkey_user
 --
 
 CREATE SCHEMA pgjwt;
 
 
-ALTER SCHEMA pgjwt OWNER TO postgres;
+ALTER SCHEMA pgjwt OWNER TO monkey_user;
 
 --
--- Name: postgraphile_watch; Type: SCHEMA; Schema: -; Owner: postgres
+-- Name: postgraphile_watch; Type: SCHEMA; Schema: -; Owner: monkey_user
 --
 
 CREATE SCHEMA postgraphile_watch;
 
 
-ALTER SCHEMA postgraphile_watch OWNER TO postgres;
+ALTER SCHEMA postgraphile_watch OWNER TO monkey_user;
 
 --
--- Name: postgraphql; Type: SCHEMA; Schema: -; Owner: postgres
+-- Name: postgraphql; Type: SCHEMA; Schema: -; Owner: monkey_user
 --
 
 CREATE SCHEMA postgraphql;
 
 
-ALTER SCHEMA postgraphql OWNER TO postgres;
+ALTER SCHEMA postgraphql OWNER TO monkey_user;
 
 --
--- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
 
 
 --
--- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
 
 
 --
--- Name: citext; Type: EXTENSION; Schema: -; Owner: 
+-- Name: citext; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS citext WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION citext; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION citext; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION citext IS 'data type for case-insensitive character strings';
 
 
 --
--- Name: hstore; Type: EXTENSION; Schema: -; Owner: 
+-- Name: hstore; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS hstore WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION hstore; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION hstore; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION hstore IS 'data type for storing sets of (key, value) pairs';
 
 
 --
--- Name: pg_stat_statements; Type: EXTENSION; Schema: -; Owner: 
+-- Name: pg_stat_statements; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS pg_stat_statements WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION pg_stat_statements; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION pg_stat_statements; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION pg_stat_statements IS 'track execution statistics of all SQL statements executed';
 
 
 --
--- Name: pgcrypto; Type: EXTENSION; Schema: -; Owner: 
+-- Name: pgcrypto; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS pgcrypto WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION pgcrypto; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION pgcrypto; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION pgcrypto IS 'cryptographic functions';
 
 
 --
--- Name: unaccent; Type: EXTENSION; Schema: -; Owner: 
+-- Name: unaccent; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS unaccent WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION unaccent; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION unaccent; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION unaccent IS 'text search dictionary that removes accents';
 
 
 --
--- Name: uuid-ossp; Type: EXTENSION; Schema: -; Owner: 
+-- Name: uuid-ossp; Type: EXTENSION; Schema: -; Owner:
 --
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp" WITH SCHEMA public;
 
 
 --
--- Name: EXTENSION "uuid-ossp"; Type: COMMENT; Schema: -; Owner: 
+-- Name: EXTENSION "uuid-ossp"; Type: COMMENT; Schema: -; Owner:
 --
 
 COMMENT ON EXTENSION "uuid-ossp" IS 'generate universally unique identifiers (UUIDs)';
@@ -153,7 +153,7 @@ COMMENT ON EXTENSION "uuid-ossp" IS 'generate universally unique identifiers (UU
 SET search_path = microservices, pg_catalog;
 
 --
--- Name: jwt_token; Type: TYPE; Schema: microservices; Owner: postgres
+-- Name: jwt_token; Type: TYPE; Schema: microservices; Owner: monkey_user
 --
 
 CREATE TYPE jwt_token AS (
@@ -162,12 +162,12 @@ CREATE TYPE jwt_token AS (
 );
 
 
-ALTER TYPE jwt_token OWNER TO postgres;
+ALTER TYPE jwt_token OWNER TO monkey_user;
 
 SET search_path = postgraphql, pg_catalog;
 
 --
--- Name: facebook_activist_search_result_type; Type: TYPE; Schema: postgraphql; Owner: postgres
+-- Name: facebook_activist_search_result_type; Type: TYPE; Schema: postgraphql; Owner: monkey_user
 --
 
 CREATE TYPE facebook_activist_search_result_type AS (
@@ -182,10 +182,10 @@ CREATE TYPE facebook_activist_search_result_type AS (
 );
 
 
-ALTER TYPE facebook_activist_search_result_type OWNER TO postgres;
+ALTER TYPE facebook_activist_search_result_type OWNER TO monkey_user;
 
 --
--- Name: facebook_bot_campaigns_type; Type: TYPE; Schema: postgraphql; Owner: postgres
+-- Name: facebook_bot_campaigns_type; Type: TYPE; Schema: postgraphql; Owner: monkey_user
 --
 
 CREATE TYPE facebook_bot_campaigns_type AS (
@@ -196,10 +196,10 @@ CREATE TYPE facebook_bot_campaigns_type AS (
 );
 
 
-ALTER TYPE facebook_bot_campaigns_type OWNER TO postgres;
+ALTER TYPE facebook_bot_campaigns_type OWNER TO monkey_user;
 
 --
--- Name: get_facebook_bot_campaign_activists_by_campaign_type; Type: TYPE; Schema: postgraphql; Owner: postgres
+-- Name: get_facebook_bot_campaign_activists_by_campaign_type; Type: TYPE; Schema: postgraphql; Owner: monkey_user
 --
 
 CREATE TYPE get_facebook_bot_campaign_activists_by_campaign_type AS (
@@ -219,10 +219,10 @@ CREATE TYPE get_facebook_bot_campaign_activists_by_campaign_type AS (
 );
 
 
-ALTER TYPE get_facebook_bot_campaign_activists_by_campaign_type OWNER TO postgres;
+ALTER TYPE get_facebook_bot_campaign_activists_by_campaign_type OWNER TO monkey_user;
 
 --
--- Name: jwt_token; Type: TYPE; Schema: postgraphql; Owner: postgres
+-- Name: jwt_token; Type: TYPE; Schema: postgraphql; Owner: monkey_user
 --
 
 CREATE TYPE jwt_token AS (
@@ -231,10 +231,10 @@ CREATE TYPE jwt_token AS (
 );
 
 
-ALTER TYPE jwt_token OWNER TO postgres;
+ALTER TYPE jwt_token OWNER TO monkey_user;
 
 --
--- Name: twilio_calls_arguments; Type: TYPE; Schema: postgraphql; Owner: postgres
+-- Name: twilio_calls_arguments; Type: TYPE; Schema: postgraphql; Owner: monkey_user
 --
 
 CREATE TYPE twilio_calls_arguments AS (
@@ -246,10 +246,10 @@ CREATE TYPE twilio_calls_arguments AS (
 );
 
 
-ALTER TYPE twilio_calls_arguments OWNER TO postgres;
+ALTER TYPE twilio_calls_arguments OWNER TO monkey_user;
 
 --
--- Name: watch_twilio_call_transition_record_set; Type: TYPE; Schema: postgraphql; Owner: postgres
+-- Name: watch_twilio_call_transition_record_set; Type: TYPE; Schema: postgraphql; Owner: monkey_user
 --
 
 CREATE TYPE watch_twilio_call_transition_record_set AS (
@@ -269,22 +269,22 @@ CREATE TYPE watch_twilio_call_transition_record_set AS (
 );
 
 
-ALTER TYPE watch_twilio_call_transition_record_set OWNER TO postgres;
+ALTER TYPE watch_twilio_call_transition_record_set OWNER TO monkey_user;
 
 SET search_path = public, pg_catalog;
 
 --
--- Name: email; Type: DOMAIN; Schema: public; Owner: postgres
+-- Name: email; Type: DOMAIN; Schema: public; Owner: monkey_user
 --
 
 CREATE DOMAIN email AS citext
 CONSTRAINT email_check CHECK ((VALUE ~ '^[a-zA-Z0-9.!#$%&''*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$'::citext));
 
 
-ALTER DOMAIN email OWNER TO postgres;
+ALTER DOMAIN email OWNER TO monkey_user;
 
 --
--- Name: status_mobilization; Type: TYPE; Schema: public; Owner: postgres
+-- Name: status_mobilization; Type: TYPE; Schema: public; Owner: monkey_user
 --
 
 CREATE TYPE status_mobilization AS ENUM (
@@ -293,12 +293,12 @@ CREATE TYPE status_mobilization AS ENUM (
 );
 
 
-ALTER TYPE status_mobilization OWNER TO postgres;
+ALTER TYPE status_mobilization OWNER TO monkey_user;
 
 SET search_path = microservices, pg_catalog;
 
 --
--- Name: create_community_dns(json); Type: FUNCTION; Schema: microservices; Owner: postgres
+-- Name: create_community_dns(json); Type: FUNCTION; Schema: microservices; Owner: monkey_user
 --
 
 CREATE FUNCTION create_community_dns(data json) RETURNS json
@@ -360,12 +360,12 @@ end;
 $_$;
 
 
-ALTER FUNCTION microservices.create_community_dns(data json) OWNER TO postgres;
+ALTER FUNCTION microservices.create_community_dns(data json) OWNER TO monkey_user;
 
 SET search_path = public, pg_catalog;
 
 --
--- Name: locale_names(); Type: FUNCTION; Schema: public; Owner: postgres
+-- Name: locale_names(); Type: FUNCTION; Schema: public; Owner: monkey_user
 --
 
 CREATE FUNCTION locale_names() RETURNS text[]
@@ -375,14 +375,14 @@ select '{pt-BR, es, en}'::text[];
 $$;
 
 
-ALTER FUNCTION public.locale_names() OWNER TO postgres;
+ALTER FUNCTION public.locale_names() OWNER TO monkey_user;
 
 SET default_tablespace = '';
 
 SET default_with_oids = false;
 
 --
--- Name: users; Type: TABLE; Schema: public; Owner: postgres
+-- Name: users; Type: TABLE; Schema: public; Owner: monkey_user
 --
 
 CREATE TABLE users (
@@ -415,12 +415,12 @@ CREATE TABLE users (
 );
 
 
-ALTER TABLE users OWNER TO postgres;
+ALTER TABLE users OWNER TO monkey_user;
 
 SET search_path = microservices, pg_catalog;
 
 --
--- Name: current_user(); Type: FUNCTION; Schema: microservices; Owner: postgres
+-- Name: current_user(); Type: FUNCTION; Schema: microservices; Owner: monkey_user
 --
 
 CREATE FUNCTION "current_user"() RETURNS public.users
@@ -435,17 +435,17 @@ id = current_setting('jwt.claims.user_id')::integer
 $$;
 
 
-ALTER FUNCTION microservices."current_user"() OWNER TO postgres;
+ALTER FUNCTION microservices."current_user"() OWNER TO monkey_user;
 
 --
--- Name: FUNCTION "current_user"(); Type: COMMENT; Schema: microservices; Owner: postgres
+-- Name: FUNCTION "current_user"(); Type: COMMENT; Schema: microservices; Owner: monkey_user
 --
 
 COMMENT ON FUNCTION "current_user"() IS 'Gets the user who was indentified by our JWT.';
 
 
 --
--- Name: current_user_id(); Type: FUNCTION; Schema: microservices; Owner: postgres
+-- Name: current_user_id(); Type: FUNCTION; Schema: microservices; Owner: monkey_user
 --
 
 CREATE FUNCTION current_user_id() RETURNS integer
@@ -455,12 +455,12 @@ select id from microservices.current_user();
 $$;
 
 
-ALTER FUNCTION microservices.current_user_id() OWNER TO postgres;
+ALTER FUNCTION microservices.current_user_id() OWNER TO monkey_user;
 
 SET search_path = pgjwt, pg_catalog;
 
 --
--- Name: algorithm_sign(text, text, text); Type: FUNCTION; Schema: pgjwt; Owner: postgres
+-- Name: algorithm_sign(text, text, text); Type: FUNCTION; Schema: pgjwt; Owner: monkey_user
 --
 
 CREATE FUNCTION algorithm_sign(signables text, secret text, algorithm text) RETURNS text
@@ -477,10 +477,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION pgjwt.algorithm_sign(signables text, secret text, algorithm text) OWNER TO postgres;
+    ALTER FUNCTION pgjwt.algorithm_sign(signables text, secret text, algorithm text) OWNER TO monkey_user;
 
     --
-    -- Name: sign(json, text, text); Type: FUNCTION; Schema: pgjwt; Owner: postgres
+    -- Name: sign(json, text, text); Type: FUNCTION; Schema: pgjwt; Owner: monkey_user
     --
 
     CREATE FUNCTION sign(payload json, secret text, algorithm text DEFAULT 'HS256'::text) RETURNS text
@@ -502,10 +502,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION pgjwt.sign(payload json, secret text, algorithm text) OWNER TO postgres;
+    ALTER FUNCTION pgjwt.sign(payload json, secret text, algorithm text) OWNER TO monkey_user;
 
     --
-    -- Name: url_decode(text); Type: FUNCTION; Schema: pgjwt; Owner: postgres
+    -- Name: url_decode(text); Type: FUNCTION; Schema: pgjwt; Owner: monkey_user
     --
 
     CREATE FUNCTION url_decode(data text) RETURNS bytea
@@ -522,10 +522,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION pgjwt.url_decode(data text) OWNER TO postgres;
+      ALTER FUNCTION pgjwt.url_decode(data text) OWNER TO monkey_user;
 
       --
-      -- Name: url_encode(bytea); Type: FUNCTION; Schema: pgjwt; Owner: postgres
+      -- Name: url_encode(bytea); Type: FUNCTION; Schema: pgjwt; Owner: monkey_user
       --
 
       CREATE FUNCTION url_encode(data bytea) RETURNS text
@@ -535,10 +535,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION pgjwt.url_encode(data bytea) OWNER TO postgres;
+      ALTER FUNCTION pgjwt.url_encode(data bytea) OWNER TO monkey_user;
 
       --
-      -- Name: verify(text, text, text); Type: FUNCTION; Schema: pgjwt; Owner: postgres
+      -- Name: verify(text, text, text); Type: FUNCTION; Schema: pgjwt; Owner: monkey_user
       --
 
       CREATE FUNCTION verify(token text, secret text, algorithm text DEFAULT 'HS256'::text) RETURNS TABLE(header json, payload json, valid boolean)
@@ -552,12 +552,12 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION pgjwt.verify(token text, secret text, algorithm text) OWNER TO postgres;
+      ALTER FUNCTION pgjwt.verify(token text, secret text, algorithm text) OWNER TO monkey_user;
 
       SET search_path = postgraphile_watch, pg_catalog;
 
       --
-      -- Name: notify_watchers_ddl(); Type: FUNCTION; Schema: postgraphile_watch; Owner: postgres
+      -- Name: notify_watchers_ddl(); Type: FUNCTION; Schema: postgraphile_watch; Owner: monkey_user
       --
 
       CREATE FUNCTION notify_watchers_ddl() RETURNS event_trigger
@@ -577,10 +577,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphile_watch.notify_watchers_ddl() OWNER TO postgres;
+      ALTER FUNCTION postgraphile_watch.notify_watchers_ddl() OWNER TO monkey_user;
 
       --
-      -- Name: notify_watchers_drop(); Type: FUNCTION; Schema: postgraphile_watch; Owner: postgres
+      -- Name: notify_watchers_drop(); Type: FUNCTION; Schema: postgraphile_watch; Owner: monkey_user
       --
 
       CREATE FUNCTION notify_watchers_drop() RETURNS event_trigger
@@ -600,12 +600,12 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphile_watch.notify_watchers_drop() OWNER TO postgres;
+      ALTER FUNCTION postgraphile_watch.notify_watchers_drop() OWNER TO monkey_user;
 
       SET search_path = public, pg_catalog;
 
       --
-      -- Name: twilio_calls; Type: TABLE; Schema: public; Owner: postgres
+      -- Name: twilio_calls; Type: TABLE; Schema: public; Owner: monkey_user
       --
 
       CREATE TABLE twilio_calls (
@@ -623,12 +623,12 @@ alg AS (
       );
 
 
-      ALTER TABLE twilio_calls OWNER TO postgres;
+      ALTER TABLE twilio_calls OWNER TO monkey_user;
 
       SET search_path = postgraphql, pg_catalog;
 
       --
-      -- Name: twilio_calls; Type: VIEW; Schema: postgraphql; Owner: postgres
+      -- Name: twilio_calls; Type: VIEW; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE VIEW twilio_calls AS
@@ -646,10 +646,10 @@ alg AS (
       FROM public.twilio_calls;
 
 
-      ALTER TABLE twilio_calls OWNER TO postgres;
+      ALTER TABLE twilio_calls OWNER TO monkey_user;
 
       --
-      -- Name: add_twilio_call(twilio_calls); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: add_twilio_call(twilio_calls); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION add_twilio_call(call twilio_calls) RETURNS twilio_calls
@@ -679,12 +679,12 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.add_twilio_call(call twilio_calls) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.add_twilio_call(call twilio_calls) OWNER TO monkey_user;
 
       SET search_path = public, pg_catalog;
 
       --
-      -- Name: twilio_configurations; Type: TABLE; Schema: public; Owner: postgres
+      -- Name: twilio_configurations; Type: TABLE; Schema: public; Owner: monkey_user
       --
 
       CREATE TABLE twilio_configurations (
@@ -698,12 +698,12 @@ alg AS (
       );
 
 
-      ALTER TABLE twilio_configurations OWNER TO postgres;
+      ALTER TABLE twilio_configurations OWNER TO monkey_user;
 
       SET search_path = postgraphql, pg_catalog;
 
       --
-      -- Name: twilio_configurations; Type: VIEW; Schema: postgraphql; Owner: postgres
+      -- Name: twilio_configurations; Type: VIEW; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE VIEW twilio_configurations AS
@@ -717,10 +717,10 @@ alg AS (
       FROM public.twilio_configurations;
 
 
-      ALTER TABLE twilio_configurations OWNER TO postgres;
+      ALTER TABLE twilio_configurations OWNER TO monkey_user;
 
       --
-      -- Name: add_twilio_configuration(twilio_configurations); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: add_twilio_configuration(twilio_configurations); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION add_twilio_configuration(config twilio_configurations) RETURNS twilio_configurations
@@ -748,10 +748,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.add_twilio_configuration(config twilio_configurations) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.add_twilio_configuration(config twilio_configurations) OWNER TO monkey_user;
 
       --
-      -- Name: authenticate(text, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: authenticate(text, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION authenticate(email text, password text) RETURNS jwt_token
@@ -775,17 +775,17 @@ alg AS (
       $_$;
 
 
-      ALTER FUNCTION postgraphql.authenticate(email text, password text) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.authenticate(email text, password text) OWNER TO monkey_user;
 
       --
-      -- Name: FUNCTION authenticate(email text, password text); Type: COMMENT; Schema: postgraphql; Owner: postgres
+      -- Name: FUNCTION authenticate(email text, password text); Type: COMMENT; Schema: postgraphql; Owner: monkey_user
       --
 
       COMMENT ON FUNCTION authenticate(email text, password text) IS 'Creates a JWT token that will securely identify a user and give them certain permissions.';
 
 
       --
-      -- Name: change_password(json); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: change_password(json); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION change_password(data json) RETURNS jwt_token
@@ -809,7 +809,7 @@ alg AS (
         -- when user is anonymous should be have reset_password_token
         if current_role = 'anonymous' then
           if nullif(($1->>'reset_password_token')::text, '') is not null then
-            select * from public.users 
+            select * from public.users
             where reset_password_token is not null
             and ($1->>'reset_password_token')::text = reset_password_token
             into _user;
@@ -831,19 +831,19 @@ alg AS (
         where id = _user.id;
 
         return (
-          (case when _user.admin is true then 'admin' else 'common_user' end), 
+          (case when _user.admin is true then 'admin' else 'common_user' end),
           _user.id
-        )::postgraphql.jwt_token;        
+        )::postgraphql.jwt_token;
       end;
       $_$;
 
 
-      ALTER FUNCTION postgraphql.change_password(data json) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.change_password(data json) OWNER TO monkey_user;
 
       SET search_path = public, pg_catalog;
 
       --
-      -- Name: invitations; Type: TABLE; Schema: public; Owner: postgres
+      -- Name: invitations; Type: TABLE; Schema: public; Owner: monkey_user
       --
 
       CREATE TABLE invitations (
@@ -860,12 +860,12 @@ alg AS (
       );
 
 
-      ALTER TABLE invitations OWNER TO postgres;
+      ALTER TABLE invitations OWNER TO monkey_user;
 
       SET search_path = postgraphql, pg_catalog;
 
       --
-      -- Name: check_invitation(text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: check_invitation(text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION check_invitation(invitation_code text) RETURNS SETOF public.invitations
@@ -875,10 +875,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.check_invitation(invitation_code text) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.check_invitation(invitation_code text) OWNER TO monkey_user;
 
       --
-      -- Name: create_activist(json); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: create_activist(json); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION create_activist(activist json) RETURNS json
@@ -894,7 +894,7 @@ alg AS (
 
         if _community_id is null then
           raise 'missing community_id inside activist';
-        end if;            
+        end if;
 
         if not postgraphql.current_user_has_community_participation(_community_id) then
           raise 'operation not permitted';
@@ -909,7 +909,7 @@ alg AS (
         where a.email = lower(($1->>'email')::email)
         limit 1 into _activist;
 
-        if _activist.id is null then 
+        if _activist.id is null then
           insert into public.activists (first_name, last_name, name, email, phone, document_number, document_type, city, created_at, updated_at)
           values ($1->>'first_name'::text, $1->>'last_name'::text, $1->>'name'::text, lower($1->>'email'), $1->>'phone'::text, $1->>'document_number'::text,
             $1->>'document_type'::text, $1->>'city'::text, now(), now())
@@ -917,8 +917,8 @@ alg AS (
         end if;
 
         select *
-        from public.community_activists 
-        where community_id = _community_id 
+        from public.community_activists
+        where community_id = _community_id
         and activist_id = _activist.id
         into _community_activist;
 
@@ -928,24 +928,24 @@ alg AS (
           returning * into _community_activist;
         end if;
 
-        if _mobilization.id is not null and not exists(select true 
-          from public.mobilization_activists 
+        if _mobilization.id is not null and not exists(select true
+          from public.mobilization_activists
           where mobilization_id = _mobilization.id
           and activist_id = _activist.id
           ) then
           insert into public.mobilization_activists (mobilization_id, activist_id, created_at, updated_at)
           values (_mobilization.id, _activist.id, now(), now());
-        end if;            
+        end if;
 
         return row_to_json(_community_activist);
       end;
       $_$;
 
 
-      ALTER FUNCTION postgraphql.create_activist(activist json) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.create_activist(activist json) OWNER TO monkey_user;
 
       --
-      -- Name: create_activist_tag(json); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: create_activist_tag(json); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION create_activist_tag(data json) RETURNS json
@@ -957,13 +957,13 @@ alg AS (
       _tag public.tags;
       _activist_tag public.activist_tags;
       _community_id integer;
-      --_mobilization public.mobilizations;            
+      --_mobilization public.mobilizations;
       begin
         -- check for community_id
         _community_id := ($1->>'community_id')::integer;
         if _community_id is null then
           raise 'missing community_id inside activist';
-        end if;            
+        end if;
 
         -- check if current_user has participation on this community or he is admin
         if not postgraphql.current_user_has_community_participation(_community_id) and current_role <> 'admin' then
@@ -982,15 +982,15 @@ alg AS (
         limit 1 into _activist;
 
         -- check if activists in community
-        if not exists(select true from community_activists 
+        if not exists(select true from community_activists
           where community_id = _community_id
           and activist_id = _activist.id) then
           raise 'activist not found on community';
         end if;
 
         -- insert new activist_tag
-        select * from public.activist_tags 
-        where activist_id = _activist.id 
+        select * from public.activist_tags
+        where activist_id = _activist.id
         and community_id = _community_id
         into _activist_tag;
 
@@ -1008,7 +1008,7 @@ alg AS (
 
         -- insert tag if not found
         if _tag is null then
-          insert into public.tags (name, label) 
+          insert into public.tags (name, label)
           values ('input_'||public.slugfy(($1->>'name')::text), ($1->>'name')::text)
           returning * into _tag;
         end if;
@@ -1020,7 +1020,7 @@ alg AS (
         and taggable_type = 'ActivistTag'
         into _tagging;
         if _tagging is null then
-          insert into public.taggings(tag_id, taggable_id, taggable_type) 
+          insert into public.taggings(tag_id, taggable_id, taggable_type)
           values (_tag.id, _activist_tag.id, 'ActivistTag')
           returning * into _tagging;
         end if;
@@ -1036,10 +1036,10 @@ alg AS (
       $_$;
 
 
-      ALTER FUNCTION postgraphql.create_activist_tag(data json) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.create_activist_tag(data json) OWNER TO monkey_user;
 
       --
-      -- Name: create_bot(json); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: create_bot(json); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION create_bot(bot_data json) RETURNS json
@@ -1065,10 +1065,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.create_bot(bot_data json) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.create_bot(bot_data json) OWNER TO monkey_user;
 
       --
-      -- Name: create_bot_interaction(json); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: create_bot_interaction(json); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION create_bot_interaction(bot_data json) RETURNS json
@@ -1093,10 +1093,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.create_bot_interaction(bot_data json) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.create_bot_interaction(bot_data json) OWNER TO monkey_user;
 
       --
-      -- Name: create_community(json); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: create_community(json); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION create_community(data json) RETURNS json
@@ -1140,10 +1140,10 @@ alg AS (
       $_$;
 
 
-      ALTER FUNCTION postgraphql.create_community(data json) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.create_community(data json) OWNER TO monkey_user;
 
       --
-      -- Name: create_dns_record(json); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: create_dns_record(json); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION create_dns_record(data json) RETURNS json
@@ -1199,12 +1199,12 @@ alg AS (
       $_$;
 
 
-      ALTER FUNCTION postgraphql.create_dns_record(data json) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.create_dns_record(data json) OWNER TO monkey_user;
 
       SET search_path = public, pg_catalog;
 
       --
-      -- Name: facebook_bot_campaigns; Type: TABLE; Schema: public; Owner: postgres
+      -- Name: facebook_bot_campaigns; Type: TABLE; Schema: public; Owner: monkey_user
       --
 
       CREATE TABLE facebook_bot_campaigns (
@@ -1218,12 +1218,12 @@ alg AS (
       );
 
 
-      ALTER TABLE facebook_bot_campaigns OWNER TO postgres;
+      ALTER TABLE facebook_bot_campaigns OWNER TO monkey_user;
 
       SET search_path = postgraphql, pg_catalog;
 
       --
-      -- Name: create_facebook_bot_campaign(facebook_bot_campaigns_type); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: create_facebook_bot_campaign(facebook_bot_campaigns_type); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION create_facebook_bot_campaign(campaign facebook_bot_campaigns_type) RETURNS public.facebook_bot_campaigns
@@ -1268,10 +1268,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.create_facebook_bot_campaign(campaign facebook_bot_campaigns_type) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.create_facebook_bot_campaign(campaign facebook_bot_campaigns_type) OWNER TO monkey_user;
 
       --
-      -- Name: create_tags(text, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: create_tags(text, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION create_tags(name text, label text) RETURNS json
@@ -1311,10 +1311,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.create_tags(name text, label text) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.create_tags(name text, label text) OWNER TO monkey_user;
 
       --
-      -- Name: create_user_tags(json); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: create_user_tags(json); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION create_user_tags(data json) RETURNS json
@@ -1348,10 +1348,10 @@ alg AS (
         $_$;
 
 
-        ALTER FUNCTION postgraphql.create_user_tags(data json) OWNER TO postgres;
+        ALTER FUNCTION postgraphql.create_user_tags(data json) OWNER TO monkey_user;
 
         --
-        -- Name: users; Type: VIEW; Schema: postgraphql; Owner: postgres
+        -- Name: users; Type: VIEW; Schema: postgraphql; Owner: monkey_user
         --
 
         CREATE VIEW users AS
@@ -1384,10 +1384,10 @@ alg AS (
         NULL::json AS tags;
 
 
-        ALTER TABLE users OWNER TO postgres;
+        ALTER TABLE users OWNER TO monkey_user;
 
         --
-        -- Name: current_user(); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+        -- Name: current_user(); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
         --
 
         CREATE FUNCTION "current_user"() RETURNS users
@@ -1399,10 +1399,10 @@ alg AS (
         $$;
 
 
-        ALTER FUNCTION postgraphql."current_user"() OWNER TO postgres;
+        ALTER FUNCTION postgraphql."current_user"() OWNER TO monkey_user;
 
         --
-        -- Name: current_user_has_community_participation(integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+        -- Name: current_user_has_community_participation(integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
         --
 
         CREATE FUNCTION current_user_has_community_participation(com_id integer) RETURNS boolean
@@ -1416,10 +1416,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.current_user_has_community_participation(com_id integer) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.current_user_has_community_participation(com_id integer) OWNER TO monkey_user;
 
       --
-      -- Name: current_user_has_community_participation(integer, integer[]); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: current_user_has_community_participation(integer, integer[]); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION current_user_has_community_participation(com_id integer, role_ids integer[]) RETURNS boolean
@@ -1434,10 +1434,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.current_user_has_community_participation(com_id integer, role_ids integer[]) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.current_user_has_community_participation(com_id integer, role_ids integer[]) OWNER TO monkey_user;
 
       --
-      -- Name: current_user_id(); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: current_user_id(); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION current_user_id() RETURNS integer
@@ -1447,12 +1447,12 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.current_user_id() OWNER TO postgres;
+      ALTER FUNCTION postgraphql.current_user_id() OWNER TO monkey_user;
 
       SET search_path = public, pg_catalog;
 
       --
-      -- Name: template_mobilizations; Type: TABLE; Schema: public; Owner: postgres
+      -- Name: template_mobilizations; Type: TABLE; Schema: public; Owner: monkey_user
       --
 
       CREATE TABLE template_mobilizations (
@@ -1477,12 +1477,12 @@ alg AS (
       );
 
 
-      ALTER TABLE template_mobilizations OWNER TO postgres;
+      ALTER TABLE template_mobilizations OWNER TO monkey_user;
 
       SET search_path = postgraphql, pg_catalog;
 
       --
-      -- Name: custom_templates(integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: custom_templates(integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION custom_templates(ctx_community_id integer) RETURNS SETOF public.template_mobilizations
@@ -1496,10 +1496,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.custom_templates(ctx_community_id integer) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.custom_templates(ctx_community_id integer) OWNER TO monkey_user;
 
       --
-      -- Name: destroy_bot(integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: destroy_bot(integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION destroy_bot(bot_id integer) RETURNS void
@@ -1511,12 +1511,12 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.destroy_bot(bot_id integer) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.destroy_bot(bot_id integer) OWNER TO monkey_user;
 
       SET search_path = public, pg_catalog;
 
       --
-      -- Name: activist_tags; Type: TABLE; Schema: public; Owner: postgres
+      -- Name: activist_tags; Type: TABLE; Schema: public; Owner: monkey_user
       --
 
       CREATE TABLE activist_tags (
@@ -1529,10 +1529,10 @@ alg AS (
       );
 
 
-      ALTER TABLE activist_tags OWNER TO postgres;
+      ALTER TABLE activist_tags OWNER TO monkey_user;
 
       --
-      -- Name: taggings; Type: TABLE; Schema: public; Owner: postgres
+      -- Name: taggings; Type: TABLE; Schema: public; Owner: monkey_user
       --
 
       CREATE TABLE taggings (
@@ -1547,10 +1547,10 @@ alg AS (
       );
 
 
-      ALTER TABLE taggings OWNER TO postgres;
+      ALTER TABLE taggings OWNER TO monkey_user;
 
       --
-      -- Name: tags; Type: TABLE; Schema: public; Owner: postgres
+      -- Name: tags; Type: TABLE; Schema: public; Owner: monkey_user
       --
 
       CREATE TABLE tags (
@@ -1561,10 +1561,10 @@ alg AS (
       );
 
 
-      ALTER TABLE tags OWNER TO postgres;
+      ALTER TABLE tags OWNER TO monkey_user;
 
       --
-      -- Name: community_tags; Type: VIEW; Schema: public; Owner: postgres
+      -- Name: community_tags; Type: VIEW; Schema: public; Owner: monkey_user
       --
 
       CREATE VIEW community_tags AS
@@ -1580,12 +1580,12 @@ alg AS (
       GROUP BY at.community_id, tag.name, tag.label;
 
 
-      ALTER TABLE community_tags OWNER TO postgres;
+      ALTER TABLE community_tags OWNER TO monkey_user;
 
       SET search_path = postgraphql, pg_catalog;
 
       --
-      -- Name: community_tags; Type: VIEW; Schema: postgraphql; Owner: postgres
+      -- Name: community_tags; Type: VIEW; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE VIEW community_tags AS
@@ -1599,10 +1599,10 @@ alg AS (
       WHERE current_user_has_community_participation(community_tags.community_id);
 
 
-      ALTER TABLE community_tags OWNER TO postgres;
+      ALTER TABLE community_tags OWNER TO monkey_user;
 
       --
-      -- Name: filter_community_tags(text, integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: filter_community_tags(text, integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION filter_community_tags(search text, ctx_community_id integer) RETURNS SETOF community_tags
@@ -1614,17 +1614,17 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.filter_community_tags(search text, ctx_community_id integer) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.filter_community_tags(search text, ctx_community_id integer) OWNER TO monkey_user;
 
       --
-      -- Name: FUNCTION filter_community_tags(search text, ctx_community_id integer); Type: COMMENT; Schema: postgraphql; Owner: postgres
+      -- Name: FUNCTION filter_community_tags(search text, ctx_community_id integer); Type: COMMENT; Schema: postgraphql; Owner: monkey_user
       --
 
       COMMENT ON FUNCTION filter_community_tags(search text, ctx_community_id integer) IS 'filter community_tags view by tag_complete_name and communityd_id';
 
 
       --
-      -- Name: get_facebook_activists_by_campaign_ids(integer[]); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_activists_by_campaign_ids(integer[]); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_activists_by_campaign_ids(campaign_ids integer[]) RETURNS SETOF facebook_activist_search_result_type
@@ -1646,10 +1646,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_activists_by_campaign_ids(campaign_ids integer[]) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_activists_by_campaign_ids(campaign_ids integer[]) OWNER TO monkey_user;
 
       --
-      -- Name: get_facebook_activists_by_campaigns_both_inclusion_exclusion(jsonb, integer[], integer[]); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_activists_by_campaigns_both_inclusion_exclusion(jsonb, integer[], integer[]); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_activists_by_campaigns_both_inclusion_exclusion(segment_filters jsonb, campaign_exclusion_ids integer[], campaign_inclusion_ids integer[]) RETURNS SETOF facebook_activist_search_result_type
@@ -1668,10 +1668,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_activists_by_campaigns_both_inclusion_exclusion(segment_filters jsonb, campaign_exclusion_ids integer[], campaign_inclusion_ids integer[]) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_activists_by_campaigns_both_inclusion_exclusion(segment_filters jsonb, campaign_exclusion_ids integer[], campaign_inclusion_ids integer[]) OWNER TO monkey_user;
 
       --
-      -- Name: get_facebook_activists_by_campaigns_exclusion(jsonb, integer[]); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_activists_by_campaigns_exclusion(jsonb, integer[]); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_activists_by_campaigns_exclusion(segment_filters jsonb, campaign_ids integer[]) RETURNS SETOF facebook_activist_search_result_type
@@ -1700,10 +1700,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_activists_by_campaigns_exclusion(segment_filters jsonb, campaign_ids integer[]) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_activists_by_campaigns_exclusion(segment_filters jsonb, campaign_ids integer[]) OWNER TO monkey_user;
 
       --
-      -- Name: get_facebook_activists_by_campaigns_inclusion(jsonb, integer[]); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_activists_by_campaigns_inclusion(jsonb, integer[]); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_activists_by_campaigns_inclusion(segment_filters jsonb, campaign_ids integer[]) RETURNS SETOF facebook_activist_search_result_type
@@ -1725,10 +1725,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_activists_by_campaigns_inclusion(segment_filters jsonb, campaign_ids integer[]) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_activists_by_campaigns_inclusion(segment_filters jsonb, campaign_ids integer[]) OWNER TO monkey_user;
 
       --
-      -- Name: get_facebook_activists_by_date_interval(timestamp without time zone, timestamp without time zone); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_activists_by_date_interval(timestamp without time zone, timestamp without time zone); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_activists_by_date_interval(date_interval_start timestamp without time zone, date_interval_end timestamp without time zone) RETURNS SETOF facebook_activist_search_result_type
@@ -1752,10 +1752,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_activists_by_date_interval(date_interval_start timestamp without time zone, date_interval_end timestamp without time zone) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_activists_by_date_interval(date_interval_start timestamp without time zone, date_interval_end timestamp without time zone) OWNER TO monkey_user;
 
       --
-      -- Name: get_facebook_activists_by_message(text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_activists_by_message(text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_activists_by_message(message text) RETURNS SETOF facebook_activist_search_result_type
@@ -1776,10 +1776,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_activists_by_message(message text) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_activists_by_message(message text) OWNER TO monkey_user;
 
       --
-      -- Name: get_facebook_activists_by_message_date_interval(text, timestamp without time zone, timestamp without time zone); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_activists_by_message_date_interval(text, timestamp without time zone, timestamp without time zone); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_activists_by_message_date_interval(message text, date_interval_start timestamp without time zone, date_interval_end timestamp without time zone) RETURNS SETOF facebook_activist_search_result_type
@@ -1795,10 +1795,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_activists_by_message_date_interval(message text, date_interval_start timestamp without time zone, date_interval_end timestamp without time zone) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_activists_by_message_date_interval(message text, date_interval_start timestamp without time zone, date_interval_end timestamp without time zone) OWNER TO monkey_user;
 
       --
-      -- Name: get_facebook_activists_by_message_quick_reply(text, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_activists_by_message_quick_reply(text, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_activists_by_message_quick_reply(message text, quick_reply text) RETURNS SETOF facebook_activist_search_result_type
@@ -1821,10 +1821,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_activists_by_message_quick_reply(message text, quick_reply text) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_activists_by_message_quick_reply(message text, quick_reply text) OWNER TO monkey_user;
 
       --
-      -- Name: get_facebook_activists_by_message_quick_reply_date_interval(text, text, timestamp without time zone, timestamp without time zone); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_activists_by_message_quick_reply_date_interval(text, text, timestamp without time zone, timestamp without time zone); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_activists_by_message_quick_reply_date_interval(message text, quick_reply text, date_interval_start timestamp without time zone, date_interval_end timestamp without time zone) RETURNS SETOF facebook_activist_search_result_type
@@ -1842,10 +1842,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_activists_by_message_quick_reply_date_interval(message text, quick_reply text, date_interval_start timestamp without time zone, date_interval_end timestamp without time zone) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_activists_by_message_quick_reply_date_interval(message text, quick_reply text, date_interval_start timestamp without time zone, date_interval_end timestamp without time zone) OWNER TO monkey_user;
 
       --
-      -- Name: get_facebook_activists_by_quick_reply(text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_activists_by_quick_reply(text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_activists_by_quick_reply(quick_reply text) RETURNS SETOF facebook_activist_search_result_type
@@ -1866,10 +1866,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_activists_by_quick_reply(quick_reply text) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_activists_by_quick_reply(quick_reply text) OWNER TO monkey_user;
 
       --
-      -- Name: get_facebook_activists_by_quick_reply_date_interval(text, timestamp without time zone, timestamp without time zone); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_activists_by_quick_reply_date_interval(text, timestamp without time zone, timestamp without time zone); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_activists_by_quick_reply_date_interval(quick_reply text, date_interval_start timestamp without time zone, date_interval_end timestamp without time zone) RETURNS SETOF facebook_activist_search_result_type
@@ -1885,10 +1885,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_activists_by_quick_reply_date_interval(quick_reply text, date_interval_start timestamp without time zone, date_interval_end timestamp without time zone) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_activists_by_quick_reply_date_interval(quick_reply text, date_interval_start timestamp without time zone, date_interval_end timestamp without time zone) OWNER TO monkey_user;
 
       --
-      -- Name: get_facebook_bot_activists_strategy(jsonb); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_bot_activists_strategy(jsonb); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_bot_activists_strategy(search jsonb) RETURNS SETOF facebook_activist_search_result_type
@@ -1996,10 +1996,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_bot_activists_strategy(search jsonb) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_bot_activists_strategy(search jsonb) OWNER TO monkey_user;
 
       --
-      -- Name: get_facebook_bot_campaign_activists_by_campaign_id(integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_bot_campaign_activists_by_campaign_id(integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_bot_campaign_activists_by_campaign_id(campaign_id integer) RETURNS SETOF get_facebook_bot_campaign_activists_by_campaign_type
@@ -2020,10 +2020,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_bot_campaign_activists_by_campaign_id(campaign_id integer) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_bot_campaign_activists_by_campaign_id(campaign_id integer) OWNER TO monkey_user;
 
       --
-      -- Name: get_facebook_bot_campaigns_by_community_id(integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_facebook_bot_campaigns_by_community_id(integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_facebook_bot_campaigns_by_community_id(ctx_community_id integer) RETURNS SETOF public.facebook_bot_campaigns
@@ -2037,10 +2037,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.get_facebook_bot_campaigns_by_community_id(ctx_community_id integer) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_facebook_bot_campaigns_by_community_id(ctx_community_id integer) OWNER TO monkey_user;
 
       --
-      -- Name: get_widget_donation_stats(integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: get_widget_donation_stats(integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION get_widget_donation_stats(widget_id integer) RETURNS json
@@ -2063,17 +2063,17 @@ alg AS (
       $_$;
 
 
-      ALTER FUNCTION postgraphql.get_widget_donation_stats(widget_id integer) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.get_widget_donation_stats(widget_id integer) OWNER TO monkey_user;
 
       --
-      -- Name: FUNCTION get_widget_donation_stats(widget_id integer); Type: COMMENT; Schema: postgraphql; Owner: postgres
+      -- Name: FUNCTION get_widget_donation_stats(widget_id integer); Type: COMMENT; Schema: postgraphql; Owner: monkey_user
       --
 
       COMMENT ON FUNCTION get_widget_donation_stats(widget_id integer) IS 'Returns a json with pledged, progress and goal from widget';
 
 
       --
-      -- Name: global_templates(); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: global_templates(); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION global_templates() RETURNS SETOF public.template_mobilizations
@@ -2086,10 +2086,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.global_templates() OWNER TO postgres;
+      ALTER FUNCTION postgraphql.global_templates() OWNER TO monkey_user;
 
       --
-      -- Name: mobilizations(integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: mobilizations(integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION mobilizations(days integer) RETURNS json
@@ -2131,12 +2131,12 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.mobilizations(days integer) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.mobilizations(days integer) OWNER TO monkey_user;
 
       SET search_path = public, pg_catalog;
 
       --
-      -- Name: communities; Type: TABLE; Schema: public; Owner: postgres
+      -- Name: communities; Type: TABLE; Schema: public; Owner: monkey_user
       --
 
       CREATE TABLE communities (
@@ -2161,12 +2161,12 @@ alg AS (
       );
 
 
-      ALTER TABLE communities OWNER TO postgres;
+      ALTER TABLE communities OWNER TO monkey_user;
 
       SET search_path = postgraphql, pg_catalog;
 
       --
-      -- Name: communities; Type: VIEW; Schema: postgraphql; Owner: postgres
+      -- Name: communities; Type: VIEW; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE VIEW communities AS
@@ -2182,12 +2182,12 @@ alg AS (
       FROM public.communities com;
 
 
-      ALTER TABLE communities OWNER TO postgres;
+      ALTER TABLE communities OWNER TO monkey_user;
 
       SET search_path = public, pg_catalog;
 
       --
-      -- Name: mobilizations; Type: TABLE; Schema: public; Owner: postgres
+      -- Name: mobilizations; Type: TABLE; Schema: public; Owner: monkey_user
       --
 
       CREATE TABLE mobilizations (
@@ -2216,12 +2216,12 @@ alg AS (
       );
 
 
-      ALTER TABLE mobilizations OWNER TO postgres;
+      ALTER TABLE mobilizations OWNER TO monkey_user;
 
       SET search_path = postgraphql, pg_catalog;
 
       --
-      -- Name: mobilizations; Type: VIEW; Schema: postgraphql; Owner: postgres
+      -- Name: mobilizations; Type: VIEW; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE VIEW mobilizations AS
@@ -2249,10 +2249,10 @@ alg AS (
       WHERE (m.deleted_at IS NULL);
 
 
-      ALTER TABLE mobilizations OWNER TO postgres;
+      ALTER TABLE mobilizations OWNER TO monkey_user;
 
       --
-      -- Name: mobilizations_community(mobilizations); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: mobilizations_community(mobilizations); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION mobilizations_community(m mobilizations) RETURNS communities
@@ -2264,10 +2264,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.mobilizations_community(m mobilizations) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.mobilizations_community(m mobilizations) OWNER TO monkey_user;
 
       --
-      -- Name: register(json); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: register(json); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION register(data json) RETURNS jwt_token
@@ -2299,9 +2299,9 @@ alg AS (
 
         insert into public.users(uid, provider, email, encrypted_password, first_name, last_name)
         values (
-          ($1->>'email')::email, 
-          'email', 
-          ($1->>'email')::email, 
+          ($1->>'email')::email,
+          'email',
+          ($1->>'email')::email,
           crypt($1->>'password'::text, gen_salt('bf', 9)),
           ($1->>'first_name')::text,
           ($1->>'last_name')::text
@@ -2328,10 +2328,10 @@ alg AS (
       $_$;
 
 
-      ALTER FUNCTION postgraphql.register(data json) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.register(data json) OWNER TO monkey_user;
 
       --
-      -- Name: reset_password_change_password(text, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: reset_password_change_password(text, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION reset_password_change_password(new_password text, token text) RETURNS jwt_token
@@ -2366,10 +2366,10 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.reset_password_change_password(new_password text, token text) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.reset_password_change_password(new_password text, token text) OWNER TO monkey_user;
 
       --
-      -- Name: reset_password_token_request(text, text, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: reset_password_token_request(text, text, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION reset_password_token_request(email text, callback_url text, locale text DEFAULT 'pt-BR'::text) RETURNS void
@@ -2442,10 +2442,10 @@ alg AS (
       $_$;
 
 
-      ALTER FUNCTION postgraphql.reset_password_token_request(email text, callback_url text, locale text) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.reset_password_token_request(email text, callback_url text, locale text) OWNER TO monkey_user;
 
       --
-      -- Name: reset_password_token_verify(text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: reset_password_token_verify(text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION reset_password_token_verify(token text) RETURNS json
@@ -2478,12 +2478,12 @@ alg AS (
       $$;
 
 
-      ALTER FUNCTION postgraphql.reset_password_token_verify(token text) OWNER TO postgres;
+      ALTER FUNCTION postgraphql.reset_password_token_verify(token text) OWNER TO monkey_user;
 
       SET search_path = public, pg_catalog;
 
       --
-      -- Name: activists; Type: TABLE; Schema: public; Owner: postgres
+      -- Name: activists; Type: TABLE; Schema: public; Owner: monkey_user
       --
 
       CREATE TABLE activists (
@@ -2501,10 +2501,10 @@ alg AS (
       );
 
 
-      ALTER TABLE activists OWNER TO postgres;
+      ALTER TABLE activists OWNER TO monkey_user;
 
       --
-      -- Name: community_activists; Type: TABLE; Schema: public; Owner: postgres
+      -- Name: community_activists; Type: TABLE; Schema: public; Owner: monkey_user
       --
 
       CREATE TABLE community_activists (
@@ -2518,10 +2518,10 @@ alg AS (
       );
 
 
-      ALTER TABLE community_activists OWNER TO postgres;
+      ALTER TABLE community_activists OWNER TO monkey_user;
 
       --
-      -- Name: community_users; Type: TABLE; Schema: public; Owner: postgres
+      -- Name: community_users; Type: TABLE; Schema: public; Owner: monkey_user
       --
 
       CREATE TABLE community_users (
@@ -2534,12 +2534,12 @@ alg AS (
       );
 
 
-      ALTER TABLE community_users OWNER TO postgres;
+      ALTER TABLE community_users OWNER TO monkey_user;
 
       SET search_path = postgraphql, pg_catalog;
 
       --
-      -- Name: activists; Type: VIEW; Schema: postgraphql; Owner: postgres
+      -- Name: activists; Type: VIEW; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE VIEW activists AS
@@ -2564,10 +2564,10 @@ alg AS (
           FROM current_communities_access));
 
 
-      ALTER TABLE activists OWNER TO postgres;
+      ALTER TABLE activists OWNER TO monkey_user;
 
       --
-      -- Name: search_activists_on_community(text, integer, integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+      -- Name: search_activists_on_community(text, integer, integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
       --
 
       CREATE FUNCTION search_activists_on_community(query text, ctx_community_id integer, days_ago integer) RETURNS SETOF activists
@@ -2591,7 +2591,7 @@ alg AS (
       and (
         case when days_ago is null or days_ago = 0 then true
         else atg.created_at >= (current_timestamp - (days_ago||' days')::interval) end
-        )                      
+        )
         group by atg.activist_id, atg.community_id, a.id
       ) select
       act.*
@@ -2621,10 +2621,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.search_activists_on_community(query text, ctx_community_id integer, days_ago integer) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.search_activists_on_community(query text, ctx_community_id integer, days_ago integer) OWNER TO monkey_user;
 
     --
-    -- Name: total_avg_donations_by_community(integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_avg_donations_by_community(integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_avg_donations_by_community(com_id integer) RETURNS double precision
@@ -2636,10 +2636,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_avg_donations_by_community(com_id integer) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_avg_donations_by_community(com_id integer) OWNER TO monkey_user;
 
     --
-    -- Name: total_avg_donations_by_community_interval(integer, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_avg_donations_by_community_interval(integer, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_avg_donations_by_community_interval(com_id integer, timeinterval interval) RETURNS double precision
@@ -2652,10 +2652,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_avg_donations_by_community_interval(com_id integer, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_avg_donations_by_community_interval(com_id integer, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_avg_donations_by_mobilization(integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_avg_donations_by_mobilization(integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_avg_donations_by_mobilization(mob_id integer) RETURNS double precision
@@ -2667,10 +2667,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_avg_donations_by_mobilization(mob_id integer) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_avg_donations_by_mobilization(mob_id integer) OWNER TO monkey_user;
 
     --
-    -- Name: total_avg_donations_by_mobilization_interval(integer, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_avg_donations_by_mobilization_interval(integer, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_avg_donations_by_mobilization_interval(mob_id integer, timeinterval interval) RETURNS double precision
@@ -2683,32 +2683,32 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_avg_donations_by_mobilization_interval(mob_id integer, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_avg_donations_by_mobilization_interval(mob_id integer, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_count_donations_from_community(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_count_donations_from_community(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_count_donations_from_community(com_id integer, status text) RETURNS bigint
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select count(1) 
+    select coalesce((select count(1)
         from postgraphql.donations d
         where d.community_id = com_id
         and d.transaction_status = status), 0);
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_count_donations_from_community(com_id integer, status text) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_count_donations_from_community(com_id integer, status text) OWNER TO monkey_user;
 
     --
-    -- Name: total_count_donations_from_community_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_count_donations_from_community_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_count_donations_from_community_interval(com_id integer, status text, timeinterval interval) RETURNS bigint
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select count(1) 
+    select coalesce((select count(1)
         from postgraphql.donations d
         where d.community_id = com_id
         and d.transaction_status = status
@@ -2716,32 +2716,32 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_count_donations_from_community_interval(com_id integer, status text, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_count_donations_from_community_interval(com_id integer, status text, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_count_donations_from_mobilization(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_count_donations_from_mobilization(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_count_donations_from_mobilization(mob_id integer, status text) RETURNS bigint
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select count(1) 
+    select coalesce((select count(1)
         from postgraphql.donations d
         where d.mobilization_id = mob_id
         and d.transaction_status = status), 0);
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_count_donations_from_mobilization(mob_id integer, status text) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_count_donations_from_mobilization(mob_id integer, status text) OWNER TO monkey_user;
 
     --
-    -- Name: total_count_donations_from_mobilization_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_count_donations_from_mobilization_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_count_donations_from_mobilization_interval(mod_id integer, status text, timeinterval interval) RETURNS bigint
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select count(1) 
+    select coalesce((select count(1)
         from postgraphql.donations d
         where d.mobilization_id = mod_id
         and d.transaction_status = status
@@ -2749,16 +2749,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_count_donations_from_mobilization_interval(mod_id integer, status text, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_count_donations_from_mobilization_interval(mod_id integer, status text, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_count_subscription_donations_from_community(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_count_subscription_donations_from_community(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_count_subscription_donations_from_community(com_id integer, status text) RETURNS bigint
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select count(1) 
+    select coalesce((select count(1)
         from postgraphql.donations d
         where d.community_id = com_id
         and d.subscription_id is not null
@@ -2766,16 +2766,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_count_subscription_donations_from_community(com_id integer, status text) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_count_subscription_donations_from_community(com_id integer, status text) OWNER TO monkey_user;
 
     --
-    -- Name: total_count_subscription_donations_from_community_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_count_subscription_donations_from_community_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_count_subscription_donations_from_community_interval(com_id integer, status text, timeinterval interval) RETURNS bigint
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select count(1) 
+    select coalesce((select count(1)
         from postgraphql.donations d
         where d.community_id = com_id
         and d.transaction_status = status
@@ -2784,16 +2784,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_count_subscription_donations_from_community_interval(com_id integer, status text, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_count_subscription_donations_from_community_interval(com_id integer, status text, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_count_subscription_donations_from_mobilization(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_count_subscription_donations_from_mobilization(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_count_subscription_donations_from_mobilization(mob_id integer, status text) RETURNS bigint
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select count(1) 
+    select coalesce((select count(1)
         from postgraphql.donations d
         where d.mobilization_id = mob_id
         and d.subscription_id is not null
@@ -2801,16 +2801,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_count_subscription_donations_from_mobilization(mob_id integer, status text) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_count_subscription_donations_from_mobilization(mob_id integer, status text) OWNER TO monkey_user;
 
     --
-    -- Name: total_count_subscription_donations_from_mobilization_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_count_subscription_donations_from_mobilization_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_count_subscription_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) RETURNS bigint
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select count(1) 
+    select coalesce((select count(1)
         from postgraphql.donations d
         where d.mobilization_id = mob_id
         and d.transaction_status = status
@@ -2819,16 +2819,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_count_subscription_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_count_subscription_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_count_uniq_donations_from_community(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_count_uniq_donations_from_community(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_count_uniq_donations_from_community(com_id integer, status text) RETURNS bigint
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select count(1) 
+    select coalesce((select count(1)
         from postgraphql.donations d
         where d.community_id = com_id
         and d.subscription_id is null
@@ -2836,16 +2836,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_count_uniq_donations_from_community(com_id integer, status text) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_count_uniq_donations_from_community(com_id integer, status text) OWNER TO monkey_user;
 
     --
-    -- Name: total_count_uniq_donations_from_community_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_count_uniq_donations_from_community_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_count_uniq_donations_from_community_interval(com_id integer, status text, timeinterval interval) RETURNS bigint
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select count(1) 
+    select coalesce((select count(1)
         from postgraphql.donations d
         where d.community_id = com_id
         and d.transaction_status = status
@@ -2854,16 +2854,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_count_uniq_donations_from_community_interval(com_id integer, status text, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_count_uniq_donations_from_community_interval(com_id integer, status text, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_count_uniq_donations_from_mobilization(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_count_uniq_donations_from_mobilization(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_count_uniq_donations_from_mobilization(mob_id integer, status text) RETURNS bigint
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select count(1) 
+    select coalesce((select count(1)
         from postgraphql.donations d
         where d.mobilization_id = mob_id
         and d.subscription_id is null
@@ -2871,16 +2871,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_count_uniq_donations_from_mobilization(mob_id integer, status text) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_count_uniq_donations_from_mobilization(mob_id integer, status text) OWNER TO monkey_user;
 
     --
-    -- Name: total_count_uniq_donations_from_mobilization_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_count_uniq_donations_from_mobilization_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_count_uniq_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) RETURNS bigint
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select count(1) 
+    select coalesce((select count(1)
         from postgraphql.donations d
         where d.mobilization_id = mob_id
         and d.transaction_status = status
@@ -2889,32 +2889,32 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_count_uniq_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_count_uniq_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_sum_donations_from_community(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_donations_from_community(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_sum_donations_from_community(com_id integer, status text) RETURNS double precision
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select sum(d.payable_amount) 
+    select coalesce((select sum(d.payable_amount)
         from postgraphql.donations d
         where d.community_id = com_id
         and d.transaction_status = status), 0);
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_sum_donations_from_community(com_id integer, status text) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_sum_donations_from_community(com_id integer, status text) OWNER TO monkey_user;
 
     --
-    -- Name: total_sum_donations_from_community_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_donations_from_community_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_sum_donations_from_community_interval(com_id integer, status text, timeinterval interval) RETURNS double precision
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select sum(d.payable_amount) 
+    select coalesce((select sum(d.payable_amount)
         from postgraphql.donations d
         where d.community_id = com_id
         and d.transaction_status = status
@@ -2922,32 +2922,32 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_sum_donations_from_community_interval(com_id integer, status text, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_sum_donations_from_community_interval(com_id integer, status text, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_sum_donations_from_mobilization(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_donations_from_mobilization(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_sum_donations_from_mobilization(mob_id integer, status text) RETURNS double precision
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select sum(d.payable_amount) 
+    select coalesce((select sum(d.payable_amount)
         from postgraphql.donations d
         where d.mobilization_id = mob_id
         and d.transaction_status = status), 0);
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_sum_donations_from_mobilization(mob_id integer, status text) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_sum_donations_from_mobilization(mob_id integer, status text) OWNER TO monkey_user;
 
     --
-    -- Name: total_sum_donations_from_mobilization_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_donations_from_mobilization_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_sum_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) RETURNS double precision
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select sum(d.payable_amount) 
+    select coalesce((select sum(d.payable_amount)
         from postgraphql.donations d
         where d.mobilization_id = mob_id
         and d.transaction_status = status
@@ -2955,16 +2955,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_sum_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_sum_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_sum_subscription_donations_from_community(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_subscription_donations_from_community(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_sum_subscription_donations_from_community(com_id integer, status text) RETURNS double precision
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select sum(d.payable_amount) 
+    select coalesce((select sum(d.payable_amount)
         from postgraphql.donations d
         where d.community_id = com_id
         and d.subscription_id is not null
@@ -2972,16 +2972,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_sum_subscription_donations_from_community(com_id integer, status text) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_sum_subscription_donations_from_community(com_id integer, status text) OWNER TO monkey_user;
 
     --
-    -- Name: total_sum_subscription_donations_from_community_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_subscription_donations_from_community_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_sum_subscription_donations_from_community_interval(com_id integer, status text, timeinterval interval) RETURNS double precision
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select sum(d.payable_amount) 
+    select coalesce((select sum(d.payable_amount)
         from postgraphql.donations d
         where d.community_id = com_id
         and d.transaction_status = status
@@ -2990,16 +2990,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_sum_subscription_donations_from_community_interval(com_id integer, status text, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_sum_subscription_donations_from_community_interval(com_id integer, status text, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_sum_subscription_donations_from_mobilization(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_subscription_donations_from_mobilization(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_sum_subscription_donations_from_mobilization(mob_id integer, status text) RETURNS double precision
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select sum(d.payable_amount) 
+    select coalesce((select sum(d.payable_amount)
         from postgraphql.donations d
         where d.mobilization_id = mob_id
         and d.subscription_id is not null
@@ -3007,16 +3007,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_sum_subscription_donations_from_mobilization(mob_id integer, status text) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_sum_subscription_donations_from_mobilization(mob_id integer, status text) OWNER TO monkey_user;
 
     --
-    -- Name: total_sum_subscription_donations_from_mobilization_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_subscription_donations_from_mobilization_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_sum_subscription_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) RETURNS double precision
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select sum(d.payable_amount) 
+    select coalesce((select sum(d.payable_amount)
         from postgraphql.donations d
         where d.mobilization_id = mob_id
         and d.transaction_status = status
@@ -3025,10 +3025,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_sum_subscription_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_sum_subscription_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_sum_transfer_operations_from_community(integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_transfer_operations_from_community(integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_sum_transfer_operations_from_community(community_id integer) RETURNS numeric
@@ -3038,31 +3038,31 @@ alg AS (
       SELECT DISTINCT(cu.community_id)
       FROM community_users cu
       WHERE ((cu.user_id = postgraphql.current_user_id()) OR ("current_user"() = 'admin'::name))
-    ) select sum(bos.operation_amount) 
+    ) select sum(bos.operation_amount)
     from public.balance_operation_summaries bos
-    where bos.operation_type = 'transfer' 
+    where bos.operation_type = 'transfer'
     and bos.community_id = $1 and (bos.community_id IN (
         SELECT current_communities_access.community_id FROM current_communities_access));
     $_$;
 
 
-    ALTER FUNCTION postgraphql.total_sum_transfer_operations_from_community(community_id integer) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_sum_transfer_operations_from_community(community_id integer) OWNER TO monkey_user;
 
     --
-    -- Name: FUNCTION total_sum_transfer_operations_from_community(community_id integer); Type: COMMENT; Schema: postgraphql; Owner: postgres
+    -- Name: FUNCTION total_sum_transfer_operations_from_community(community_id integer); Type: COMMENT; Schema: postgraphql; Owner: monkey_user
     --
 
     COMMENT ON FUNCTION total_sum_transfer_operations_from_community(community_id integer) IS 'Get total sum of all transfers to community';
 
 
     --
-    -- Name: total_sum_uniq_donations_from_community(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_uniq_donations_from_community(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_sum_uniq_donations_from_community(com_id integer, status text) RETURNS double precision
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select sum(d.payable_amount) 
+    select coalesce((select sum(d.payable_amount)
         from postgraphql.donations d
         where d.community_id = com_id
         and d.subscription_id is null
@@ -3070,16 +3070,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_sum_uniq_donations_from_community(com_id integer, status text) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_sum_uniq_donations_from_community(com_id integer, status text) OWNER TO monkey_user;
 
     --
-    -- Name: total_sum_uniq_donations_from_community_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_uniq_donations_from_community_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_sum_uniq_donations_from_community_interval(com_id integer, status text, timeinterval interval) RETURNS double precision
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select sum(d.payable_amount) 
+    select coalesce((select sum(d.payable_amount)
         from postgraphql.donations d
         where d.community_id = com_id
         and d.transaction_status = status
@@ -3088,16 +3088,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_sum_uniq_donations_from_community_interval(com_id integer, status text, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_sum_uniq_donations_from_community_interval(com_id integer, status text, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_sum_uniq_donations_from_mobilization(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_uniq_donations_from_mobilization(integer, text); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_sum_uniq_donations_from_mobilization(mob_id integer, status text) RETURNS double precision
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select sum(d.payable_amount) 
+    select coalesce((select sum(d.payable_amount)
         from postgraphql.donations d
         where d.mobilization_id = mob_id
         and d.subscription_id is null
@@ -3105,16 +3105,16 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_sum_uniq_donations_from_mobilization(mob_id integer, status text) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_sum_uniq_donations_from_mobilization(mob_id integer, status text) OWNER TO monkey_user;
 
     --
-    -- Name: total_sum_uniq_donations_from_mobilization_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_uniq_donations_from_mobilization_interval(integer, text, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_sum_uniq_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) RETURNS double precision
     LANGUAGE sql IMMUTABLE
     AS $$
-    select coalesce((select sum(d.payable_amount) 
+    select coalesce((select sum(d.payable_amount)
         from postgraphql.donations d
         where d.mobilization_id = mob_id
         and d.transaction_status = status
@@ -3123,10 +3123,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_sum_uniq_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_sum_uniq_donations_from_mobilization_interval(mob_id integer, status text, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_uniq_activists_by_kind_and_community(text, integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_uniq_activists_by_kind_and_community(text, integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_uniq_activists_by_kind_and_community(kind_name text, com_id integer) RETURNS bigint
@@ -3140,10 +3140,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_uniq_activists_by_kind_and_community(kind_name text, com_id integer) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_uniq_activists_by_kind_and_community(kind_name text, com_id integer) OWNER TO monkey_user;
 
     --
-    -- Name: total_uniq_activists_by_kind_and_community_interval(text, integer, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_uniq_activists_by_kind_and_community_interval(text, integer, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_uniq_activists_by_kind_and_community_interval(kind_name text, com_id integer, timeinterval interval) RETURNS bigint
@@ -3158,10 +3158,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_uniq_activists_by_kind_and_community_interval(kind_name text, com_id integer, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_uniq_activists_by_kind_and_community_interval(kind_name text, com_id integer, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_uniq_activists_by_kind_and_mobilization(text, integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_uniq_activists_by_kind_and_mobilization(text, integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_uniq_activists_by_kind_and_mobilization(kind_name text, mob_id integer) RETURNS bigint
@@ -3175,10 +3175,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_uniq_activists_by_kind_and_mobilization(kind_name text, mob_id integer) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_uniq_activists_by_kind_and_mobilization(kind_name text, mob_id integer) OWNER TO monkey_user;
 
     --
-    -- Name: total_uniq_activists_by_kind_and_mobilization_interval(text, integer, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_uniq_activists_by_kind_and_mobilization_interval(text, integer, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_uniq_activists_by_kind_and_mobilization_interval(kind_name text, mob_id integer, timeinterval interval) RETURNS bigint
@@ -3193,10 +3193,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_uniq_activists_by_kind_and_mobilization_interval(kind_name text, mob_id integer, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_uniq_activists_by_kind_and_mobilization_interval(kind_name text, mob_id integer, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_unique_activists_by_community(integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_unique_activists_by_community(integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_unique_activists_by_community(com_id integer) RETURNS bigint
@@ -3209,10 +3209,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_unique_activists_by_community(com_id integer) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_unique_activists_by_community(com_id integer) OWNER TO monkey_user;
 
     --
-    -- Name: total_unique_activists_by_community_interval(integer, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_unique_activists_by_community_interval(integer, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_unique_activists_by_community_interval(com_id integer, timeinterval interval) RETURNS bigint
@@ -3226,10 +3226,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_unique_activists_by_community_interval(com_id integer, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_unique_activists_by_community_interval(com_id integer, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: total_unique_activists_by_mobilization(integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_unique_activists_by_mobilization(integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_unique_activists_by_mobilization(mob_id integer) RETURNS bigint
@@ -3242,10 +3242,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_unique_activists_by_mobilization(mob_id integer) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_unique_activists_by_mobilization(mob_id integer) OWNER TO monkey_user;
 
     --
-    -- Name: total_unique_activists_by_mobilization_interval(integer, interval); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: total_unique_activists_by_mobilization_interval(integer, interval); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION total_unique_activists_by_mobilization_interval(mob_id integer, timeinterval interval) RETURNS bigint
@@ -3259,10 +3259,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.total_unique_activists_by_mobilization_interval(mob_id integer, timeinterval interval) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.total_unique_activists_by_mobilization_interval(mob_id integer, timeinterval interval) OWNER TO monkey_user;
 
     --
-    -- Name: trending_mobilizations(integer); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: trending_mobilizations(integer); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION trending_mobilizations(days integer) RETURNS SETOF mobilizations
@@ -3280,10 +3280,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.trending_mobilizations(days integer) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.trending_mobilizations(days integer) OWNER TO monkey_user;
 
     --
-    -- Name: update_bot(json); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: update_bot(json); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION update_bot(bot_data json) RETURNS json
@@ -3293,11 +3293,11 @@ alg AS (
     bot_json public.facebook_bot_configurations;
     begin
       update public.facebook_bot_configurations
-      set community_id = coalesce((bot_data ->> 'community_id')::integer, community_id)::integer, 
-      messenger_app_secret = coalesce((bot_data ->> 'messenger_app_secret'), messenger_app_secret), 
+      set community_id = coalesce((bot_data ->> 'community_id')::integer, community_id)::integer,
+      messenger_app_secret = coalesce((bot_data ->> 'messenger_app_secret'), messenger_app_secret),
       messenger_validation_token = coalesce((bot_data ->> 'messenger_validation_token'), messenger_validation_token),
-      messenger_page_access_token = coalesce((bot_data ->> 'messenger_page_access_token'), messenger_validation_token), 
-      data = coalesce((bot_data ->> 'data')::jsonb, data), 
+      messenger_page_access_token = coalesce((bot_data ->> 'messenger_page_access_token'), messenger_validation_token),
+      data = coalesce((bot_data ->> 'data')::jsonb, data),
       updated_at = now()
       where id = (bot_data ->> 'id')::integer
       returning * into bot_json;
@@ -3307,12 +3307,12 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.update_bot(bot_data json) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.update_bot(bot_data json) OWNER TO monkey_user;
 
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: facebook_bot_campaign_activists; Type: TABLE; Schema: public; Owner: postgres
+    -- Name: facebook_bot_campaign_activists; Type: TABLE; Schema: public; Owner: monkey_user
     --
 
     CREATE TABLE facebook_bot_campaign_activists (
@@ -3326,12 +3326,12 @@ alg AS (
     );
 
 
-    ALTER TABLE facebook_bot_campaign_activists OWNER TO postgres;
+    ALTER TABLE facebook_bot_campaign_activists OWNER TO monkey_user;
 
     SET search_path = postgraphql, pg_catalog;
 
     --
-    -- Name: update_facebook_bot_campaign_activists(integer, boolean, jsonb); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: update_facebook_bot_campaign_activists(integer, boolean, jsonb); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION update_facebook_bot_campaign_activists(facebook_bot_campaign_activist_id integer, ctx_received boolean, ctx_log jsonb) RETURNS public.facebook_bot_campaign_activists
@@ -3351,10 +3351,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.update_facebook_bot_campaign_activists(facebook_bot_campaign_activist_id integer, ctx_received boolean, ctx_log jsonb) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.update_facebook_bot_campaign_activists(facebook_bot_campaign_activist_id integer, ctx_received boolean, ctx_log jsonb) OWNER TO monkey_user;
 
     --
-    -- Name: update_twilio_configuration(twilio_configurations); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: update_twilio_configuration(twilio_configurations); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION update_twilio_configuration(config twilio_configurations) RETURNS twilio_configurations
@@ -3384,10 +3384,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.update_twilio_configuration(config twilio_configurations) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.update_twilio_configuration(config twilio_configurations) OWNER TO monkey_user;
 
     --
-    -- Name: user_mobilizations; Type: VIEW; Schema: postgraphql; Owner: postgres
+    -- Name: user_mobilizations; Type: VIEW; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE VIEW user_mobilizations AS
@@ -3416,10 +3416,10 @@ alg AS (
     WHERE (cou.user_id = current_user_id());
 
 
-    ALTER TABLE user_mobilizations OWNER TO postgres;
+    ALTER TABLE user_mobilizations OWNER TO monkey_user;
 
     --
-    -- Name: user_mobilizations_community(user_mobilizations); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: user_mobilizations_community(user_mobilizations); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION user_mobilizations_community(m user_mobilizations) RETURNS communities
@@ -3431,10 +3431,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.user_mobilizations_community(m user_mobilizations) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.user_mobilizations_community(m user_mobilizations) OWNER TO monkey_user;
 
     --
-    -- Name: user_mobilizations_score(user_mobilizations); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: user_mobilizations_score(user_mobilizations); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION user_mobilizations_score(m user_mobilizations) RETURNS integer
@@ -3446,10 +3446,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.user_mobilizations_score(m user_mobilizations) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.user_mobilizations_score(m user_mobilizations) OWNER TO monkey_user;
 
     --
-    -- Name: watch_twilio_call_transitions(twilio_calls_arguments); Type: FUNCTION; Schema: postgraphql; Owner: postgres
+    -- Name: watch_twilio_call_transitions(twilio_calls_arguments); Type: FUNCTION; Schema: postgraphql; Owner: monkey_user
     --
 
     CREATE FUNCTION watch_twilio_call_transitions(call twilio_calls_arguments) RETURNS watch_twilio_call_transition_record_set
@@ -3477,12 +3477,12 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION postgraphql.watch_twilio_call_transitions(call twilio_calls_arguments) OWNER TO postgres;
+    ALTER FUNCTION postgraphql.watch_twilio_call_transitions(call twilio_calls_arguments) OWNER TO monkey_user;
 
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: configuration(text); Type: FUNCTION; Schema: public; Owner: postgres
+    -- Name: configuration(text); Type: FUNCTION; Schema: public; Owner: monkey_user
     --
 
     CREATE FUNCTION configuration(name text) RETURNS text
@@ -3492,10 +3492,10 @@ alg AS (
     $_$;
 
 
-    ALTER FUNCTION public.configuration(name text) OWNER TO postgres;
+    ALTER FUNCTION public.configuration(name text) OWNER TO monkey_user;
 
     --
-    -- Name: facebook_activist_message_full_text_index(text); Type: FUNCTION; Schema: public; Owner: postgres
+    -- Name: facebook_activist_message_full_text_index(text); Type: FUNCTION; Schema: public; Owner: monkey_user
     --
 
     CREATE FUNCTION facebook_activist_message_full_text_index(v_message text) RETURNS tsvector
@@ -3507,10 +3507,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION public.facebook_activist_message_full_text_index(v_message text) OWNER TO postgres;
+    ALTER FUNCTION public.facebook_activist_message_full_text_index(v_message text) OWNER TO monkey_user;
 
     --
-    -- Name: form_entries; Type: TABLE; Schema: public; Owner: postgres
+    -- Name: form_entries; Type: TABLE; Schema: public; Owner: monkey_user
     --
 
     CREATE TABLE form_entries (
@@ -3527,10 +3527,10 @@ alg AS (
     );
 
 
-    ALTER TABLE form_entries OWNER TO postgres;
+    ALTER TABLE form_entries OWNER TO monkey_user;
 
     --
-    -- Name: first_time_in_entries(form_entries); Type: FUNCTION; Schema: public; Owner: postgres
+    -- Name: first_time_in_entries(form_entries); Type: FUNCTION; Schema: public; Owner: monkey_user
     --
 
     CREATE FUNCTION first_time_in_entries(entry form_entries) RETURNS boolean
@@ -3539,18 +3539,18 @@ alg AS (
     select (select
       count(1)
       from form_entries fe2
-      where 
-      entry.activist_id = fe2.activist_id 
+      where
+      entry.activist_id = fe2.activist_id
       and fe2.created_at <= entry.created_at
       and entry.id <> fe2.id
       limit 2) > 1;
     $$;
 
 
-    ALTER FUNCTION public.first_time_in_entries(entry form_entries) OWNER TO postgres;
+    ALTER FUNCTION public.first_time_in_entries(entry form_entries) OWNER TO monkey_user;
 
     --
-    -- Name: activist_pressures; Type: TABLE; Schema: public; Owner: postgres
+    -- Name: activist_pressures; Type: TABLE; Schema: public; Owner: monkey_user
     --
 
     CREATE TABLE activist_pressures (
@@ -3566,10 +3566,10 @@ alg AS (
     );
 
 
-    ALTER TABLE activist_pressures OWNER TO postgres;
+    ALTER TABLE activist_pressures OWNER TO monkey_user;
 
     --
-    -- Name: first_time_in_pressures(activist_pressures); Type: FUNCTION; Schema: public; Owner: postgres
+    -- Name: first_time_in_pressures(activist_pressures); Type: FUNCTION; Schema: public; Owner: monkey_user
     --
 
     CREATE FUNCTION first_time_in_pressures(pressure activist_pressures) RETURNS boolean
@@ -3578,18 +3578,18 @@ alg AS (
     select (select
       count(1)
       from activist_pressures ap2
-      where 
-      pressure.activist_id = ap2.activist_id 
+      where
+      pressure.activist_id = ap2.activist_id
       and ap2.created_at <= pressure.created_at
       and ap2.id <> pressure.id
       limit 2) > 1;
     $$;
 
 
-    ALTER FUNCTION public.first_time_in_pressures(pressure activist_pressures) OWNER TO postgres;
+    ALTER FUNCTION public.first_time_in_pressures(pressure activist_pressures) OWNER TO monkey_user;
 
     --
-    -- Name: generate_activists_from_generic_resource_with_widget(); Type: FUNCTION; Schema: public; Owner: postgres
+    -- Name: generate_activists_from_generic_resource_with_widget(); Type: FUNCTION; Schema: public; Owner: monkey_user
     --
 
     CREATE FUNCTION generate_activists_from_generic_resource_with_widget() RETURNS trigger
@@ -3633,17 +3633,17 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION public.generate_activists_from_generic_resource_with_widget() OWNER TO postgres;
+    ALTER FUNCTION public.generate_activists_from_generic_resource_with_widget() OWNER TO monkey_user;
 
     --
-    -- Name: FUNCTION generate_activists_from_generic_resource_with_widget(); Type: COMMENT; Schema: public; Owner: postgres
+    -- Name: FUNCTION generate_activists_from_generic_resource_with_widget(); Type: COMMENT; Schema: public; Owner: monkey_user
     --
 
     COMMENT ON FUNCTION generate_activists_from_generic_resource_with_widget() IS 'insert a row on mobilization_activists and community_activists linking from NEW.activist_id / widget_id';
 
 
     --
-    -- Name: generate_notification_tags(json); Type: FUNCTION; Schema: public; Owner: postgres
+    -- Name: generate_notification_tags(json); Type: FUNCTION; Schema: public; Owner: monkey_user
     --
 
     CREATE FUNCTION generate_notification_tags(relations json) RETURNS json
@@ -3680,7 +3680,7 @@ alg AS (
       into _community;
 
       -- get user when json->>'user_id' is present
-      select * from public.users where id = ($1->>'user_id')::integer 
+      select * from public.users where id = ($1->>'user_id')::integer
       into _user;
 
       -- get mobilization from subscription/donation widget when block is defined
@@ -3738,10 +3738,10 @@ alg AS (
     $_$;
 
 
-    ALTER FUNCTION public.generate_notification_tags(relations json) OWNER TO postgres;
+    ALTER FUNCTION public.generate_notification_tags(relations json) OWNER TO monkey_user;
 
     --
-    -- Name: subscriptions; Type: TABLE; Schema: public; Owner: postgres
+    -- Name: subscriptions; Type: TABLE; Schema: public; Owner: monkey_user
     --
 
     CREATE TABLE subscriptions (
@@ -3767,10 +3767,10 @@ alg AS (
     );
 
 
-    ALTER TABLE subscriptions OWNER TO postgres;
+    ALTER TABLE subscriptions OWNER TO monkey_user;
 
     --
-    -- Name: next_transaction_charge_date(subscriptions); Type: FUNCTION; Schema: public; Owner: postgres
+    -- Name: next_transaction_charge_date(subscriptions); Type: FUNCTION; Schema: public; Owner: monkey_user
     --
 
     CREATE FUNCTION next_transaction_charge_date(subscriptions) RETURNS timestamp without time zone
@@ -3778,17 +3778,17 @@ alg AS (
     AS $_$
     select
     d.created_at + '1 month'::interval
-    from public.donations d 
+    from public.donations d
     where d.transaction_status = 'paid'
     and d.local_subscription_id = $1.id
     order by d.created_at desc limit 1;
     $_$;
 
 
-    ALTER FUNCTION public.next_transaction_charge_date(subscriptions) OWNER TO postgres;
+    ALTER FUNCTION public.next_transaction_charge_date(subscriptions) OWNER TO monkey_user;
 
     --
-    -- Name: nossas_recipient_id(); Type: FUNCTION; Schema: public; Owner: postgres
+    -- Name: nossas_recipient_id(); Type: FUNCTION; Schema: public; Owner: monkey_user
     --
 
     CREATE FUNCTION nossas_recipient_id() RETURNS text
@@ -3798,10 +3798,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION public.nossas_recipient_id() OWNER TO postgres;
+    ALTER FUNCTION public.nossas_recipient_id() OWNER TO monkey_user;
 
     --
-    -- Name: notify(text, json); Type: FUNCTION; Schema: public; Owner: postgres
+    -- Name: notify(text, json); Type: FUNCTION; Schema: public; Owner: monkey_user
     --
 
     CREATE FUNCTION notify(template_name text, relations json) RETURNS json
@@ -3865,10 +3865,10 @@ alg AS (
     $_$;
 
 
-    ALTER FUNCTION public.notify(template_name text, relations json) OWNER TO postgres;
+    ALTER FUNCTION public.notify(template_name text, relations json) OWNER TO monkey_user;
 
     --
-    -- Name: notify_create_twilio_configuration_trigger(); Type: FUNCTION; Schema: public; Owner: postgres
+    -- Name: notify_create_twilio_configuration_trigger(); Type: FUNCTION; Schema: public; Owner: monkey_user
     --
 
     CREATE FUNCTION notify_create_twilio_configuration_trigger() RETURNS trigger
@@ -3888,10 +3888,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION public.notify_create_twilio_configuration_trigger() OWNER TO postgres;
+    ALTER FUNCTION public.notify_create_twilio_configuration_trigger() OWNER TO monkey_user;
 
     --
-    -- Name: notify_twilio_call_trigger(); Type: FUNCTION; Schema: public; Owner: postgres
+    -- Name: notify_twilio_call_trigger(); Type: FUNCTION; Schema: public; Owner: monkey_user
     --
 
     CREATE FUNCTION notify_twilio_call_trigger() RETURNS trigger
@@ -3904,10 +3904,10 @@ alg AS (
     $$;
 
 
-    ALTER FUNCTION public.notify_twilio_call_trigger() OWNER TO postgres;
+    ALTER FUNCTION public.notify_twilio_call_trigger() OWNER TO monkey_user;
 
     --
-    -- Name: donations; Type: TABLE; Schema: public; Owner: postgres
+    -- Name: donations; Type: TABLE; Schema: public; Owner: monkey_user
     --
 
     CREATE TABLE donations (
@@ -3945,10 +3945,10 @@ alg AS (
     );
 
 
-    ALTER TABLE donations OWNER TO postgres;
+    ALTER TABLE donations OWNER TO monkey_user;
 
     --
-    -- Name: payable_fee(donations); Type: FUNCTION; Schema: public; Owner: postgres
+    -- Name: payable_fee(donations); Type: FUNCTION; Schema: public; Owner: monkey_user
     --
 
     CREATE FUNCTION payable_fee(d donations) RETURNS numeric
@@ -3958,8 +3958,8 @@ alg AS (
       case
       when d.payables is not null and jsonb_array_length(d.payables) < 2 then
         (
-          case 
-          when extract(year from d.created_at) <= 2016 then        
+          case
+          when extract(year from d.created_at) <= 2016 then
             (((d.payables -> 0 ->> 'amount')::integer / 100.0) * 0.15)  - ((d.payables -> 0 ->> 'fee')::integer / 100.0)
           else
             (((d.payables -> 0 ->> 'amount')::integer / 100.0) * 0.13) - ((d.payables -> 0 ->> 'fee')::integer / 100.0)
@@ -3967,31 +3967,31 @@ alg AS (
         )
       when d.payables is null then
         (
-          case 
+          case
           when extract(year from d.created_at) <= 2016 then
             (d.amount / 100.0) * 0.15
           else
             (d.amount / 100.0) * 0.13
-          end        
-        )    
+          end
+        )
       else
         (
-          select 
+          select
           ((p ->> 'amount')::integer / 100.0) - ((p ->> 'fee')::integer / 100.0)
           from jsonb_array_elements(d.payables) p
           where (p ->> 'fee')::integer <> 0
           limit 1
         )
-      end)::decimal - (case d.payment_method 
+      end)::decimal - (case d.payment_method
       when 'boleto' then 0
       else coalesce(((d.gateway_data ->> 'cost')::integer / 100.0), 0) end)
         $$;
 
 
-        ALTER FUNCTION public.payable_fee(d donations) OWNER TO postgres;
+        ALTER FUNCTION public.payable_fee(d donations) OWNER TO monkey_user;
 
         --
-        -- Name: receiving_unpaid_notifications(subscriptions); Type: FUNCTION; Schema: public; Owner: postgres
+        -- Name: receiving_unpaid_notifications(subscriptions); Type: FUNCTION; Schema: public; Owner: monkey_user
         --
 
         CREATE FUNCTION receiving_unpaid_notifications(subscriptions) RETURNS boolean
@@ -4009,7 +4009,7 @@ alg AS (
 
           if _last_paid_donation.id is not null then
             return coalesce((
-                select count(1) <= 2 
+                select count(1) <= 2
                 from notifications n
                 join notification_templates nt on nt.id = n.notification_template_id
                 where nt.label = 'unpaid_subscription'
@@ -4018,7 +4018,7 @@ alg AS (
             ), true);
         else
           return (
-            select count(1) <= 2 
+            select count(1) <= 2
             from notifications n
             join notification_templates nt on nt.id = n.notification_template_id
             where nt.label = 'unpaid_subscription'
@@ -4029,10 +4029,10 @@ alg AS (
         $_$;
 
 
-        ALTER FUNCTION public.receiving_unpaid_notifications(subscriptions) OWNER TO postgres;
+        ALTER FUNCTION public.receiving_unpaid_notifications(subscriptions) OWNER TO monkey_user;
 
         --
-        -- Name: refresh_custom_domain_frontend(); Type: FUNCTION; Schema: public; Owner: postgres
+        -- Name: refresh_custom_domain_frontend(); Type: FUNCTION; Schema: public; Owner: monkey_user
         --
 
         CREATE FUNCTION refresh_custom_domain_frontend() RETURNS trigger
@@ -4054,10 +4054,10 @@ alg AS (
         $$;
 
 
-        ALTER FUNCTION public.refresh_custom_domain_frontend() OWNER TO postgres;
+        ALTER FUNCTION public.refresh_custom_domain_frontend() OWNER TO monkey_user;
 
         --
-        -- Name: slugfy(text); Type: FUNCTION; Schema: public; Owner: postgres
+        -- Name: slugfy(text); Type: FUNCTION; Schema: public; Owner: monkey_user
         --
 
         CREATE FUNCTION slugfy(text) RETURNS text
@@ -4067,10 +4067,10 @@ alg AS (
         $_$;
 
 
-        ALTER FUNCTION public.slugfy(text) OWNER TO postgres;
+        ALTER FUNCTION public.slugfy(text) OWNER TO monkey_user;
 
         --
-        -- Name: update_facebook_bot_activists_full_text_index(); Type: FUNCTION; Schema: public; Owner: postgres
+        -- Name: update_facebook_bot_activists_full_text_index(); Type: FUNCTION; Schema: public; Owner: monkey_user
         --
 
         CREATE FUNCTION update_facebook_bot_activists_full_text_index() RETURNS trigger
@@ -4143,10 +4143,10 @@ alg AS (
   $$;
 
 
-  ALTER FUNCTION public.update_facebook_bot_activists_full_text_index() OWNER TO postgres;
+  ALTER FUNCTION public.update_facebook_bot_activists_full_text_index() OWNER TO monkey_user;
 
   --
-  -- Name: verify_custom_domain(); Type: FUNCTION; Schema: public; Owner: postgres
+  -- Name: verify_custom_domain(); Type: FUNCTION; Schema: public; Owner: monkey_user
   --
 
   CREATE FUNCTION verify_custom_domain() RETURNS trigger
@@ -4198,10 +4198,10 @@ ELSE
   $$;
 
 
-  ALTER FUNCTION public.verify_custom_domain() OWNER TO postgres;
+  ALTER FUNCTION public.verify_custom_domain() OWNER TO monkey_user;
 
   --
-  -- Name: certificates; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: certificates; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE certificates (
@@ -4218,12 +4218,12 @@ ELSE
   );
 
 
-  ALTER TABLE certificates OWNER TO postgres;
+  ALTER TABLE certificates OWNER TO monkey_user;
 
   SET search_path = microservices, pg_catalog;
 
   --
-  -- Name: certificates; Type: VIEW; Schema: microservices; Owner: postgres
+  -- Name: certificates; Type: VIEW; Schema: microservices; Owner: monkey_user
   --
 
   CREATE VIEW certificates AS
@@ -4241,10 +4241,10 @@ ELSE
   WHERE ((certificates.is_active IS TRUE) AND (current_user_id() IS NOT NULL));
 
 
-  ALTER TABLE certificates OWNER TO postgres;
+  ALTER TABLE certificates OWNER TO monkey_user;
 
   --
-  -- Name: communities; Type: VIEW; Schema: microservices; Owner: postgres
+  -- Name: communities; Type: VIEW; Schema: microservices; Owner: monkey_user
   --
 
   CREATE VIEW communities AS
@@ -4271,12 +4271,12 @@ ELSE
   WHERE ((m.custom_domain IS NOT NULL) AND (current_user_id() IS NOT NULL));
 
 
-  ALTER TABLE communities OWNER TO postgres;
+  ALTER TABLE communities OWNER TO monkey_user;
 
   SET search_path = public, pg_catalog;
 
   --
-  -- Name: dns_hosted_zones; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: dns_hosted_zones; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE dns_hosted_zones (
@@ -4291,12 +4291,12 @@ ELSE
   );
 
 
-  ALTER TABLE dns_hosted_zones OWNER TO postgres;
+  ALTER TABLE dns_hosted_zones OWNER TO monkey_user;
 
   SET search_path = microservices, pg_catalog;
 
   --
-  -- Name: dns_hosted_zones; Type: VIEW; Schema: microservices; Owner: postgres
+  -- Name: dns_hosted_zones; Type: VIEW; Schema: microservices; Owner: monkey_user
   --
 
   CREATE VIEW dns_hosted_zones AS
@@ -4312,10 +4312,10 @@ ELSE
   WHERE ((dns_hosted_zones.ns_ok IS TRUE) AND (current_user_id() IS NOT NULL));
 
 
-  ALTER TABLE dns_hosted_zones OWNER TO postgres;
+  ALTER TABLE dns_hosted_zones OWNER TO monkey_user;
 
   --
-  -- Name: mobilizations; Type: VIEW; Schema: microservices; Owner: postgres
+  -- Name: mobilizations; Type: VIEW; Schema: microservices; Owner: monkey_user
   --
 
   CREATE VIEW mobilizations AS
@@ -4343,12 +4343,12 @@ ELSE
   WHERE ((mobilizations.custom_domain IS NOT NULL) AND (current_user_id() IS NOT NULL));
 
 
-  ALTER TABLE mobilizations OWNER TO postgres;
+  ALTER TABLE mobilizations OWNER TO monkey_user;
 
   SET search_path = public, pg_catalog;
 
   --
-  -- Name: notification_templates; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: notification_templates; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE notification_templates (
@@ -4365,12 +4365,12 @@ ELSE
   );
 
 
-  ALTER TABLE notification_templates OWNER TO postgres;
+  ALTER TABLE notification_templates OWNER TO monkey_user;
 
   SET search_path = microservices, pg_catalog;
 
   --
-  -- Name: notification_templates; Type: VIEW; Schema: microservices; Owner: postgres
+  -- Name: notification_templates; Type: VIEW; Schema: microservices; Owner: monkey_user
   --
 
   CREATE VIEW notification_templates AS
@@ -4387,12 +4387,12 @@ ELSE
   ORDER BY notification_templates.created_at DESC;
 
 
-  ALTER TABLE notification_templates OWNER TO postgres;
+  ALTER TABLE notification_templates OWNER TO monkey_user;
 
   SET search_path = public, pg_catalog;
 
   --
-  -- Name: notifications; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: notifications; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE notifications (
@@ -4410,12 +4410,12 @@ ELSE
   );
 
 
-  ALTER TABLE notifications OWNER TO postgres;
+  ALTER TABLE notifications OWNER TO monkey_user;
 
   SET search_path = microservices, pg_catalog;
 
   --
-  -- Name: notifications; Type: VIEW; Schema: microservices; Owner: postgres
+  -- Name: notifications; Type: VIEW; Schema: microservices; Owner: monkey_user
   --
 
   CREATE VIEW notifications AS
@@ -4434,12 +4434,12 @@ ELSE
   ORDER BY notifications.created_at DESC;
 
 
-  ALTER TABLE notifications OWNER TO postgres;
+  ALTER TABLE notifications OWNER TO monkey_user;
 
   SET search_path = public, pg_catalog;
 
   --
-  -- Name: activist_facebook_bot_interactions; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: activist_facebook_bot_interactions; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE activist_facebook_bot_interactions (
@@ -4454,10 +4454,10 @@ ELSE
   );
 
 
-  ALTER TABLE activist_facebook_bot_interactions OWNER TO postgres;
+  ALTER TABLE activist_facebook_bot_interactions OWNER TO monkey_user;
 
   --
-  -- Name: facebook_bot_configurations; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: facebook_bot_configurations; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE facebook_bot_configurations (
@@ -4472,12 +4472,12 @@ ELSE
   );
 
 
-  ALTER TABLE facebook_bot_configurations OWNER TO postgres;
+  ALTER TABLE facebook_bot_configurations OWNER TO monkey_user;
 
   SET search_path = postgraphql, pg_catalog;
 
   --
-  -- Name: activist_facebook_bot_interactions; Type: VIEW; Schema: postgraphql; Owner: postgres
+  -- Name: activist_facebook_bot_interactions; Type: VIEW; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE VIEW activist_facebook_bot_interactions AS
@@ -4496,12 +4496,12 @@ ELSE
   WHERE current_user_has_community_participation(c.community_id);
 
 
-  ALTER TABLE activist_facebook_bot_interactions OWNER TO postgres;
+  ALTER TABLE activist_facebook_bot_interactions OWNER TO monkey_user;
 
   SET search_path = public, pg_catalog;
 
   --
-  -- Name: mobilization_activists; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: mobilization_activists; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE mobilization_activists (
@@ -4514,12 +4514,12 @@ ELSE
   );
 
 
-  ALTER TABLE mobilization_activists OWNER TO postgres;
+  ALTER TABLE mobilization_activists OWNER TO monkey_user;
 
   SET search_path = postgraphql, pg_catalog;
 
   --
-  -- Name: activist_mobilizations; Type: VIEW; Schema: postgraphql; Owner: postgres
+  -- Name: activist_mobilizations; Type: VIEW; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE VIEW activist_mobilizations AS
@@ -4547,17 +4547,17 @@ ELSE
   WHERE current_user_has_community_participation(m.community_id);
 
 
-  ALTER TABLE activist_mobilizations OWNER TO postgres;
+  ALTER TABLE activist_mobilizations OWNER TO monkey_user;
 
   --
-  -- Name: VIEW activist_mobilizations; Type: COMMENT; Schema: postgraphql; Owner: postgres
+  -- Name: VIEW activist_mobilizations; Type: COMMENT; Schema: postgraphql; Owner: monkey_user
   --
 
   COMMENT ON VIEW activist_mobilizations IS 'show the mobilizations that activists participate';
 
 
   --
-  -- Name: activist_tags; Type: VIEW; Schema: postgraphql; Owner: postgres
+  -- Name: activist_tags; Type: VIEW; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE VIEW activist_tags AS
@@ -4573,12 +4573,12 @@ ELSE
   WHERE current_user_has_community_participation(at.community_id);
 
 
-  ALTER TABLE activist_tags OWNER TO postgres;
+  ALTER TABLE activist_tags OWNER TO monkey_user;
 
   SET search_path = public, pg_catalog;
 
   --
-  -- Name: balance_operations; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: balance_operations; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE balance_operations (
@@ -4591,10 +4591,10 @@ ELSE
   );
 
 
-  ALTER TABLE balance_operations OWNER TO postgres;
+  ALTER TABLE balance_operations OWNER TO monkey_user;
 
   --
-  -- Name: recipients; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: recipients; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE recipients (
@@ -4609,10 +4609,10 @@ ELSE
   );
 
 
-  ALTER TABLE recipients OWNER TO postgres;
+  ALTER TABLE recipients OWNER TO monkey_user;
 
   --
-  -- Name: balance_operation_summaries; Type: VIEW; Schema: public; Owner: postgres
+  -- Name: balance_operation_summaries; Type: VIEW; Schema: public; Owner: monkey_user
   --
 
   CREATE VIEW balance_operation_summaries AS
@@ -4640,12 +4640,12 @@ ELSE
   ORDER BY ((bo.gateway_data ->> 'date_created'::text))::timestamp without time zone DESC;
 
 
-  ALTER TABLE balance_operation_summaries OWNER TO postgres;
+  ALTER TABLE balance_operation_summaries OWNER TO monkey_user;
 
   SET search_path = postgraphql, pg_catalog;
 
   --
-  -- Name: balance_operations; Type: VIEW; Schema: postgraphql; Owner: postgres
+  -- Name: balance_operations; Type: VIEW; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE VIEW balance_operations AS
@@ -4672,10 +4672,10 @@ ELSE
   WHERE current_user_has_community_participation(bos.community_id);
 
 
-  ALTER TABLE balance_operations OWNER TO postgres;
+  ALTER TABLE balance_operations OWNER TO monkey_user;
 
   --
-  -- Name: facebook_activist_interactions; Type: VIEW; Schema: postgraphql; Owner: postgres
+  -- Name: facebook_activist_interactions; Type: VIEW; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE VIEW facebook_activist_interactions AS
@@ -4691,10 +4691,10 @@ ELSE
   WHERE ((activist_facebook_bot_interactions.interaction -> 'is_bot'::text) IS NULL);
 
 
-  ALTER TABLE facebook_activist_interactions OWNER TO postgres;
+  ALTER TABLE facebook_activist_interactions OWNER TO monkey_user;
 
   --
-  -- Name: bot_recipients; Type: VIEW; Schema: postgraphql; Owner: postgres
+  -- Name: bot_recipients; Type: VIEW; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE VIEW bot_recipients AS
@@ -4711,10 +4711,10 @@ ELSE
   WHERE ((aux.id IS NULL) AND current_user_has_community_participation(c.community_id));
 
 
-  ALTER TABLE bot_recipients OWNER TO postgres;
+  ALTER TABLE bot_recipients OWNER TO monkey_user;
 
   --
-  -- Name: community_user_roles; Type: VIEW; Schema: postgraphql; Owner: postgres
+  -- Name: community_user_roles; Type: VIEW; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE VIEW community_user_roles AS
@@ -4728,12 +4728,12 @@ ELSE
   WHERE (cu.user_id = current_user_id());
 
 
-  ALTER TABLE community_user_roles OWNER TO postgres;
+  ALTER TABLE community_user_roles OWNER TO monkey_user;
 
   SET search_path = public, pg_catalog;
 
   --
-  -- Name: blocks; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: blocks; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE blocks (
@@ -4751,10 +4751,10 @@ ELSE
   );
 
 
-  ALTER TABLE blocks OWNER TO postgres;
+  ALTER TABLE blocks OWNER TO monkey_user;
 
   --
-  -- Name: payable_transfers; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: payable_transfers; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE payable_transfers (
@@ -4769,10 +4769,10 @@ ELSE
   );
 
 
-  ALTER TABLE payable_transfers OWNER TO postgres;
+  ALTER TABLE payable_transfers OWNER TO monkey_user;
 
   --
-  -- Name: widgets; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: widgets; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE widgets (
@@ -4796,10 +4796,10 @@ ELSE
   );
 
 
-  ALTER TABLE widgets OWNER TO postgres;
+  ALTER TABLE widgets OWNER TO monkey_user;
 
   --
-  -- Name: payable_details; Type: VIEW; Schema: public; Owner: postgres
+  -- Name: payable_details; Type: VIEW; Schema: public; Owner: monkey_user
   --
 
   CREATE VIEW payable_details AS
@@ -4868,12 +4868,12 @@ ELSE
           WHERE (r.community_id = o.id)))) OR (jsonb_array_length(d.payables) = 1));
 
 
-  ALTER TABLE payable_details OWNER TO postgres;
+  ALTER TABLE payable_details OWNER TO monkey_user;
 
   SET search_path = postgraphql, pg_catalog;
 
   --
-  -- Name: donations; Type: VIEW; Schema: postgraphql; Owner: postgres
+  -- Name: donations; Type: VIEW; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE VIEW donations AS
@@ -4903,10 +4903,10 @@ ELSE
         FROM community_user_roles)));
 
 
-  ALTER TABLE donations OWNER TO postgres;
+  ALTER TABLE donations OWNER TO monkey_user;
 
   --
-  -- Name: facebook_bot_configurations; Type: VIEW; Schema: postgraphql; Owner: postgres
+  -- Name: facebook_bot_configurations; Type: VIEW; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE VIEW facebook_bot_configurations AS
@@ -4922,10 +4922,10 @@ ELSE
   WHERE ((facebook_bot_configurations.data ->> 'deleted'::text) IS NULL);
 
 
-  ALTER TABLE facebook_bot_configurations OWNER TO postgres;
+  ALTER TABLE facebook_bot_configurations OWNER TO monkey_user;
 
   --
-  -- Name: facebook_bot_interactions; Type: VIEW; Schema: postgraphql; Owner: postgres
+  -- Name: facebook_bot_interactions; Type: VIEW; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE VIEW facebook_bot_interactions AS
@@ -4941,12 +4941,12 @@ ELSE
   WHERE ((activist_facebook_bot_interactions.interaction -> 'is_bot'::text) = 'true'::jsonb);
 
 
-  ALTER TABLE facebook_bot_interactions OWNER TO postgres;
+  ALTER TABLE facebook_bot_interactions OWNER TO monkey_user;
 
   SET search_path = public, pg_catalog;
 
   --
-  -- Name: activist_participations; Type: VIEW; Schema: public; Owner: postgres
+  -- Name: activist_participations; Type: VIEW; Schema: public; Owner: monkey_user
   --
 
   CREATE VIEW activist_participations AS
@@ -4961,12 +4961,12 @@ ELSE
   NULL::integer AS participate_id;
 
 
-  ALTER TABLE activist_participations OWNER TO postgres;
+  ALTER TABLE activist_participations OWNER TO monkey_user;
 
   SET search_path = postgraphql, pg_catalog;
 
   --
-  -- Name: participations; Type: VIEW; Schema: postgraphql; Owner: postgres
+  -- Name: participations; Type: VIEW; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE VIEW participations AS
@@ -4983,10 +4983,10 @@ ELSE
       FROM community_user_roles));
 
 
-  ALTER TABLE participations OWNER TO postgres;
+  ALTER TABLE participations OWNER TO monkey_user;
 
   --
-  -- Name: tags; Type: VIEW; Schema: postgraphql; Owner: postgres
+  -- Name: tags; Type: VIEW; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE VIEW tags AS
@@ -4998,10 +4998,10 @@ ELSE
   FROM public.tags t;
 
 
-  ALTER TABLE tags OWNER TO postgres;
+  ALTER TABLE tags OWNER TO monkey_user;
 
   --
-  -- Name: user_communities; Type: VIEW; Schema: postgraphql; Owner: postgres
+  -- Name: user_communities; Type: VIEW; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE VIEW user_communities AS
@@ -5028,12 +5028,12 @@ ELSE
   WHERE (cou.user_id = current_user_id());
 
 
-  ALTER TABLE user_communities OWNER TO postgres;
+  ALTER TABLE user_communities OWNER TO monkey_user;
 
   SET search_path = public, pg_catalog;
 
   --
-  -- Name: activist_actions; Type: VIEW; Schema: public; Owner: postgres
+  -- Name: activist_actions; Type: VIEW; Schema: public; Owner: monkey_user
   --
 
   CREATE VIEW activist_actions AS
@@ -5088,10 +5088,10 @@ ELSE
       JOIN mobilizations m ON ((m.id = b.mobilization_id)))) t;
 
 
-  ALTER TABLE activist_actions OWNER TO postgres;
+  ALTER TABLE activist_actions OWNER TO monkey_user;
 
   --
-  -- Name: activist_facebook_bot_interactions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: activist_facebook_bot_interactions_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE activist_facebook_bot_interactions_id_seq
@@ -5102,17 +5102,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE activist_facebook_bot_interactions_id_seq OWNER TO postgres;
+  ALTER TABLE activist_facebook_bot_interactions_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: activist_facebook_bot_interactions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: activist_facebook_bot_interactions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE activist_facebook_bot_interactions_id_seq OWNED BY activist_facebook_bot_interactions.id;
 
 
   --
-  -- Name: activist_matches; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: activist_matches; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE activist_matches (
@@ -5127,10 +5127,10 @@ ELSE
   );
 
 
-  ALTER TABLE activist_matches OWNER TO postgres;
+  ALTER TABLE activist_matches OWNER TO monkey_user;
 
   --
-  -- Name: activist_matches_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: activist_matches_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE activist_matches_id_seq
@@ -5141,17 +5141,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE activist_matches_id_seq OWNER TO postgres;
+  ALTER TABLE activist_matches_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: activist_matches_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: activist_matches_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE activist_matches_id_seq OWNED BY activist_matches.id;
 
 
   --
-  -- Name: activist_pressures_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: activist_pressures_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE activist_pressures_id_seq
@@ -5162,17 +5162,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE activist_pressures_id_seq OWNER TO postgres;
+  ALTER TABLE activist_pressures_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: activist_pressures_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: activist_pressures_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE activist_pressures_id_seq OWNED BY activist_pressures.id;
 
 
   --
-  -- Name: activist_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: activist_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE activist_tags_id_seq
@@ -5183,17 +5183,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE activist_tags_id_seq OWNER TO postgres;
+  ALTER TABLE activist_tags_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: activist_tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: activist_tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE activist_tags_id_seq OWNED BY activist_tags.id;
 
 
   --
-  -- Name: activists_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: activists_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE activists_id_seq
@@ -5204,17 +5204,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE activists_id_seq OWNER TO postgres;
+  ALTER TABLE activists_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: activists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: activists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE activists_id_seq OWNED BY activists.id;
 
 
   --
-  -- Name: addresses; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: addresses; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE addresses (
@@ -5232,10 +5232,10 @@ ELSE
   );
 
 
-  ALTER TABLE addresses OWNER TO postgres;
+  ALTER TABLE addresses OWNER TO monkey_user;
 
   --
-  -- Name: addresses_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: addresses_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE addresses_id_seq
@@ -5246,17 +5246,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE addresses_id_seq OWNER TO postgres;
+  ALTER TABLE addresses_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: addresses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: addresses_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE addresses_id_seq OWNED BY addresses.id;
 
 
   --
-  -- Name: agg_activists; Type: VIEW; Schema: public; Owner: postgres
+  -- Name: agg_activists; Type: VIEW; Schema: public; Owner: monkey_user
   --
 
   CREATE VIEW agg_activists AS
@@ -5281,10 +5281,10 @@ ELSE
   NULL::text AS state;
 
 
-  ALTER TABLE agg_activists OWNER TO postgres;
+  ALTER TABLE agg_activists OWNER TO monkey_user;
 
   --
-  -- Name: balance_operations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: balance_operations_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE balance_operations_id_seq
@@ -5295,17 +5295,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE balance_operations_id_seq OWNER TO postgres;
+  ALTER TABLE balance_operations_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: balance_operations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: balance_operations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE balance_operations_id_seq OWNED BY balance_operations.id;
 
 
   --
-  -- Name: blocks_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: blocks_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE blocks_id_seq
@@ -5316,17 +5316,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE blocks_id_seq OWNER TO postgres;
+  ALTER TABLE blocks_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: blocks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: blocks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE blocks_id_seq OWNED BY blocks.id;
 
 
   --
-  -- Name: certificates_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: certificates_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE certificates_id_seq
@@ -5338,17 +5338,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE certificates_id_seq OWNER TO postgres;
+  ALTER TABLE certificates_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: certificates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: certificates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE certificates_id_seq OWNED BY certificates.id;
 
 
   --
-  -- Name: communities_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: communities_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE communities_id_seq
@@ -5359,17 +5359,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE communities_id_seq OWNER TO postgres;
+  ALTER TABLE communities_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: communities_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: communities_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE communities_id_seq OWNED BY communities.id;
 
 
   --
-  -- Name: community_activists_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: community_activists_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE community_activists_id_seq
@@ -5380,17 +5380,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE community_activists_id_seq OWNER TO postgres;
+  ALTER TABLE community_activists_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: community_activists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: community_activists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE community_activists_id_seq OWNED BY community_activists.id;
 
 
   --
-  -- Name: community_users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: community_users_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE community_users_id_seq
@@ -5401,17 +5401,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE community_users_id_seq OWNER TO postgres;
+  ALTER TABLE community_users_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: community_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: community_users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE community_users_id_seq OWNED BY community_users.id;
 
 
   --
-  -- Name: configurations; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: configurations; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE configurations (
@@ -5423,10 +5423,10 @@ ELSE
   );
 
 
-  ALTER TABLE configurations OWNER TO postgres;
+  ALTER TABLE configurations OWNER TO monkey_user;
 
   --
-  -- Name: configurations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: configurations_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE configurations_id_seq
@@ -5438,17 +5438,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE configurations_id_seq OWNER TO postgres;
+  ALTER TABLE configurations_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: configurations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: configurations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE configurations_id_seq OWNED BY configurations.id;
 
 
   --
-  -- Name: credit_cards; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: credit_cards; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE credit_cards (
@@ -5463,10 +5463,10 @@ ELSE
   );
 
 
-  ALTER TABLE credit_cards OWNER TO postgres;
+  ALTER TABLE credit_cards OWNER TO monkey_user;
 
   --
-  -- Name: credit_cards_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: credit_cards_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE credit_cards_id_seq
@@ -5477,17 +5477,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE credit_cards_id_seq OWNER TO postgres;
+  ALTER TABLE credit_cards_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: credit_cards_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: credit_cards_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE credit_cards_id_seq OWNED BY credit_cards.id;
 
 
   --
-  -- Name: dns_hosted_zones_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: dns_hosted_zones_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE dns_hosted_zones_id_seq
@@ -5498,17 +5498,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE dns_hosted_zones_id_seq OWNER TO postgres;
+  ALTER TABLE dns_hosted_zones_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: dns_hosted_zones_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: dns_hosted_zones_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE dns_hosted_zones_id_seq OWNED BY dns_hosted_zones.id;
 
 
   --
-  -- Name: dns_records; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: dns_records; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE dns_records (
@@ -5524,10 +5524,10 @@ ELSE
   );
 
 
-  ALTER TABLE dns_records OWNER TO postgres;
+  ALTER TABLE dns_records OWNER TO monkey_user;
 
   --
-  -- Name: dns_records_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: dns_records_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE dns_records_id_seq
@@ -5538,17 +5538,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE dns_records_id_seq OWNER TO postgres;
+  ALTER TABLE dns_records_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: dns_records_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: dns_records_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE dns_records_id_seq OWNED BY dns_records.id;
 
 
   --
-  -- Name: donation_reports; Type: VIEW; Schema: public; Owner: postgres
+  -- Name: donation_reports; Type: VIEW; Schema: public; Owner: monkey_user
   --
 
   CREATE VIEW donation_reports AS
@@ -5593,10 +5593,10 @@ ELSE
   WHERE (d.transaction_id IS NOT NULL);
 
 
-  ALTER TABLE donation_reports OWNER TO postgres;
+  ALTER TABLE donation_reports OWNER TO monkey_user;
 
   --
-  -- Name: donation_transitions; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: donation_transitions; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE donation_transitions (
@@ -5611,10 +5611,10 @@ ELSE
   );
 
 
-  ALTER TABLE donation_transitions OWNER TO postgres;
+  ALTER TABLE donation_transitions OWNER TO monkey_user;
 
   --
-  -- Name: donation_transitions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: donation_transitions_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE donation_transitions_id_seq
@@ -5625,17 +5625,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE donation_transitions_id_seq OWNER TO postgres;
+  ALTER TABLE donation_transitions_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: donation_transitions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: donation_transitions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE donation_transitions_id_seq OWNED BY donation_transitions.id;
 
 
   --
-  -- Name: donations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: donations_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE donations_id_seq
@@ -5646,17 +5646,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE donations_id_seq OWNER TO postgres;
+  ALTER TABLE donations_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: donations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: donations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE donations_id_seq OWNED BY donations.id;
 
 
   --
-  -- Name: facebook_bot_activists; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: facebook_bot_activists; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE facebook_bot_activists (
@@ -5672,10 +5672,10 @@ ELSE
   );
 
 
-  ALTER TABLE facebook_bot_activists OWNER TO postgres;
+  ALTER TABLE facebook_bot_activists OWNER TO monkey_user;
 
   --
-  -- Name: facebook_bot_activists_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: facebook_bot_activists_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE facebook_bot_activists_id_seq
@@ -5686,17 +5686,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE facebook_bot_activists_id_seq OWNER TO postgres;
+  ALTER TABLE facebook_bot_activists_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: facebook_bot_activists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: facebook_bot_activists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE facebook_bot_activists_id_seq OWNED BY facebook_bot_activists.id;
 
 
   --
-  -- Name: facebook_bot_campaign_activists_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: facebook_bot_campaign_activists_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE facebook_bot_campaign_activists_id_seq
@@ -5707,17 +5707,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE facebook_bot_campaign_activists_id_seq OWNER TO postgres;
+  ALTER TABLE facebook_bot_campaign_activists_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: facebook_bot_campaign_activists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: facebook_bot_campaign_activists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE facebook_bot_campaign_activists_id_seq OWNED BY facebook_bot_campaign_activists.id;
 
 
   --
-  -- Name: facebook_bot_campaigns_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: facebook_bot_campaigns_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE facebook_bot_campaigns_id_seq
@@ -5728,17 +5728,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE facebook_bot_campaigns_id_seq OWNER TO postgres;
+  ALTER TABLE facebook_bot_campaigns_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: facebook_bot_campaigns_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: facebook_bot_campaigns_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE facebook_bot_campaigns_id_seq OWNED BY facebook_bot_campaigns.id;
 
 
   --
-  -- Name: facebook_bot_configurations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: facebook_bot_configurations_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE facebook_bot_configurations_id_seq
@@ -5749,17 +5749,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE facebook_bot_configurations_id_seq OWNER TO postgres;
+  ALTER TABLE facebook_bot_configurations_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: facebook_bot_configurations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: facebook_bot_configurations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE facebook_bot_configurations_id_seq OWNED BY facebook_bot_configurations.id;
 
 
   --
-  -- Name: first_email_ids_activists; Type: VIEW; Schema: public; Owner: postgres
+  -- Name: first_email_ids_activists; Type: VIEW; Schema: public; Owner: monkey_user
   --
 
   CREATE VIEW first_email_ids_activists AS
@@ -5770,10 +5770,10 @@ ELSE
   GROUP BY activists.email;
 
 
-  ALTER TABLE first_email_ids_activists OWNER TO postgres;
+  ALTER TABLE first_email_ids_activists OWNER TO monkey_user;
 
   --
-  -- Name: form_entries_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: form_entries_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE form_entries_id_seq
@@ -5784,17 +5784,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE form_entries_id_seq OWNER TO postgres;
+  ALTER TABLE form_entries_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: form_entries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: form_entries_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE form_entries_id_seq OWNED BY form_entries.id;
 
 
   --
-  -- Name: gateway_subscriptions; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: gateway_subscriptions; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE gateway_subscriptions (
@@ -5806,10 +5806,10 @@ ELSE
   );
 
 
-  ALTER TABLE gateway_subscriptions OWNER TO postgres;
+  ALTER TABLE gateway_subscriptions OWNER TO monkey_user;
 
   --
-  -- Name: gateway_subscriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: gateway_subscriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE gateway_subscriptions_id_seq
@@ -5820,17 +5820,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE gateway_subscriptions_id_seq OWNER TO postgres;
+  ALTER TABLE gateway_subscriptions_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: gateway_subscriptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: gateway_subscriptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE gateway_subscriptions_id_seq OWNED BY gateway_subscriptions.id;
 
 
   --
-  -- Name: gateway_transactions; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: gateway_transactions; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE gateway_transactions (
@@ -5842,10 +5842,10 @@ ELSE
   );
 
 
-  ALTER TABLE gateway_transactions OWNER TO postgres;
+  ALTER TABLE gateway_transactions OWNER TO monkey_user;
 
   --
-  -- Name: gateway_transactions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: gateway_transactions_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE gateway_transactions_id_seq
@@ -5856,17 +5856,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE gateway_transactions_id_seq OWNER TO postgres;
+  ALTER TABLE gateway_transactions_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: gateway_transactions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: gateway_transactions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE gateway_transactions_id_seq OWNED BY gateway_transactions.id;
 
 
   --
-  -- Name: invitations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: invitations_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE invitations_id_seq
@@ -5877,17 +5877,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE invitations_id_seq OWNER TO postgres;
+  ALTER TABLE invitations_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: invitations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: invitations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE invitations_id_seq OWNED BY invitations.id;
 
 
   --
-  -- Name: matches; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: matches; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE matches (
@@ -5901,10 +5901,10 @@ ELSE
   );
 
 
-  ALTER TABLE matches OWNER TO postgres;
+  ALTER TABLE matches OWNER TO monkey_user;
 
   --
-  -- Name: matches_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: matches_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE matches_id_seq
@@ -5915,17 +5915,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE matches_id_seq OWNER TO postgres;
+  ALTER TABLE matches_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: matches_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: matches_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE matches_id_seq OWNED BY matches.id;
 
 
   --
-  -- Name: mobilization_activists_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: mobilization_activists_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE mobilization_activists_id_seq
@@ -5936,17 +5936,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE mobilization_activists_id_seq OWNER TO postgres;
+  ALTER TABLE mobilization_activists_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: mobilization_activists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: mobilization_activists_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE mobilization_activists_id_seq OWNED BY mobilization_activists.id;
 
 
   --
-  -- Name: mobilizations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: mobilizations_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE mobilizations_id_seq
@@ -5957,17 +5957,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE mobilizations_id_seq OWNER TO postgres;
+  ALTER TABLE mobilizations_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: mobilizations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: mobilizations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE mobilizations_id_seq OWNED BY mobilizations.id;
 
 
   --
-  -- Name: notification_templates_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: notification_templates_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE notification_templates_id_seq
@@ -5978,17 +5978,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE notification_templates_id_seq OWNER TO postgres;
+  ALTER TABLE notification_templates_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: notification_templates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: notification_templates_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE notification_templates_id_seq OWNED BY notification_templates.id;
 
 
   --
-  -- Name: notifications_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: notifications_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE notifications_id_seq
@@ -5999,17 +5999,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE notifications_id_seq OWNER TO postgres;
+  ALTER TABLE notifications_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: notifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: notifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE notifications_id_seq OWNED BY notifications.id;
 
 
   --
-  -- Name: payable_transfers_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: payable_transfers_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE payable_transfers_id_seq
@@ -6020,17 +6020,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE payable_transfers_id_seq OWNER TO postgres;
+  ALTER TABLE payable_transfers_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: payable_transfers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: payable_transfers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE payable_transfers_id_seq OWNED BY payable_transfers.id;
 
 
   --
-  -- Name: payments; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: payments; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE payments (
@@ -6048,10 +6048,10 @@ ELSE
   );
 
 
-  ALTER TABLE payments OWNER TO postgres;
+  ALTER TABLE payments OWNER TO monkey_user;
 
   --
-  -- Name: payments_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: payments_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE payments_id_seq
@@ -6062,17 +6062,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE payments_id_seq OWNER TO postgres;
+  ALTER TABLE payments_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: payments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: payments_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE payments_id_seq OWNED BY payments.id;
 
 
   --
-  -- Name: plans; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: plans; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE plans (
@@ -6087,10 +6087,10 @@ ELSE
   );
 
 
-  ALTER TABLE plans OWNER TO postgres;
+  ALTER TABLE plans OWNER TO monkey_user;
 
   --
-  -- Name: plans_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: plans_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE plans_id_seq
@@ -6101,17 +6101,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE plans_id_seq OWNER TO postgres;
+  ALTER TABLE plans_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: plans_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE plans_id_seq OWNED BY plans.id;
 
 
   --
-  -- Name: recipients_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: recipients_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE recipients_id_seq
@@ -6122,16 +6122,16 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE recipients_id_seq OWNER TO postgres;
+  ALTER TABLE recipients_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: recipients_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: recipients_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE recipients_id_seq OWNED BY recipients.id;
 
   --
-  -- Name: subscription_transitions; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: subscription_transitions; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE subscription_transitions (
@@ -6146,10 +6146,10 @@ ELSE
   );
 
 
-  ALTER TABLE subscription_transitions OWNER TO postgres;
+  ALTER TABLE subscription_transitions OWNER TO monkey_user;
 
   --
-  -- Name: subscription_reports; Type: VIEW; Schema: public; Owner: postgres
+  -- Name: subscription_reports; Type: VIEW; Schema: public; Owner: monkey_user
   --
 
   CREATE VIEW subscription_reports AS
@@ -6206,10 +6206,10 @@ ELSE
       LIMIT 1) last_unpaid_notification ON (true));
 
 
-  ALTER TABLE subscription_reports OWNER TO postgres;
+  ALTER TABLE subscription_reports OWNER TO monkey_user;
 
   --
-  -- Name: subscription_transitions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: subscription_transitions_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE subscription_transitions_id_seq
@@ -6220,17 +6220,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE subscription_transitions_id_seq OWNER TO postgres;
+  ALTER TABLE subscription_transitions_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: subscription_transitions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: subscription_transitions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE subscription_transitions_id_seq OWNED BY subscription_transitions.id;
 
 
   --
-  -- Name: subscriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: subscriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE subscriptions_id_seq
@@ -6241,17 +6241,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE subscriptions_id_seq OWNER TO postgres;
+  ALTER TABLE subscriptions_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: subscriptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: subscriptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE subscriptions_id_seq OWNED BY subscriptions.id;
 
 
   --
-  -- Name: taggings_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: taggings_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE taggings_id_seq
@@ -6262,17 +6262,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE taggings_id_seq OWNER TO postgres;
+  ALTER TABLE taggings_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: taggings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: taggings_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE taggings_id_seq OWNED BY taggings.id;
 
 
   --
-  -- Name: tags_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: tags_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE tags_id_seq
@@ -6283,17 +6283,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE tags_id_seq OWNER TO postgres;
+  ALTER TABLE tags_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE tags_id_seq OWNED BY tags.id;
 
 
   --
-  -- Name: template_blocks; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: template_blocks; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE template_blocks (
@@ -6310,10 +6310,10 @@ ELSE
   );
 
 
-  ALTER TABLE template_blocks OWNER TO postgres;
+  ALTER TABLE template_blocks OWNER TO monkey_user;
 
   --
-  -- Name: template_blocks_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: template_blocks_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE template_blocks_id_seq
@@ -6324,17 +6324,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE template_blocks_id_seq OWNER TO postgres;
+  ALTER TABLE template_blocks_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: template_blocks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: template_blocks_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE template_blocks_id_seq OWNED BY template_blocks.id;
 
 
   --
-  -- Name: template_mobilizations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: template_mobilizations_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE template_mobilizations_id_seq
@@ -6345,17 +6345,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE template_mobilizations_id_seq OWNER TO postgres;
+  ALTER TABLE template_mobilizations_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: template_mobilizations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: template_mobilizations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE template_mobilizations_id_seq OWNED BY template_mobilizations.id;
 
 
   --
-  -- Name: template_widgets; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: template_widgets; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE template_widgets (
@@ -6374,10 +6374,10 @@ ELSE
   );
 
 
-  ALTER TABLE template_widgets OWNER TO postgres;
+  ALTER TABLE template_widgets OWNER TO monkey_user;
 
   --
-  -- Name: template_widgets_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: template_widgets_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE template_widgets_id_seq
@@ -6388,17 +6388,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE template_widgets_id_seq OWNER TO postgres;
+  ALTER TABLE template_widgets_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: template_widgets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: template_widgets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE template_widgets_id_seq OWNED BY template_widgets.id;
 
 
   --
-  -- Name: twilio_call_transitions; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: twilio_call_transitions; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE twilio_call_transitions (
@@ -6417,10 +6417,10 @@ ELSE
   );
 
 
-  ALTER TABLE twilio_call_transitions OWNER TO postgres;
+  ALTER TABLE twilio_call_transitions OWNER TO monkey_user;
 
   --
-  -- Name: twilio_call_transitions_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: twilio_call_transitions_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE twilio_call_transitions_id_seq
@@ -6431,17 +6431,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE twilio_call_transitions_id_seq OWNER TO postgres;
+  ALTER TABLE twilio_call_transitions_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: twilio_call_transitions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: twilio_call_transitions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE twilio_call_transitions_id_seq OWNED BY twilio_call_transitions.id;
 
 
   --
-  -- Name: twilio_calls_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: twilio_calls_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE twilio_calls_id_seq
@@ -6452,17 +6452,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE twilio_calls_id_seq OWNER TO postgres;
+  ALTER TABLE twilio_calls_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: twilio_calls_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: twilio_calls_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE twilio_calls_id_seq OWNED BY twilio_calls.id;
 
 
   --
-  -- Name: twilio_configurations_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: twilio_configurations_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE twilio_configurations_id_seq
@@ -6473,17 +6473,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE twilio_configurations_id_seq OWNER TO postgres;
+  ALTER TABLE twilio_configurations_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: twilio_configurations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: twilio_configurations_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE twilio_configurations_id_seq OWNED BY twilio_configurations.id;
 
 
   --
-  -- Name: user_tags; Type: TABLE; Schema: public; Owner: postgres
+  -- Name: user_tags; Type: TABLE; Schema: public; Owner: monkey_user
   --
 
   CREATE TABLE user_tags (
@@ -6495,10 +6495,10 @@ ELSE
   );
 
 
-  ALTER TABLE user_tags OWNER TO postgres;
+  ALTER TABLE user_tags OWNER TO monkey_user;
 
   --
-  -- Name: user_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: user_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE user_tags_id_seq
@@ -6510,17 +6510,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE user_tags_id_seq OWNER TO postgres;
+  ALTER TABLE user_tags_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: user_tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: user_tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE user_tags_id_seq OWNED BY user_tags.id;
 
 
   --
-  -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE users_id_seq
@@ -6531,17 +6531,17 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE users_id_seq OWNER TO postgres;
+  ALTER TABLE users_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
   --
-  -- Name: widgets_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+  -- Name: widgets_id_seq; Type: SEQUENCE; Schema: public; Owner: monkey_user
   --
 
   CREATE SEQUENCE widgets_id_seq
@@ -6552,353 +6552,353 @@ ELSE
   CACHE 1;
 
 
-  ALTER TABLE widgets_id_seq OWNER TO postgres;
+  ALTER TABLE widgets_id_seq OWNER TO monkey_user;
 
   --
-  -- Name: widgets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+  -- Name: widgets_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: monkey_user
   --
 
   ALTER SEQUENCE widgets_id_seq OWNED BY widgets.id;
 
 
   --
-  -- Name: activist_facebook_bot_interactions id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: activist_facebook_bot_interactions id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_facebook_bot_interactions ALTER COLUMN id SET DEFAULT nextval('activist_facebook_bot_interactions_id_seq'::regclass);
 
 
   --
-  -- Name: activist_matches id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: activist_matches id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_matches ALTER COLUMN id SET DEFAULT nextval('activist_matches_id_seq'::regclass);
 
 
   --
-  -- Name: activist_pressures id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: activist_pressures id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_pressures ALTER COLUMN id SET DEFAULT nextval('activist_pressures_id_seq'::regclass);
 
 
   --
-  -- Name: activist_tags id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: activist_tags id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_tags ALTER COLUMN id SET DEFAULT nextval('activist_tags_id_seq'::regclass);
 
 
   --
-  -- Name: activists id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: activists id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activists ALTER COLUMN id SET DEFAULT nextval('activists_id_seq'::regclass);
 
 
   --
-  -- Name: addresses id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: addresses id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY addresses ALTER COLUMN id SET DEFAULT nextval('addresses_id_seq'::regclass);
 
 
   --
-  -- Name: balance_operations id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: balance_operations id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY balance_operations ALTER COLUMN id SET DEFAULT nextval('balance_operations_id_seq'::regclass);
 
 
   --
-  -- Name: blocks id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: blocks id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY blocks ALTER COLUMN id SET DEFAULT nextval('blocks_id_seq'::regclass);
 
 
   --
-  -- Name: certificates id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: certificates id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY certificates ALTER COLUMN id SET DEFAULT nextval('certificates_id_seq'::regclass);
 
 
   --
-  -- Name: communities id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: communities id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY communities ALTER COLUMN id SET DEFAULT nextval('communities_id_seq'::regclass);
 
 
   --
-  -- Name: community_activists id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: community_activists id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY community_activists ALTER COLUMN id SET DEFAULT nextval('community_activists_id_seq'::regclass);
 
 
   --
-  -- Name: community_users id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: community_users id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY community_users ALTER COLUMN id SET DEFAULT nextval('community_users_id_seq'::regclass);
 
 
   --
-  -- Name: configurations id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: configurations id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY configurations ALTER COLUMN id SET DEFAULT nextval('configurations_id_seq'::regclass);
 
 
   --
-  -- Name: credit_cards id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: credit_cards id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY credit_cards ALTER COLUMN id SET DEFAULT nextval('credit_cards_id_seq'::regclass);
 
 
   --
-  -- Name: dns_hosted_zones id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: dns_hosted_zones id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY dns_hosted_zones ALTER COLUMN id SET DEFAULT nextval('dns_hosted_zones_id_seq'::regclass);
 
 
   --
-  -- Name: dns_records id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: dns_records id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY dns_records ALTER COLUMN id SET DEFAULT nextval('dns_records_id_seq'::regclass);
 
 
   --
-  -- Name: donation_transitions id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: donation_transitions id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY donation_transitions ALTER COLUMN id SET DEFAULT nextval('donation_transitions_id_seq'::regclass);
 
 
   --
-  -- Name: donations id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: donations id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY donations ALTER COLUMN id SET DEFAULT nextval('donations_id_seq'::regclass);
 
 
   --
-  -- Name: facebook_bot_activists id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: facebook_bot_activists id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY facebook_bot_activists ALTER COLUMN id SET DEFAULT nextval('facebook_bot_activists_id_seq'::regclass);
 
 
   --
-  -- Name: facebook_bot_campaign_activists id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: facebook_bot_campaign_activists id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY facebook_bot_campaign_activists ALTER COLUMN id SET DEFAULT nextval('facebook_bot_campaign_activists_id_seq'::regclass);
 
 
   --
-  -- Name: facebook_bot_campaigns id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: facebook_bot_campaigns id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY facebook_bot_campaigns ALTER COLUMN id SET DEFAULT nextval('facebook_bot_campaigns_id_seq'::regclass);
 
 
   --
-  -- Name: facebook_bot_configurations id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: facebook_bot_configurations id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY facebook_bot_configurations ALTER COLUMN id SET DEFAULT nextval('facebook_bot_configurations_id_seq'::regclass);
 
 
   --
-  -- Name: form_entries id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: form_entries id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY form_entries ALTER COLUMN id SET DEFAULT nextval('form_entries_id_seq'::regclass);
 
 
   --
-  -- Name: gateway_subscriptions id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: gateway_subscriptions id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY gateway_subscriptions ALTER COLUMN id SET DEFAULT nextval('gateway_subscriptions_id_seq'::regclass);
 
 
   --
-  -- Name: gateway_transactions id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: gateway_transactions id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY gateway_transactions ALTER COLUMN id SET DEFAULT nextval('gateway_transactions_id_seq'::regclass);
 
 
   --
-  -- Name: invitations id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: invitations id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY invitations ALTER COLUMN id SET DEFAULT nextval('invitations_id_seq'::regclass);
 
 
   --
-  -- Name: matches id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: matches id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY matches ALTER COLUMN id SET DEFAULT nextval('matches_id_seq'::regclass);
 
 
   --
-  -- Name: mobilization_activists id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: mobilization_activists id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY mobilization_activists ALTER COLUMN id SET DEFAULT nextval('mobilization_activists_id_seq'::regclass);
 
 
   --
-  -- Name: mobilizations id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: mobilizations id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY mobilizations ALTER COLUMN id SET DEFAULT nextval('mobilizations_id_seq'::regclass);
 
 
   --
-  -- Name: notification_templates id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: notification_templates id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY notification_templates ALTER COLUMN id SET DEFAULT nextval('notification_templates_id_seq'::regclass);
 
 
   --
-  -- Name: notifications id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: notifications id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY notifications ALTER COLUMN id SET DEFAULT nextval('notifications_id_seq'::regclass);
 
 
   --
-  -- Name: payable_transfers id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: payable_transfers id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY payable_transfers ALTER COLUMN id SET DEFAULT nextval('payable_transfers_id_seq'::regclass);
 
 
   --
-  -- Name: payments id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: payments id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY payments ALTER COLUMN id SET DEFAULT nextval('payments_id_seq'::regclass);
 
 
   --
-  -- Name: plans id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: plans id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY plans ALTER COLUMN id SET DEFAULT nextval('plans_id_seq'::regclass);
 
 
   --
-  -- Name: recipients id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: recipients id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY recipients ALTER COLUMN id SET DEFAULT nextval('recipients_id_seq'::regclass);
 
 
   --
-  -- Name: subscription_transitions id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: subscription_transitions id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY subscription_transitions ALTER COLUMN id SET DEFAULT nextval('subscription_transitions_id_seq'::regclass);
 
 
   --
-  -- Name: subscriptions id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: subscriptions id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY subscriptions ALTER COLUMN id SET DEFAULT nextval('subscriptions_id_seq'::regclass);
 
 
   --
-  -- Name: taggings id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: taggings id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY taggings ALTER COLUMN id SET DEFAULT nextval('taggings_id_seq'::regclass);
 
 
   --
-  -- Name: tags id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: tags id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY tags ALTER COLUMN id SET DEFAULT nextval('tags_id_seq'::regclass);
 
 
   --
-  -- Name: template_blocks id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: template_blocks id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY template_blocks ALTER COLUMN id SET DEFAULT nextval('template_blocks_id_seq'::regclass);
 
 
   --
-  -- Name: template_mobilizations id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: template_mobilizations id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY template_mobilizations ALTER COLUMN id SET DEFAULT nextval('template_mobilizations_id_seq'::regclass);
 
 
   --
-  -- Name: template_widgets id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: template_widgets id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY template_widgets ALTER COLUMN id SET DEFAULT nextval('template_widgets_id_seq'::regclass);
 
 
   --
-  -- Name: twilio_call_transitions id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: twilio_call_transitions id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY twilio_call_transitions ALTER COLUMN id SET DEFAULT nextval('twilio_call_transitions_id_seq'::regclass);
 
 
   --
-  -- Name: twilio_calls id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: twilio_calls id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY twilio_calls ALTER COLUMN id SET DEFAULT nextval('twilio_calls_id_seq'::regclass);
 
 
   --
-  -- Name: twilio_configurations id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: twilio_configurations id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY twilio_configurations ALTER COLUMN id SET DEFAULT nextval('twilio_configurations_id_seq'::regclass);
 
 
   --
-  -- Name: user_tags id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: user_tags id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY user_tags ALTER COLUMN id SET DEFAULT nextval('user_tags_id_seq'::regclass);
 
 
   --
-  -- Name: users id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: users id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY users ALTER COLUMN id SET DEFAULT nextval('users_id_seq'::regclass);
 
 
   --
-  -- Name: widgets id; Type: DEFAULT; Schema: public; Owner: postgres
+  -- Name: widgets id; Type: DEFAULT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY widgets ALTER COLUMN id SET DEFAULT nextval('widgets_id_seq'::regclass);
 
 
   --
-  -- Name: activist_facebook_bot_interactions activist_facebook_bot_interactions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activist_facebook_bot_interactions activist_facebook_bot_interactions_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_facebook_bot_interactions
@@ -6906,7 +6906,7 @@ ELSE
 
 
   --
-  -- Name: activist_matches activist_matches_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activist_matches activist_matches_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_matches
@@ -6914,7 +6914,7 @@ ELSE
 
 
   --
-  -- Name: activist_pressures activist_pressures_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activist_pressures activist_pressures_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_pressures
@@ -6922,7 +6922,7 @@ ELSE
 
 
   --
-  -- Name: activist_tags activist_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activist_tags activist_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_tags
@@ -6930,7 +6930,7 @@ ELSE
 
 
   --
-  -- Name: activists activists_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activists activists_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activists
@@ -6938,7 +6938,7 @@ ELSE
 
 
   --
-  -- Name: addresses addresses_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: addresses addresses_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY addresses
@@ -6946,7 +6946,7 @@ ELSE
 
 
   --
-  -- Name: balance_operations balance_operations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: balance_operations balance_operations_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY balance_operations
@@ -6954,7 +6954,7 @@ ELSE
 
 
   --
-  -- Name: blocks blocks_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: blocks blocks_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY blocks
@@ -6962,7 +6962,7 @@ ELSE
 
 
   --
-  -- Name: certificates certificates_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: certificates certificates_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY certificates
@@ -6970,7 +6970,7 @@ ELSE
 
 
   --
-  -- Name: communities communities_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: communities communities_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY communities
@@ -6978,7 +6978,7 @@ ELSE
 
 
   --
-  -- Name: community_activists community_activists_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: community_activists community_activists_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY community_activists
@@ -6986,7 +6986,7 @@ ELSE
 
 
   --
-  -- Name: community_users community_users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: community_users community_users_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY community_users
@@ -6994,7 +6994,7 @@ ELSE
 
 
   --
-  -- Name: configurations configurations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: configurations configurations_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY configurations
@@ -7002,7 +7002,7 @@ ELSE
 
 
   --
-  -- Name: credit_cards credit_cards_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: credit_cards credit_cards_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY credit_cards
@@ -7010,7 +7010,7 @@ ELSE
 
 
   --
-  -- Name: dns_hosted_zones dns_hosted_zones_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: dns_hosted_zones dns_hosted_zones_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY dns_hosted_zones
@@ -7018,7 +7018,7 @@ ELSE
 
 
   --
-  -- Name: dns_records dns_records_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: dns_records dns_records_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY dns_records
@@ -7026,7 +7026,7 @@ ELSE
 
 
   --
-  -- Name: donation_transitions donation_transitions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: donation_transitions donation_transitions_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY donation_transitions
@@ -7034,7 +7034,7 @@ ELSE
 
 
   --
-  -- Name: donations donations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: donations donations_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY donations
@@ -7042,7 +7042,7 @@ ELSE
 
 
   --
-  -- Name: facebook_bot_activists facebook_bot_activists_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: facebook_bot_activists facebook_bot_activists_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY facebook_bot_activists
@@ -7050,7 +7050,7 @@ ELSE
 
 
   --
-  -- Name: facebook_bot_campaign_activists facebook_bot_campaign_activists_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: facebook_bot_campaign_activists facebook_bot_campaign_activists_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY facebook_bot_campaign_activists
@@ -7058,7 +7058,7 @@ ELSE
 
 
   --
-  -- Name: facebook_bot_campaigns facebook_bot_campaigns_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: facebook_bot_campaigns facebook_bot_campaigns_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY facebook_bot_campaigns
@@ -7066,7 +7066,7 @@ ELSE
 
 
   --
-  -- Name: facebook_bot_configurations facebook_bot_configurations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: facebook_bot_configurations facebook_bot_configurations_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY facebook_bot_configurations
@@ -7074,7 +7074,7 @@ ELSE
 
 
   --
-  -- Name: form_entries form_entries_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: form_entries form_entries_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY form_entries
@@ -7082,7 +7082,7 @@ ELSE
 
 
   --
-  -- Name: gateway_subscriptions gateway_subscriptions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: gateway_subscriptions gateway_subscriptions_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY gateway_subscriptions
@@ -7090,7 +7090,7 @@ ELSE
 
 
   --
-  -- Name: gateway_transactions gateway_transactions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: gateway_transactions gateway_transactions_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY gateway_transactions
@@ -7098,7 +7098,7 @@ ELSE
 
 
   --
-  -- Name: invitations invitations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: invitations invitations_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY invitations
@@ -7106,7 +7106,7 @@ ELSE
 
 
   --
-  -- Name: matches matches_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: matches matches_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY matches
@@ -7114,7 +7114,7 @@ ELSE
 
 
   --
-  -- Name: mobilization_activists mobilization_activists_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: mobilization_activists mobilization_activists_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY mobilization_activists
@@ -7122,7 +7122,7 @@ ELSE
 
 
   --
-  -- Name: mobilizations mobilizations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: mobilizations mobilizations_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY mobilizations
@@ -7130,7 +7130,7 @@ ELSE
 
 
   --
-  -- Name: notification_templates notification_templates_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: notification_templates notification_templates_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY notification_templates
@@ -7138,7 +7138,7 @@ ELSE
 
 
   --
-  -- Name: notifications notifications_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: notifications notifications_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY notifications
@@ -7146,7 +7146,7 @@ ELSE
 
 
   --
-  -- Name: payable_transfers payable_transfers_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: payable_transfers payable_transfers_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY payable_transfers
@@ -7154,7 +7154,7 @@ ELSE
 
 
   --
-  -- Name: payments payments_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: payments payments_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY payments
@@ -7162,7 +7162,7 @@ ELSE
 
 
   --
-  -- Name: plans plans_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: plans plans_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY plans
@@ -7170,7 +7170,7 @@ ELSE
 
 
   --
-  -- Name: recipients recipients_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: recipients recipients_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY recipients
@@ -7178,7 +7178,7 @@ ELSE
 
 
   --
-  -- Name: subscription_transitions subscription_transitions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: subscription_transitions subscription_transitions_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY subscription_transitions
@@ -7186,7 +7186,7 @@ ELSE
 
 
   --
-  -- Name: subscriptions subscriptions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: subscriptions subscriptions_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY subscriptions
@@ -7194,7 +7194,7 @@ ELSE
 
 
   --
-  -- Name: taggings taggings_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: taggings taggings_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY taggings
@@ -7202,7 +7202,7 @@ ELSE
 
 
   --
-  -- Name: tags tags_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: tags tags_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY tags
@@ -7210,7 +7210,7 @@ ELSE
 
 
   --
-  -- Name: template_blocks template_blocks_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: template_blocks template_blocks_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY template_blocks
@@ -7218,7 +7218,7 @@ ELSE
 
 
   --
-  -- Name: template_mobilizations template_mobilizations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: template_mobilizations template_mobilizations_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY template_mobilizations
@@ -7226,7 +7226,7 @@ ELSE
 
 
   --
-  -- Name: template_widgets template_widgets_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: template_widgets template_widgets_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY template_widgets
@@ -7234,7 +7234,7 @@ ELSE
 
 
   --
-  -- Name: twilio_call_transitions twilio_call_transitions_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: twilio_call_transitions twilio_call_transitions_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY twilio_call_transitions
@@ -7242,7 +7242,7 @@ ELSE
 
 
   --
-  -- Name: twilio_calls twilio_calls_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: twilio_calls twilio_calls_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY twilio_calls
@@ -7250,7 +7250,7 @@ ELSE
 
 
   --
-  -- Name: twilio_configurations twilio_configurations_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: twilio_configurations twilio_configurations_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY twilio_configurations
@@ -7258,7 +7258,7 @@ ELSE
 
 
   --
-  -- Name: user_tags user_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: user_tags user_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY user_tags
@@ -7266,7 +7266,7 @@ ELSE
 
 
   --
-  -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY users
@@ -7274,7 +7274,7 @@ ELSE
 
 
   --
-  -- Name: widgets widgets_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: widgets widgets_pkey; Type: CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY widgets
@@ -7282,546 +7282,546 @@ ELSE
 
 
   --
-  -- Name: ids_blocks_mob_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: ids_blocks_mob_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX ids_blocks_mob_id ON public.blocks USING btree (mobilization_id);
 
 
   --
-  -- Name: ids_widgets_block_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: ids_widgets_block_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX ids_widgets_block_id ON public.widgets USING btree (block_id);
 
 
   --
-  -- Name: ids_widgets_kind; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: ids_widgets_kind; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX ids_widgets_kind ON public.widgets USING btree (kind);
 
 
   --
-  -- Name: idx_activists_on_bot_interations; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: idx_activists_on_bot_interations; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX idx_activists_on_bot_interations ON public.activist_facebook_bot_interactions USING btree (activist_id);
 
 
   --
-  -- Name: idx_bot_config_on_bot_interactions; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: idx_bot_config_on_bot_interactions; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX idx_bot_config_on_bot_interactions ON public.activist_facebook_bot_interactions USING btree (facebook_bot_configuration_id);
 
 
   --
-  -- Name: idx_facebook_bot_campaign_activists_on_facebook_bot_activist_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: idx_facebook_bot_campaign_activists_on_facebook_bot_activist_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX idx_facebook_bot_campaign_activists_on_facebook_bot_activist_id ON public.facebook_bot_campaign_activists USING btree (facebook_bot_activist_id);
 
 
   --
-  -- Name: idx_facebook_bot_campaign_activists_on_facebook_bot_campaign_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: idx_facebook_bot_campaign_activists_on_facebook_bot_campaign_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX idx_facebook_bot_campaign_activists_on_facebook_bot_campaign_id ON public.facebook_bot_campaign_activists USING btree (facebook_bot_campaign_id);
 
 
   --
-  -- Name: idx_form_entries_activist_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: idx_form_entries_activist_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX idx_form_entries_activist_id ON public.form_entries USING btree (activist_id);
 
 
   --
-  -- Name: idx_mobilizations_custom_domain; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: idx_mobilizations_custom_domain; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX idx_mobilizations_custom_domain ON public.mobilizations USING btree (custom_domain);
 
 
   --
-  -- Name: idx_mobilizations_slug; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: idx_mobilizations_slug; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX idx_mobilizations_slug ON public.mobilizations USING btree (slug);
 
 
   --
-  -- Name: index_activist_matches_on_activist_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_activist_matches_on_activist_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_activist_matches_on_activist_id ON public.activist_matches USING btree (activist_id);
 
 
   --
-  -- Name: index_activist_matches_on_match_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_activist_matches_on_match_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_activist_matches_on_match_id ON public.activist_matches USING btree (match_id);
 
 
   --
-  -- Name: index_activist_pressures_on_activist_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_activist_pressures_on_activist_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_activist_pressures_on_activist_id ON public.activist_pressures USING btree (activist_id);
 
 
   --
-  -- Name: index_activist_pressures_on_widget_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_activist_pressures_on_widget_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_activist_pressures_on_widget_id ON public.activist_pressures USING btree (widget_id);
 
 
   --
-  -- Name: index_activist_tags_on_activist_id_and_community_id_and_mob_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_activist_tags_on_activist_id_and_community_id_and_mob_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_activist_tags_on_activist_id_and_community_id_and_mob_id ON public.activist_tags USING btree (activist_id, community_id, mobilization_id);
 
 
   --
-  -- Name: index_activists_on_created_at; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_activists_on_created_at; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_activists_on_created_at ON public.activists USING btree (created_at DESC);
 
 
   --
-  -- Name: index_activists_on_email; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_activists_on_email; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_activists_on_email ON public.activists USING btree (email);
 
 
   --
-  -- Name: index_addresses_on_activist_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_addresses_on_activist_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_addresses_on_activist_id ON public.addresses USING btree (activist_id);
 
 
   --
-  -- Name: index_balance_operations_on_recipient_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_balance_operations_on_recipient_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_balance_operations_on_recipient_id ON public.balance_operations USING btree (recipient_id);
 
 
   --
-  -- Name: index_community_activists_on_activist_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_community_activists_on_activist_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_community_activists_on_activist_id ON public.community_activists USING btree (activist_id);
 
 
   --
-  -- Name: index_community_activists_on_community_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_community_activists_on_community_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_community_activists_on_community_id ON public.community_activists USING btree (community_id);
 
 
   --
-  -- Name: index_community_activists_on_community_id_and_activist_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_community_activists_on_community_id_and_activist_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_community_activists_on_community_id_and_activist_id ON public.community_activists USING btree (community_id, activist_id);
 
 
   --
-  -- Name: index_configurations_on_name; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_configurations_on_name; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_configurations_on_name ON public.configurations USING btree (name);
 
 
   --
-  -- Name: index_credit_cards_on_activist_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_credit_cards_on_activist_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_credit_cards_on_activist_id ON public.credit_cards USING btree (activist_id);
 
 
   --
-  -- Name: index_dns_hosted_zones_on_domain_name; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_dns_hosted_zones_on_domain_name; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_dns_hosted_zones_on_domain_name ON public.dns_hosted_zones USING btree (domain_name);
 
 
   --
-  -- Name: index_dns_records_on_name_and_record_type; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_dns_records_on_name_and_record_type; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_dns_records_on_name_and_record_type ON public.dns_records USING btree (name, record_type);
 
 
   --
-  -- Name: index_donation_transitions_parent_most_recent; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_donation_transitions_parent_most_recent; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_donation_transitions_parent_most_recent ON public.donation_transitions USING btree (donation_id, most_recent) WHERE most_recent;
 
 
   --
-  -- Name: index_donation_transitions_parent_sort; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_donation_transitions_parent_sort; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_donation_transitions_parent_sort ON public.donation_transitions USING btree (donation_id, sort_key);
 
 
   --
-  -- Name: index_donations_on_activist_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_donations_on_activist_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_donations_on_activist_id ON public.donations USING btree (activist_id);
 
 
   --
-  -- Name: index_donations_on_customer; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_donations_on_customer; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_donations_on_customer ON public.donations USING gin (customer);
 
 
   --
-  -- Name: index_donations_on_payable_transfer_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_donations_on_payable_transfer_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_donations_on_payable_transfer_id ON public.donations USING btree (payable_transfer_id);
 
 
   --
-  -- Name: index_donations_on_transaction_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_donations_on_transaction_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_donations_on_transaction_id ON public.donations USING btree (transaction_id);
 
 
   --
-  -- Name: index_donations_on_widget_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_donations_on_widget_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_donations_on_widget_id ON public.donations USING btree (widget_id);
 
 
   --
-  -- Name: index_facebook_bot_activists_on_interaction_dates; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_facebook_bot_activists_on_interaction_dates; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_facebook_bot_activists_on_interaction_dates ON public.facebook_bot_activists USING btree (interaction_dates);
 
 
   --
-  -- Name: index_facebook_bot_activists_on_messages; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_facebook_bot_activists_on_messages; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_facebook_bot_activists_on_messages ON public.facebook_bot_activists USING gin (messages);
 
 
   --
-  -- Name: index_facebook_bot_activists_on_quick_replies; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_facebook_bot_activists_on_quick_replies; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_facebook_bot_activists_on_quick_replies ON public.facebook_bot_activists USING btree (quick_replies);
 
 
   --
-  -- Name: index_facebook_bot_activists_on_recipient_id_and_sender_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_facebook_bot_activists_on_recipient_id_and_sender_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_facebook_bot_activists_on_recipient_id_and_sender_id ON public.facebook_bot_activists USING btree (fb_context_recipient_id, fb_context_sender_id);
 
 
   --
-  -- Name: index_facebook_bot_campaigns_on_facebook_bot_configuration_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_facebook_bot_campaigns_on_facebook_bot_configuration_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_facebook_bot_campaigns_on_facebook_bot_configuration_id ON public.facebook_bot_campaigns USING btree (facebook_bot_configuration_id);
 
 
   --
-  -- Name: index_form_entries_on_widget_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_form_entries_on_widget_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_form_entries_on_widget_id ON public.form_entries USING btree (widget_id);
 
 
   --
-  -- Name: index_gateway_subscriptions_on_subscription_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_gateway_subscriptions_on_subscription_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_gateway_subscriptions_on_subscription_id ON public.gateway_subscriptions USING btree (subscription_id);
 
 
   --
-  -- Name: index_invitations_on_community_id_and_code; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_invitations_on_community_id_and_code; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_invitations_on_community_id_and_code ON public.invitations USING btree (community_id, code);
 
 
   --
-  -- Name: index_matches_on_widget_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_matches_on_widget_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_matches_on_widget_id ON public.matches USING btree (widget_id);
 
 
   --
-  -- Name: index_mobilization_activists_on_activist_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_mobilization_activists_on_activist_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_mobilization_activists_on_activist_id ON public.mobilization_activists USING btree (activist_id);
 
 
   --
-  -- Name: index_mobilization_activists_on_mobilization_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_mobilization_activists_on_mobilization_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_mobilization_activists_on_mobilization_id ON public.mobilization_activists USING btree (mobilization_id);
 
 
   --
-  -- Name: index_mobilization_activists_on_mobilization_id_and_activist_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_mobilization_activists_on_mobilization_id_and_activist_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_mobilization_activists_on_mobilization_id_and_activist_id ON public.mobilization_activists USING btree (mobilization_id, activist_id);
 
 
   --
-  -- Name: index_mobilizations_on_community_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_mobilizations_on_community_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_mobilizations_on_community_id ON public.mobilizations USING btree (community_id);
 
 
   --
-  -- Name: index_mobilizations_on_custom_domain; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_mobilizations_on_custom_domain; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_mobilizations_on_custom_domain ON public.mobilizations USING btree (custom_domain);
 
 
   --
-  -- Name: index_mobilizations_on_slug; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_mobilizations_on_slug; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_mobilizations_on_slug ON public.mobilizations USING btree (slug);
 
 
   --
-  -- Name: index_notifications_on_activist_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_notifications_on_activist_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_notifications_on_activist_id ON public.notifications USING btree (activist_id);
 
 
   --
-  -- Name: index_notifications_on_community_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_notifications_on_community_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_notifications_on_community_id ON public.notifications USING btree (community_id);
 
 
   --
-  -- Name: index_notifications_on_notification_template_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_notifications_on_notification_template_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_notifications_on_notification_template_id ON public.notifications USING btree (notification_template_id);
 
 
   --
-  -- Name: index_payments_on_donation_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_payments_on_donation_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_payments_on_donation_id ON public.payments USING btree (donation_id);
 
 
   --
-  -- Name: index_subscription_transitions_parent_most_recent; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_subscription_transitions_parent_most_recent; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_subscription_transitions_parent_most_recent ON public.subscription_transitions USING btree (subscription_id, most_recent) WHERE most_recent;
 
 
   --
-  -- Name: index_subscription_transitions_parent_sort; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_subscription_transitions_parent_sort; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_subscription_transitions_parent_sort ON public.subscription_transitions USING btree (subscription_id, sort_key);
 
 
   --
-  -- Name: index_subscriptions_on_activist_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_subscriptions_on_activist_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_subscriptions_on_activist_id ON public.subscriptions USING btree (activist_id);
 
 
   --
-  -- Name: index_subscriptions_on_community_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_subscriptions_on_community_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_subscriptions_on_community_id ON public.subscriptions USING btree (community_id);
 
 
   --
-  -- Name: index_subscriptions_on_widget_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_subscriptions_on_widget_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_subscriptions_on_widget_id ON public.subscriptions USING btree (widget_id);
 
 
   --
-  -- Name: index_taggings_on_context; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_taggings_on_context; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_taggings_on_context ON public.taggings USING btree (context);
 
 
   --
-  -- Name: index_taggings_on_tag_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_taggings_on_tag_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_taggings_on_tag_id ON public.taggings USING btree (tag_id);
 
 
   --
-  -- Name: index_taggings_on_taggable_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_taggings_on_taggable_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_taggings_on_taggable_id ON public.taggings USING btree (taggable_id);
 
 
   --
-  -- Name: index_taggings_on_taggable_id_and_taggable_type; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_taggings_on_taggable_id_and_taggable_type; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_taggings_on_taggable_id_and_taggable_type ON public.taggings USING btree (taggable_id, taggable_type);
 
 
   --
-  -- Name: index_taggings_on_taggable_id_and_taggable_type_and_context; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_taggings_on_taggable_id_and_taggable_type_and_context; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_taggings_on_taggable_id_and_taggable_type_and_context ON public.taggings USING btree (taggable_id, taggable_type, context);
 
 
   --
-  -- Name: index_taggings_on_taggable_type; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_taggings_on_taggable_type; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_taggings_on_taggable_type ON public.taggings USING btree (taggable_type);
 
 
   --
-  -- Name: index_taggings_on_tagger_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_taggings_on_tagger_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_taggings_on_tagger_id ON public.taggings USING btree (tagger_id);
 
 
   --
-  -- Name: index_taggings_on_tagger_id_and_tagger_type; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_taggings_on_tagger_id_and_tagger_type; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_taggings_on_tagger_id_and_tagger_type ON public.taggings USING btree (tagger_id, tagger_type);
 
 
   --
-  -- Name: index_tags_on_name; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_tags_on_name; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_tags_on_name ON public.tags USING btree (name);
 
 
   --
-  -- Name: index_twilio_calls_on_widget_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_twilio_calls_on_widget_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_twilio_calls_on_widget_id ON public.twilio_calls USING btree (widget_id);
 
 
   --
-  -- Name: index_twilio_configurations_on_community_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_twilio_configurations_on_community_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_twilio_configurations_on_community_id ON public.twilio_configurations USING btree (community_id);
 
 
   --
-  -- Name: index_user_tags_on_user_id; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_user_tags_on_user_id; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_user_tags_on_user_id ON public.user_tags USING btree (user_id);
 
 
   --
-  -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_users_on_email; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX index_users_on_email ON public.users USING btree (email);
 
 
   --
-  -- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_users_on_reset_password_token; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_users_on_reset_password_token ON public.users USING btree (reset_password_token);
 
 
   --
-  -- Name: index_users_on_uid_and_provider; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: index_users_on_uid_and_provider; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX index_users_on_uid_and_provider ON public.users USING btree (uid, provider);
 
 
   --
-  -- Name: notification_templates_label_uniq_idx; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: notification_templates_label_uniq_idx; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX notification_templates_label_uniq_idx ON public.notification_templates USING btree (community_id, label, locale);
 
 
   --
-  -- Name: ordasc_widgets; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: ordasc_widgets; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX ordasc_widgets ON public.widgets USING btree (id);
 
 
   --
-  -- Name: taggings_idx; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: taggings_idx; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX taggings_idx ON public.taggings USING btree (tag_id, taggable_id, taggable_type, context, tagger_id, tagger_type);
 
 
   --
-  -- Name: taggings_idy; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: taggings_idy; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE INDEX taggings_idy ON public.taggings USING btree (taggable_id, taggable_type, tagger_id, context);
 
 
   --
-  -- Name: uniq_email_acts; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: uniq_email_acts; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX uniq_email_acts ON public.activists USING btree (lower(((email)::email)::text));
 
 
   --
-  -- Name: uniq_m_page_access_token_idx; Type: INDEX; Schema: public; Owner: postgres
+  -- Name: uniq_m_page_access_token_idx; Type: INDEX; Schema: public; Owner: monkey_user
   --
 
   CREATE UNIQUE INDEX uniq_m_page_access_token_idx ON public.facebook_bot_configurations USING btree (messenger_page_access_token);
@@ -7830,7 +7830,7 @@ ELSE
   SET search_path = postgraphql, pg_catalog;
 
   --
-  -- Name: users _RETURN; Type: RULE; Schema: postgraphql; Owner: postgres
+  -- Name: users _RETURN; Type: RULE; Schema: postgraphql; Owner: monkey_user
   --
 
   CREATE OR REPLACE VIEW users AS
@@ -7870,7 +7870,7 @@ ELSE
   SET search_path = public, pg_catalog;
 
   --
-  -- Name: agg_activists _RETURN; Type: RULE; Schema: public; Owner: postgres
+  -- Name: agg_activists _RETURN; Type: RULE; Schema: public; Owner: monkey_user
   --
 
   CREATE OR REPLACE VIEW agg_activists AS
@@ -7951,7 +7951,7 @@ ELSE
 
 
   --
-  -- Name: activist_participations _RETURN; Type: RULE; Schema: public; Owner: postgres
+  -- Name: activist_participations _RETURN; Type: RULE; Schema: public; Owner: monkey_user
   --
 
   CREATE OR REPLACE VIEW activist_participations AS
@@ -7983,70 +7983,70 @@ ELSE
 
 
   --
-  -- Name: form_entries generate_activists_from_generic_resource_with_widget; Type: TRIGGER; Schema: public; Owner: postgres
+  -- Name: form_entries generate_activists_from_generic_resource_with_widget; Type: TRIGGER; Schema: public; Owner: monkey_user
   --
 
   CREATE TRIGGER generate_activists_from_generic_resource_with_widget AFTER INSERT OR UPDATE ON public.form_entries FOR EACH ROW EXECUTE PROCEDURE generate_activists_from_generic_resource_with_widget();
 
 
   --
-  -- Name: activist_pressures generate_activists_from_generic_resource_with_widget; Type: TRIGGER; Schema: public; Owner: postgres
+  -- Name: activist_pressures generate_activists_from_generic_resource_with_widget; Type: TRIGGER; Schema: public; Owner: monkey_user
   --
 
   CREATE TRIGGER generate_activists_from_generic_resource_with_widget AFTER INSERT OR UPDATE ON public.activist_pressures FOR EACH ROW EXECUTE PROCEDURE generate_activists_from_generic_resource_with_widget();
 
 
   --
-  -- Name: donations generate_activists_from_generic_resource_with_widget; Type: TRIGGER; Schema: public; Owner: postgres
+  -- Name: donations generate_activists_from_generic_resource_with_widget; Type: TRIGGER; Schema: public; Owner: monkey_user
   --
 
   CREATE TRIGGER generate_activists_from_generic_resource_with_widget AFTER INSERT OR UPDATE ON public.donations FOR EACH ROW EXECUTE PROCEDURE generate_activists_from_generic_resource_with_widget();
 
 
   --
-  -- Name: subscriptions generate_activists_from_generic_resource_with_widget; Type: TRIGGER; Schema: public; Owner: postgres
+  -- Name: subscriptions generate_activists_from_generic_resource_with_widget; Type: TRIGGER; Schema: public; Owner: monkey_user
   --
 
   CREATE TRIGGER generate_activists_from_generic_resource_with_widget AFTER INSERT OR UPDATE ON public.subscriptions FOR EACH ROW EXECUTE PROCEDURE generate_activists_from_generic_resource_with_widget();
 
 
   --
-  -- Name: mobilizations refresh_custom_domain_frontend; Type: TRIGGER; Schema: public; Owner: postgres
+  -- Name: mobilizations refresh_custom_domain_frontend; Type: TRIGGER; Schema: public; Owner: monkey_user
   --
 
   CREATE TRIGGER refresh_custom_domain_frontend AFTER INSERT OR UPDATE OF traefik_host_rule ON public.mobilizations FOR EACH ROW WHEN ((new.traefik_host_rule IS NOT NULL)) EXECUTE PROCEDURE refresh_custom_domain_frontend();
 
 
   --
-  -- Name: activist_facebook_bot_interactions update_facebook_bot_activist_data; Type: TRIGGER; Schema: public; Owner: postgres
+  -- Name: activist_facebook_bot_interactions update_facebook_bot_activist_data; Type: TRIGGER; Schema: public; Owner: monkey_user
   --
 
   CREATE TRIGGER update_facebook_bot_activist_data AFTER INSERT OR UPDATE ON public.activist_facebook_bot_interactions FOR EACH ROW EXECUTE PROCEDURE update_facebook_bot_activists_full_text_index();
 
 
   --
-  -- Name: twilio_configurations watched_create_twilio_configuration_trigger; Type: TRIGGER; Schema: public; Owner: postgres
+  -- Name: twilio_configurations watched_create_twilio_configuration_trigger; Type: TRIGGER; Schema: public; Owner: monkey_user
   --
 
   CREATE TRIGGER watched_create_twilio_configuration_trigger AFTER INSERT OR UPDATE ON public.twilio_configurations FOR EACH ROW EXECUTE PROCEDURE notify_create_twilio_configuration_trigger();
 
 
   --
-  -- Name: mobilizations watched_custom_domain; Type: TRIGGER; Schema: public; Owner: postgres
+  -- Name: mobilizations watched_custom_domain; Type: TRIGGER; Schema: public; Owner: monkey_user
   --
 
   CREATE TRIGGER watched_custom_domain AFTER INSERT OR DELETE OR UPDATE ON public.mobilizations FOR EACH ROW EXECUTE PROCEDURE verify_custom_domain();
 
 
   --
-  -- Name: twilio_calls watched_twilio_call_trigger; Type: TRIGGER; Schema: public; Owner: postgres
+  -- Name: twilio_calls watched_twilio_call_trigger; Type: TRIGGER; Schema: public; Owner: monkey_user
   --
 
   CREATE TRIGGER watched_twilio_call_trigger AFTER INSERT ON public.twilio_calls FOR EACH ROW EXECUTE PROCEDURE notify_twilio_call_trigger();
 
 
   --
-  -- Name: notification_templates fk_rails_015164fe8d; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: notification_templates fk_rails_015164fe8d; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY notification_templates
@@ -8054,7 +8054,7 @@ ELSE
 
 
   --
-  -- Name: mobilizations fk_rails_0786dde5c3; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: mobilizations fk_rails_0786dde5c3; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY mobilizations
@@ -8062,7 +8062,7 @@ ELSE
 
 
   --
-  -- Name: subscriptions fk_rails_0ded3585f1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: subscriptions fk_rails_0ded3585f1; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY subscriptions
@@ -8070,7 +8070,7 @@ ELSE
 
 
   --
-  -- Name: facebook_bot_campaign_activists fk_rails_0ff272a657; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: facebook_bot_campaign_activists fk_rails_0ff272a657; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY facebook_bot_campaign_activists
@@ -8078,7 +8078,7 @@ ELSE
 
 
   --
-  -- Name: activist_matches fk_rails_26ca62b2d0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activist_matches fk_rails_26ca62b2d0; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_matches
@@ -8086,7 +8086,7 @@ ELSE
 
 
   --
-  -- Name: notifications fk_rails_2fb35253bd; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: notifications fk_rails_2fb35253bd; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY notifications
@@ -8094,7 +8094,7 @@ ELSE
 
 
   --
-  -- Name: recipients fk_rails_35bdfe7f89; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: recipients fk_rails_35bdfe7f89; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY recipients
@@ -8102,7 +8102,7 @@ ELSE
 
 
   --
-  -- Name: subscriptions fk_rails_3bd353c401; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: subscriptions fk_rails_3bd353c401; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY subscriptions
@@ -8110,7 +8110,7 @@ ELSE
 
 
   --
-  -- Name: activist_pressures fk_rails_3ff765ac30; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activist_pressures fk_rails_3ff765ac30; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_pressures
@@ -8118,7 +8118,7 @@ ELSE
 
 
   --
-  -- Name: activist_tags fk_rails_4d2ba73b48; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activist_tags fk_rails_4d2ba73b48; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_tags
@@ -8126,7 +8126,7 @@ ELSE
 
 
   --
-  -- Name: notifications fk_rails_4ea5195391; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: notifications fk_rails_4ea5195391; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY notifications
@@ -8134,7 +8134,7 @@ ELSE
 
 
   --
-  -- Name: matches fk_rails_5238d1bbc9; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: matches fk_rails_5238d1bbc9; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY matches
@@ -8142,7 +8142,7 @@ ELSE
 
 
   --
-  -- Name: subscriptions fk_rails_61f00b3de3; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: subscriptions fk_rails_61f00b3de3; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY subscriptions
@@ -8150,7 +8150,7 @@ ELSE
 
 
   --
-  -- Name: addresses fk_rails_64d1e99667; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: addresses fk_rails_64d1e99667; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY addresses
@@ -8158,7 +8158,7 @@ ELSE
 
 
   --
-  -- Name: activist_pressures fk_rails_67eb37c69b; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activist_pressures fk_rails_67eb37c69b; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_pressures
@@ -8166,7 +8166,7 @@ ELSE
 
 
   --
-  -- Name: facebook_bot_campaign_activists fk_rails_6ed0c7457d; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: facebook_bot_campaign_activists fk_rails_6ed0c7457d; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY facebook_bot_campaign_activists
@@ -8174,7 +8174,7 @@ ELSE
 
 
   --
-  -- Name: donations fk_rails_7217bc1bdf; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: donations fk_rails_7217bc1bdf; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY donations
@@ -8182,7 +8182,7 @@ ELSE
 
 
   --
-  -- Name: activist_matches fk_rails_7701a28e7f; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activist_matches fk_rails_7701a28e7f; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_matches
@@ -8190,7 +8190,7 @@ ELSE
 
 
   --
-  -- Name: activist_pressures fk_rails_7e28014775; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activist_pressures fk_rails_7e28014775; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_pressures
@@ -8198,7 +8198,7 @@ ELSE
 
 
   --
-  -- Name: mobilization_activists fk_rails_821106ac31; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: mobilization_activists fk_rails_821106ac31; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY mobilization_activists
@@ -8206,7 +8206,7 @@ ELSE
 
 
   --
-  -- Name: activist_facebook_bot_interactions fk_rails_8229429c26; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activist_facebook_bot_interactions fk_rails_8229429c26; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_facebook_bot_interactions
@@ -8214,7 +8214,7 @@ ELSE
 
 
   --
-  -- Name: twilio_calls fk_rails_8329ec7002; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: twilio_calls fk_rails_8329ec7002; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY twilio_calls
@@ -8222,7 +8222,7 @@ ELSE
 
 
   --
-  -- Name: notifications fk_rails_893eb4f32e; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: notifications fk_rails_893eb4f32e; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY notifications
@@ -8230,7 +8230,7 @@ ELSE
 
 
   --
-  -- Name: form_entries fk_rails_920c5d67ae; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: form_entries fk_rails_920c5d67ae; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY form_entries
@@ -8238,7 +8238,7 @@ ELSE
 
 
   --
-  -- Name: donations fk_rails_9279978f7a; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: donations fk_rails_9279978f7a; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY donations
@@ -8246,7 +8246,7 @@ ELSE
 
 
   --
-  -- Name: donations fk_rails_98e396f4c1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: donations fk_rails_98e396f4c1; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY donations
@@ -8254,7 +8254,7 @@ ELSE
 
 
   --
-  -- Name: mobilization_activists fk_rails_9c54902f75; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: mobilization_activists fk_rails_9c54902f75; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY mobilization_activists
@@ -8262,7 +8262,7 @@ ELSE
 
 
   --
-  -- Name: community_activists fk_rails_a007365593; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: community_activists fk_rails_a007365593; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY community_activists
@@ -8270,7 +8270,7 @@ ELSE
 
 
   --
-  -- Name: communities fk_rails_a268b06370; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: communities fk_rails_a268b06370; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY communities
@@ -8278,7 +8278,7 @@ ELSE
 
 
   --
-  -- Name: donations fk_rails_aaa30ab12e; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: donations fk_rails_aaa30ab12e; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY donations
@@ -8286,7 +8286,7 @@ ELSE
 
 
   --
-  -- Name: notifications fk_rails_b080fb4855; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: notifications fk_rails_b080fb4855; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY notifications
@@ -8294,7 +8294,7 @@ ELSE
 
 
   --
-  -- Name: activist_facebook_bot_interactions fk_rails_b2d73f1a99; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activist_facebook_bot_interactions fk_rails_b2d73f1a99; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_facebook_bot_interactions
@@ -8302,7 +8302,7 @@ ELSE
 
 
   --
-  -- Name: facebook_bot_campaigns fk_rails_b518e26154; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: facebook_bot_campaigns fk_rails_b518e26154; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY facebook_bot_campaigns
@@ -8310,7 +8310,7 @@ ELSE
 
 
   --
-  -- Name: donations fk_rails_c1941efec9; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: donations fk_rails_c1941efec9; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY donations
@@ -8318,7 +8318,7 @@ ELSE
 
 
   --
-  -- Name: dns_hosted_zones fk_rails_c6b1f8b17a; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: dns_hosted_zones fk_rails_c6b1f8b17a; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY dns_hosted_zones
@@ -8326,7 +8326,7 @@ ELSE
 
 
   --
-  -- Name: invitations fk_rails_c70c9be1c0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: invitations fk_rails_c70c9be1c0; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY invitations
@@ -8334,7 +8334,7 @@ ELSE
 
 
   --
-  -- Name: form_entries fk_rails_cbe3790222; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: form_entries fk_rails_cbe3790222; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY form_entries
@@ -8342,7 +8342,7 @@ ELSE
 
 
   --
-  -- Name: dns_records fk_rails_ce2c3e0b71; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: dns_records fk_rails_ce2c3e0b71; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY dns_records
@@ -8350,7 +8350,7 @@ ELSE
 
 
   --
-  -- Name: balance_operations fk_rails_cee230e2a2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: balance_operations fk_rails_cee230e2a2; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY balance_operations
@@ -8358,7 +8358,7 @@ ELSE
 
 
   --
-  -- Name: form_entries fk_rails_db28a0ad48; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: form_entries fk_rails_db28a0ad48; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY form_entries
@@ -8366,7 +8366,7 @@ ELSE
 
 
   --
-  -- Name: activist_tags fk_rails_e8fa6ecb6c; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: activist_tags fk_rails_e8fa6ecb6c; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY activist_tags
@@ -8374,7 +8374,7 @@ ELSE
 
 
   --
-  -- Name: user_tags fk_rails_ea0382482a; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: user_tags fk_rails_ea0382482a; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY user_tags
@@ -8382,7 +8382,7 @@ ELSE
 
 
   --
-  -- Name: community_activists fk_rails_fa4f63f07b; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: community_activists fk_rails_fa4f63f07b; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY community_activists
@@ -8390,7 +8390,7 @@ ELSE
 
 
   --
-  -- Name: subscriptions gateway_subscription_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+  -- Name: subscriptions gateway_subscription_fk; Type: FK CONSTRAINT; Schema: public; Owner: monkey_user
   --
 
   ALTER TABLE ONLY subscriptions
@@ -8398,7 +8398,7 @@ ELSE
 
 
   --
-  -- Name: postgraphile_watch_ddl; Type: EVENT TRIGGER; Schema: -; Owner: postgres
+  -- Name: postgraphile_watch_ddl; Type: EVENT TRIGGER; Schema: -; Owner: monkey_user
   --
 
   CREATE EVENT TRIGGER postgraphile_watch_ddl ON ddl_command_end
@@ -8406,27 +8406,27 @@ ELSE
     EXECUTE PROCEDURE postgraphile_watch.notify_watchers_ddl();
 
 
-    ALTER EVENT TRIGGER postgraphile_watch_ddl OWNER TO postgres;
+    -- ALTER EVENT TRIGGER postgraphile_watch_ddl OWNER TO monkey_user;
 
     --
-    -- Name: postgraphile_watch_drop; Type: EVENT TRIGGER; Schema: -; Owner: postgres
+    -- Name: postgraphile_watch_drop; Type: EVENT TRIGGER; Schema: -; Owner: monkey_user
     --
 
     CREATE EVENT TRIGGER postgraphile_watch_drop ON sql_drop
     EXECUTE PROCEDURE postgraphile_watch.notify_watchers_drop();
 
 
-    ALTER EVENT TRIGGER postgraphile_watch_drop OWNER TO postgres;
+    ALTER EVENT TRIGGER postgraphile_watch_drop OWNER TO monkey_user;
 
     --
-    -- Name: microservices; Type: ACL; Schema: -; Owner: postgres
+    -- Name: microservices; Type: ACL; Schema: -; Owner: monkey_user
     --
 
     GRANT USAGE ON SCHEMA microservices TO microservices;
 
 
     --
-    -- Name: pgjwt; Type: ACL; Schema: -; Owner: postgres
+    -- Name: pgjwt; Type: ACL; Schema: -; Owner: monkey_user
     --
 
     GRANT USAGE ON SCHEMA pgjwt TO microservices;
@@ -8435,7 +8435,7 @@ ELSE
 
 
     --
-    -- Name: postgraphql; Type: ACL; Schema: -; Owner: postgres
+    -- Name: postgraphql; Type: ACL; Schema: -; Owner: monkey_user
     --
 
     GRANT USAGE ON SCHEMA postgraphql TO anonymous;
@@ -8444,7 +8444,7 @@ ELSE
 
 
     --
-    -- Name: public; Type: ACL; Schema: -; Owner: postgres
+    -- Name: public; Type: ACL; Schema: -; Owner: monkey_user
     --
 
     REVOKE ALL ON SCHEMA public FROM PUBLIC;
@@ -8458,7 +8458,7 @@ ELSE
     SET search_path = microservices, pg_catalog;
 
     --
-    -- Name: create_community_dns(json); Type: ACL; Schema: microservices; Owner: postgres
+    -- Name: create_community_dns(json); Type: ACL; Schema: microservices; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION create_community_dns(data json) TO microservices;
@@ -8468,7 +8468,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: users; Type: ACL; Schema: public; Owner: postgres
+    -- Name: users; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT,UPDATE ON TABLE users TO common_user;
@@ -8478,7 +8478,7 @@ ELSE
 
 
     --
-    -- Name: twilio_calls; Type: ACL; Schema: public; Owner: postgres
+    -- Name: twilio_calls; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE twilio_calls TO admin;
@@ -8489,7 +8489,7 @@ ELSE
     SET search_path = postgraphql, pg_catalog;
 
     --
-    -- Name: twilio_calls; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: twilio_calls; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE twilio_calls TO admin;
@@ -8498,7 +8498,7 @@ ELSE
 
 
     --
-    -- Name: twilio_configurations; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: twilio_configurations; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE twilio_configurations TO admin;
@@ -8506,7 +8506,7 @@ ELSE
 
 
     --
-    -- Name: change_password(json); Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: change_password(json); Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION change_password(data json) TO common_user;
@@ -8517,7 +8517,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: invitations; Type: ACL; Schema: public; Owner: postgres
+    -- Name: invitations; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE invitations TO anonymous;
@@ -8529,7 +8529,7 @@ ELSE
     SET search_path = postgraphql, pg_catalog;
 
     --
-    -- Name: create_community(json); Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: create_community(json); Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION create_community(data json) TO common_user;
@@ -8538,7 +8538,7 @@ ELSE
 
 
     --
-    -- Name: create_dns_record(json); Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: create_dns_record(json); Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION create_dns_record(data json) TO postgraphql;
@@ -8547,7 +8547,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: facebook_bot_campaigns; Type: ACL; Schema: public; Owner: postgres
+    -- Name: facebook_bot_campaigns; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE facebook_bot_campaigns TO admin;
@@ -8557,7 +8557,7 @@ ELSE
     SET search_path = postgraphql, pg_catalog;
 
     --
-    -- Name: create_tags(text, text); Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: create_tags(text, text); Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION create_tags(name text, label text) TO common_user;
@@ -8566,7 +8566,7 @@ ELSE
 
 
     --
-    -- Name: create_user_tags(json); Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: create_user_tags(json); Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION create_user_tags(data json) TO common_user;
@@ -8575,7 +8575,7 @@ ELSE
 
 
     --
-    -- Name: users; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: users; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE users TO common_user;
@@ -8584,14 +8584,14 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: template_mobilizations; Type: ACL; Schema: public; Owner: postgres
+    -- Name: template_mobilizations; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE template_mobilizations TO common_user;
 
 
     --
-    -- Name: activist_tags; Type: ACL; Schema: public; Owner: postgres
+    -- Name: activist_tags; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT ON TABLE activist_tags TO common_user;
@@ -8599,7 +8599,7 @@ ELSE
 
 
     --
-    -- Name: taggings; Type: ACL; Schema: public; Owner: postgres
+    -- Name: taggings; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT ON TABLE taggings TO common_user;
@@ -8607,7 +8607,7 @@ ELSE
 
 
     --
-    -- Name: tags; Type: ACL; Schema: public; Owner: postgres
+    -- Name: tags; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT,UPDATE ON TABLE tags TO common_user;
@@ -8616,7 +8616,7 @@ ELSE
 
 
     --
-    -- Name: community_tags; Type: ACL; Schema: public; Owner: postgres
+    -- Name: community_tags; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE community_tags TO common_user;
@@ -8626,7 +8626,7 @@ ELSE
     SET search_path = postgraphql, pg_catalog;
 
     --
-    -- Name: community_tags; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: community_tags; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE community_tags TO common_user;
@@ -8634,14 +8634,14 @@ ELSE
 
 
     --
-    -- Name: get_widget_donation_stats(integer); Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: get_widget_donation_stats(integer); Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION get_widget_donation_stats(widget_id integer) TO anonymous;
 
 
     --
-    -- Name: mobilizations(integer); Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: mobilizations(integer); Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION mobilizations(days integer) TO common_user;
@@ -8652,7 +8652,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: communities; Type: ACL; Schema: public; Owner: postgres
+    -- Name: communities; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT ON TABLE communities TO common_user;
@@ -8663,7 +8663,7 @@ ELSE
     SET search_path = postgraphql, pg_catalog;
 
     --
-    -- Name: communities; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: communities; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE communities TO common_user;
@@ -8674,7 +8674,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: mobilizations; Type: ACL; Schema: public; Owner: postgres
+    -- Name: mobilizations; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE mobilizations TO common_user;
@@ -8685,7 +8685,7 @@ ELSE
     SET search_path = postgraphql, pg_catalog;
 
     --
-    -- Name: mobilizations; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: mobilizations; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE mobilizations TO common_user;
@@ -8694,14 +8694,14 @@ ELSE
 
 
     --
-    -- Name: reset_password_change_password(text, text); Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: reset_password_change_password(text, text); Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION reset_password_change_password(new_password text, token text) TO anonymous;
 
 
     --
-    -- Name: reset_password_token_verify(text); Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: reset_password_token_verify(text); Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION reset_password_token_verify(token text) TO anonymous;
@@ -8710,7 +8710,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: activists; Type: ACL; Schema: public; Owner: postgres
+    -- Name: activists; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT ON TABLE activists TO admin;
@@ -8718,7 +8718,7 @@ ELSE
 
 
     --
-    -- Name: community_activists; Type: ACL; Schema: public; Owner: postgres
+    -- Name: community_activists; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT ON TABLE community_activists TO common_user;
@@ -8726,7 +8726,7 @@ ELSE
 
 
     --
-    -- Name: community_users; Type: ACL; Schema: public; Owner: postgres
+    -- Name: community_users; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT ON TABLE community_users TO common_user;
@@ -8738,7 +8738,7 @@ ELSE
     SET search_path = postgraphql, pg_catalog;
 
     --
-    -- Name: activists; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: activists; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE activists TO common_user;
@@ -8746,7 +8746,7 @@ ELSE
 
 
     --
-    -- Name: total_sum_transfer_operations_from_community(integer); Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: total_sum_transfer_operations_from_community(integer); Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION total_sum_transfer_operations_from_community(community_id integer) TO common_user;
@@ -8756,7 +8756,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: facebook_bot_campaign_activists; Type: ACL; Schema: public; Owner: postgres
+    -- Name: facebook_bot_campaign_activists; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE facebook_bot_campaign_activists TO admin;
@@ -8766,7 +8766,7 @@ ELSE
     SET search_path = postgraphql, pg_catalog;
 
     --
-    -- Name: user_mobilizations; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: user_mobilizations; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE user_mobilizations TO common_user;
@@ -8774,7 +8774,7 @@ ELSE
 
 
     --
-    -- Name: user_mobilizations_community(user_mobilizations); Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: user_mobilizations_community(user_mobilizations); Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION user_mobilizations_community(m user_mobilizations) TO common_user;
@@ -8782,7 +8782,7 @@ ELSE
 
 
     --
-    -- Name: user_mobilizations_score(user_mobilizations); Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: user_mobilizations_score(user_mobilizations); Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION user_mobilizations_score(m user_mobilizations) TO common_user;
@@ -8792,7 +8792,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: configuration(text); Type: ACL; Schema: public; Owner: postgres
+    -- Name: configuration(text); Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION configuration(name text) TO microservices;
@@ -8801,7 +8801,7 @@ ELSE
 
 
     --
-    -- Name: form_entries; Type: ACL; Schema: public; Owner: postgres
+    -- Name: form_entries; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE form_entries TO common_user;
@@ -8809,7 +8809,7 @@ ELSE
 
 
     --
-    -- Name: activist_pressures; Type: ACL; Schema: public; Owner: postgres
+    -- Name: activist_pressures; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE activist_pressures TO common_user;
@@ -8817,7 +8817,7 @@ ELSE
 
 
     --
-    -- Name: subscriptions; Type: ACL; Schema: public; Owner: postgres
+    -- Name: subscriptions; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE subscriptions TO common_user;
@@ -8825,7 +8825,7 @@ ELSE
 
 
     --
-    -- Name: donations; Type: ACL; Schema: public; Owner: postgres
+    -- Name: donations; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE donations TO common_user;
@@ -8834,7 +8834,7 @@ ELSE
 
 
     --
-    -- Name: verify_custom_domain(); Type: ACL; Schema: public; Owner: postgres
+    -- Name: verify_custom_domain(); Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT ALL ON FUNCTION verify_custom_domain() TO postgraphql;
@@ -8845,14 +8845,14 @@ ELSE
     SET search_path = microservices, pg_catalog;
 
     --
-    -- Name: certificates; Type: ACL; Schema: microservices; Owner: postgres
+    -- Name: certificates; Type: ACL; Schema: microservices; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE certificates TO microservices;
 
 
     --
-    -- Name: communities; Type: ACL; Schema: microservices; Owner: postgres
+    -- Name: communities; Type: ACL; Schema: microservices; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE communities TO microservices;
@@ -8861,7 +8861,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: dns_hosted_zones; Type: ACL; Schema: public; Owner: postgres
+    -- Name: dns_hosted_zones; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT ON TABLE dns_hosted_zones TO microservices;
@@ -8870,14 +8870,14 @@ ELSE
     SET search_path = microservices, pg_catalog;
 
     --
-    -- Name: dns_hosted_zones; Type: ACL; Schema: microservices; Owner: postgres
+    -- Name: dns_hosted_zones; Type: ACL; Schema: microservices; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE dns_hosted_zones TO microservices;
 
 
     --
-    -- Name: mobilizations; Type: ACL; Schema: microservices; Owner: postgres
+    -- Name: mobilizations; Type: ACL; Schema: microservices; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE mobilizations TO microservices;
@@ -8886,7 +8886,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: notification_templates; Type: ACL; Schema: public; Owner: postgres
+    -- Name: notification_templates; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE notification_templates TO anonymous;
@@ -8898,7 +8898,7 @@ ELSE
     SET search_path = microservices, pg_catalog;
 
     --
-    -- Name: notification_templates; Type: ACL; Schema: microservices; Owner: postgres
+    -- Name: notification_templates; Type: ACL; Schema: microservices; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE notification_templates TO microservices;
@@ -8907,7 +8907,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: notifications; Type: ACL; Schema: public; Owner: postgres
+    -- Name: notifications; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT ON TABLE notifications TO anonymous;
@@ -8919,7 +8919,7 @@ ELSE
     SET search_path = microservices, pg_catalog;
 
     --
-    -- Name: notifications; Type: ACL; Schema: microservices; Owner: postgres
+    -- Name: notifications; Type: ACL; Schema: microservices; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE notifications TO microservices;
@@ -8928,21 +8928,21 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: activist_facebook_bot_interactions; Type: ACL; Schema: public; Owner: postgres
+    -- Name: activist_facebook_bot_interactions; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE activist_facebook_bot_interactions TO admin;
 
 
     --
-    -- Name: facebook_bot_configurations; Type: ACL; Schema: public; Owner: postgres
+    -- Name: facebook_bot_configurations; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE facebook_bot_configurations TO admin;
 
 
     --
-    -- Name: mobilization_activists; Type: ACL; Schema: public; Owner: postgres
+    -- Name: mobilization_activists; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE mobilization_activists TO common_user;
@@ -8952,7 +8952,7 @@ ELSE
     SET search_path = postgraphql, pg_catalog;
 
     --
-    -- Name: activist_mobilizations; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: activist_mobilizations; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE activist_mobilizations TO common_user;
@@ -8960,7 +8960,7 @@ ELSE
 
 
     --
-    -- Name: activist_tags; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: activist_tags; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE activist_tags TO admin;
@@ -8970,7 +8970,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: balance_operations; Type: ACL; Schema: public; Owner: postgres
+    -- Name: balance_operations; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE balance_operations TO common_user;
@@ -8978,7 +8978,7 @@ ELSE
 
 
     --
-    -- Name: balance_operation_summaries; Type: ACL; Schema: public; Owner: postgres
+    -- Name: balance_operation_summaries; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE balance_operation_summaries TO common_user;
@@ -8988,7 +8988,7 @@ ELSE
     SET search_path = postgraphql, pg_catalog;
 
     --
-    -- Name: balance_operations; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: balance_operations; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE balance_operations TO common_user;
@@ -8996,7 +8996,7 @@ ELSE
 
 
     --
-    -- Name: facebook_activist_interactions; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: facebook_activist_interactions; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE facebook_activist_interactions TO admin;
@@ -9005,14 +9005,14 @@ ELSE
 
 
     --
-    -- Name: bot_recipients; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: bot_recipients; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE bot_recipients TO admin;
 
 
     --
-    -- Name: community_user_roles; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: community_user_roles; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE community_user_roles TO common_user;
@@ -9022,7 +9022,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: blocks; Type: ACL; Schema: public; Owner: postgres
+    -- Name: blocks; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE blocks TO common_user;
@@ -9030,7 +9030,7 @@ ELSE
 
 
     --
-    -- Name: widgets; Type: ACL; Schema: public; Owner: postgres
+    -- Name: widgets; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE widgets TO common_user;
@@ -9041,7 +9041,7 @@ ELSE
     SET search_path = postgraphql, pg_catalog;
 
     --
-    -- Name: donations; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: donations; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE donations TO common_user;
@@ -9049,14 +9049,14 @@ ELSE
 
 
     --
-    -- Name: facebook_bot_configurations; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: facebook_bot_configurations; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE facebook_bot_configurations TO admin;
 
 
     --
-    -- Name: facebook_bot_interactions; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: facebook_bot_interactions; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE facebook_bot_interactions TO admin;
@@ -9067,7 +9067,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: activist_participations; Type: ACL; Schema: public; Owner: postgres
+    -- Name: activist_participations; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE activist_participations TO common_user;
@@ -9077,7 +9077,7 @@ ELSE
     SET search_path = postgraphql, pg_catalog;
 
     --
-    -- Name: participations; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: participations; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE participations TO common_user;
@@ -9085,7 +9085,7 @@ ELSE
 
 
     --
-    -- Name: tags; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: tags; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE tags TO postgraphql;
@@ -9094,7 +9094,7 @@ ELSE
 
 
     --
-    -- Name: user_communities; Type: ACL; Schema: postgraphql; Owner: postgres
+    -- Name: user_communities; Type: ACL; Schema: postgraphql; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE user_communities TO common_user;
@@ -9104,7 +9104,7 @@ ELSE
     SET search_path = public, pg_catalog;
 
     --
-    -- Name: activist_actions; Type: ACL; Schema: public; Owner: postgres
+    -- Name: activist_actions; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE activist_actions TO common_user;
@@ -9113,14 +9113,14 @@ ELSE
 
 
     --
-    -- Name: activist_facebook_bot_interactions_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: activist_facebook_bot_interactions_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE activist_facebook_bot_interactions_id_seq TO admin;
 
 
     --
-    -- Name: activist_tags_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: activist_tags_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE activist_tags_id_seq TO common_user;
@@ -9128,7 +9128,7 @@ ELSE
 
 
     --
-    -- Name: activists_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: activists_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE activists_id_seq TO common_user;
@@ -9137,7 +9137,7 @@ ELSE
 
 
     --
-    -- Name: communities_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: communities_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE communities_id_seq TO common_user;
@@ -9145,7 +9145,7 @@ ELSE
 
 
     --
-    -- Name: community_activists_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: community_activists_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE community_activists_id_seq TO common_user;
@@ -9153,7 +9153,7 @@ ELSE
 
 
     --
-    -- Name: community_users_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: community_users_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE community_users_id_seq TO common_user;
@@ -9163,7 +9163,7 @@ ELSE
 
 
     --
-    -- Name: configurations; Type: ACL; Schema: public; Owner: postgres
+    -- Name: configurations; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT ON TABLE configurations TO microservices;
@@ -9172,14 +9172,14 @@ ELSE
 
 
     --
-    -- Name: dns_hosted_zones_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: dns_hosted_zones_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE dns_hosted_zones_id_seq TO microservices;
 
 
     --
-    -- Name: dns_records; Type: ACL; Schema: public; Owner: postgres
+    -- Name: dns_records; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT ON TABLE dns_records TO admin;
@@ -9188,7 +9188,7 @@ ELSE
 
 
     --
-    -- Name: dns_records_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: dns_records_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE dns_records_id_seq TO postgraphql;
@@ -9197,7 +9197,7 @@ ELSE
 
 
     --
-    -- Name: facebook_bot_activists; Type: ACL; Schema: public; Owner: postgres
+    -- Name: facebook_bot_activists; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE facebook_bot_activists TO admin;
@@ -9206,7 +9206,7 @@ ELSE
 
 
     --
-    -- Name: facebook_bot_activists_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: facebook_bot_activists_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE facebook_bot_activists_id_seq TO admin;
@@ -9215,7 +9215,7 @@ ELSE
 
 
     --
-    -- Name: facebook_bot_campaign_activists_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: facebook_bot_campaign_activists_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE facebook_bot_campaign_activists_id_seq TO admin;
@@ -9223,7 +9223,7 @@ ELSE
 
 
     --
-    -- Name: facebook_bot_campaigns_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: facebook_bot_campaigns_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE facebook_bot_campaigns_id_seq TO admin;
@@ -9231,14 +9231,14 @@ ELSE
 
 
     --
-    -- Name: facebook_bot_configurations_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: facebook_bot_configurations_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE facebook_bot_configurations_id_seq TO admin;
 
 
     --
-    -- Name: notifications_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: notifications_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE notifications_id_seq TO anonymous;
@@ -9247,7 +9247,7 @@ ELSE
 
 
     --
-    -- Name: taggings_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: taggings_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE taggings_id_seq TO common_user;
@@ -9255,7 +9255,7 @@ ELSE
 
 
     --
-    -- Name: tags_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: tags_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE tags_id_seq TO common_user;
@@ -9263,7 +9263,7 @@ ELSE
 
 
     --
-    -- Name: twilio_call_transitions; Type: ACL; Schema: public; Owner: postgres
+    -- Name: twilio_call_transitions; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT,DELETE,UPDATE ON TABLE twilio_call_transitions TO admin;
@@ -9272,7 +9272,7 @@ ELSE
 
 
     --
-    -- Name: twilio_calls_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: twilio_calls_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE twilio_calls_id_seq TO admin;
@@ -9281,7 +9281,7 @@ ELSE
 
 
     --
-    -- Name: twilio_configurations_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: twilio_configurations_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE twilio_configurations_id_seq TO admin;
@@ -9289,7 +9289,7 @@ ELSE
 
 
     --
-    -- Name: user_tags; Type: ACL; Schema: public; Owner: postgres
+    -- Name: user_tags; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT SELECT,INSERT,UPDATE ON TABLE user_tags TO common_user;
@@ -9298,7 +9298,7 @@ ELSE
 
 
     --
-    -- Name: user_tags_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: user_tags_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE user_tags_id_seq TO common_user;
@@ -9306,7 +9306,7 @@ ELSE
 
 
     --
-    -- Name: users_id_seq; Type: ACL; Schema: public; Owner: postgres
+    -- Name: users_id_seq; Type: ACL; Schema: public; Owner: monkey_user
     --
 
     GRANT USAGE ON SEQUENCE users_id_seq TO anonymous;
