@@ -18,6 +18,9 @@ SET client_min_messages = warning;
 SET row_security = off;
 SET search_path = public, pg_catalog;
 
+
+create role postgraphql login password '3x4mpl3'; create role anonymous; create role common_user; create role admin; create role postgres; create role microservices;
+
 --
 -- Name: microservices; Type: SCHEMA; Schema: -; Owner: monkey_user
 --
