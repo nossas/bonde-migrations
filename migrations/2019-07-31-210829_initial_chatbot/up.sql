@@ -115,3 +115,7 @@ ALTER TABLE public.chatbot_settings
     OWNER to monkey_user;
 COMMENT ON TABLE public.chatbot_settings
     IS 'Tabela responsável por armazenar as configurações dos canais usados para comunicação de um Chatbot';
+
+ALTER TABLE public.chatbot_campaigns ALTER COLUMN diagram DROP NOT NULL;
+ALTER TABLE public.chatbot_campaigns DROP COLUMN  draft CASCADE;
+ALTER TABLE public.chatbot_campaigns ADD COLUMN  status text;
