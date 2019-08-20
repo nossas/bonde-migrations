@@ -10,5 +10,5 @@ CREATE TABLE public.webhooks_record (
     service_name character varying COLLATE pg_catalog."default" NOT NULL,
     created_at timestamp with time zone NOT NULL DEFAULT now(),
     updated_at timestamp with time zone NOT NULL DEFAULT now(),
-    CONSTRAINT webhook_logs_pkey PRIMARY KEY (id)
+    CONSTRAINT webhooks_record_pkey PRIMARY KEY (id)
 );
