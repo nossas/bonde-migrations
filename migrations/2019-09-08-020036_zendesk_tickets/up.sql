@@ -1,5 +1,5 @@
 -- Your SQL goes here
-CREATE TABLE zendesk_tickets (
+CREATE TABLE solidarity_zd_tickets (
     id SERIAL PRIMARY KEY,
     assignee_id BIGINT,
     created_at TIMESTAMP,
@@ -14,5 +14,16 @@ CREATE TABLE zendesk_tickets (
     subject TEXT,
     submitter_id BIGINT,
     tags JSONB,
-    updated_at TIMESTAMP
+    updated_at TIMESTAMP,
+    status_acolhimento TEXT,
+    nome_voluntaria TEXT,
+    link_match TEXT,
+    nome_msr TEXT,
+    data_inscricao_bonde TIMESTAMP,
+    data_encaminhamento TIMESTAMP,
+    status_inscricao TEXT,
+    telefone TEXT,
+    estado TEXT,
+    cidade TEXT,
+    community_id BIGINT
 );

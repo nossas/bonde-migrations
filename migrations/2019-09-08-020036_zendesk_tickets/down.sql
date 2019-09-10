@@ -1,2 +1,2 @@
 -- This file should undo anything in `up.sql`
-DROP TABLE zendesk_tickets;
+DROP TABLE solidarity_zd_tickets;
