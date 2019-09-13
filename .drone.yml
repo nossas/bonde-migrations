@@ -3,7 +3,6 @@ pipeline:
   staging-publish:
     image: plugins/docker
     repo: nossas/bonde-migrations
-    group: publishing
     secrets: [ docker_username, docker_password ]
     tags:
       - ${DRONE_BRANCH/\//-}
@@ -22,3 +21,38 @@ pipeline:
     when:
       status: success
       branch: [hotfix/*, release/*, feature/*, support/*, develop]
+
+  production-publish:
+    image: plugins/docker
+    repo: nossas/bonde-migrations
+    secrets: [ docker_username, docker_password ]
+    tags:
+      - ${DRONE_TAG##v}
+    when:
+      status: success
+      event: tag
+
+  production-deploy:
+    image: peloton/drone-rancher
+    url: http://cluster.bonde.org
+    service: workers/migrations
+    docker_image: "nossas/bonde-migrations:${DRONE_TAG##v}"
+    timeout: 360
+    confirm: true
+    secrets:
+      - source: rancher_access_key_prod
+        target: rancher_access_key
+      - source: rancher_secret_key_prod
+        target: rancher_secret_key
+    when:
+      status: success
+      event: tag
+
+  notify:
+    image: plugins/slack
+    channel: bonde_bots
+    username: CI - ${DRONE_REPO_NAME}
+    when:
+      event: [ push, tag, build, publish, deployment, pull_request ]
+      status: [ success, failure ]
+    secrets: [ slack_webhook ]
