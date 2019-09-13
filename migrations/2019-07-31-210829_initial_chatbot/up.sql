@@ -38,8 +38,6 @@ WITH (
 
 CREATE TRIGGER chatbots_update_at BEFORE UPDATE ON chatbots FOR EACH ROW EXECUTE PROCEDURE  updated_at_column();
 
-ALTER TABLE public.chatbots
-    OWNER to monkey_user;
 COMMENT ON TABLE public.chatbots
     IS 'Tabela responsável por relacionar módulo Chatbot com módulo Comunidade';
 
@@ -76,8 +74,6 @@ WITH (
 
 CREATE TRIGGER chatbots_campaigns_update_at BEFORE UPDATE ON chatbot_campaigns FOR EACH ROW EXECUTE PROCEDURE  updated_at_column();
 
-ALTER TABLE public.chatbot_campaigns
-    OWNER to monkey_user;
 COMMENT ON TABLE public.chatbot_campaigns
     IS 'Tabela responsável por armazenar fluxos de conversa de um Chatbot';
 
@@ -111,8 +107,6 @@ WITH (
 
 CREATE TRIGGER chatbots_settings_update_at BEFORE UPDATE ON chatbot_settings FOR EACH ROW EXECUTE PROCEDURE  updated_at_column();
 
-ALTER TABLE public.chatbot_settings
-    OWNER to monkey_user;
 COMMENT ON TABLE public.chatbot_settings
     IS 'Tabela responsável por armazenar as configurações dos canais usados para comunicação de um Chatbot';
 

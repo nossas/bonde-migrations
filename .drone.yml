@@ -9,6 +9,7 @@ pipeline:
     when:
       status: success
       branch: [hotfix/*, release/*, feature/*, support/*, develop]
+      event: push
 
   staging-deploy:
     image: peloton/drone-rancher
@@ -21,6 +22,7 @@ pipeline:
     when:
       status: success
       branch: [hotfix/*, release/*, feature/*, support/*, develop]
+      event: push
 
   production-publish:
     image: plugins/docker
