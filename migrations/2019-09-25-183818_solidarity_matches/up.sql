@@ -1,8 +1,11 @@
 -- Your SQL goes here
 CREATE TABLE solidarity_matches (
     id SERIAL PRIMARY KEY,
-    msr_ticket INTEGER REFERENCES solidarity_zd_tickets(id),
-    voluntaria_ticket INTEGER REFERENCES solidarity_zd_tickets(id),
-    UNIQUE(msr_ticket),
-    UNIQUE(voluntaria_ticket)
+    individuals_ticket_id INTEGER REFERENCES solidarity_zd_tickets(id),
+    volunteers_ticket_id INTEGER REFERENCES solidarity_zd_tickets(id),
+    individuals_user_id INTEGER REFERENCES solidarity_users(id),
+    volunteers_user_id INTEGER REFERENCES solidarity_users(id),
+    UNIQUE(individuals_ticket_id),
+    UNIQUE(volunteers_ticket_id),
+    UNIQUE(individuals_user_id, volunteers_user_id)
 );
