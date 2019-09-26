@@ -58,5 +58,6 @@ CREATE TABLE solidarity_users (
     state TEXT,
     tipo_de_acolhimento TEXT,
     ultima_atualizacao_de_dados TIMESTAMP,
-    whatsapp TEXT
+    whatsapp TEXT,
+    community_id INTEGER REFERENCES communities(id)
 );
