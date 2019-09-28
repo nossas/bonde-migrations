@@ -9,7 +9,7 @@ CREATE TABLE solidarity_users (
     time_zone TEXT,
     iana_time_zone TEXT,
     phone TEXT,
-    shared_phone_number TEXT,
+    shared_phone_number BOOLEAN,
     photo JSONB,
     locale_id BIGINT,
     locale TEXT,
