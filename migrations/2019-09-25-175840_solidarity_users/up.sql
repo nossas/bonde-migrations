@@ -1,6 +1,6 @@
 CREATE TABLE solidarity_users (
     id SERIAL PRIMARY KEY,
-    user_id BIGINT,
+    user_id BIGINT UNIQUE NOT NULL,
     url TEXT,
     name TEXT,
     email TEXT,
