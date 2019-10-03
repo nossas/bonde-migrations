@@ -28,5 +28,3 @@ CREATE VIEW solidarity_mautic_form AS
         webhooks_registry
     WHERE
         service_name = 'mautic_form';
-
-ALTER TABLE solidarity_tickets ADD COLUMN webhooks_registry_id INTEGER REFERENCES webhooks_registry(id);

@@ -62,3 +62,5 @@ CREATE TABLE solidarity_users (
     permanently_deleted BOOLEAN,
     community_id INTEGER REFERENCES communities(id)
 );
+
+ALTER TABLE solidarity_tickets ADD COLUMN webhooks_registry_id INTEGER REFERENCES webhooks_registry(id);
