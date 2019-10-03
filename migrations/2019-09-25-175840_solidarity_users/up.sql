@@ -59,5 +59,6 @@ CREATE TABLE solidarity_users (
     tipo_de_acolhimento TEXT,
     ultima_atualizacao_de_dados TIMESTAMP,
     whatsapp TEXT,
+    permanently_deleted BOOLEAN,
     community_id INTEGER REFERENCES communities(id)
 );
