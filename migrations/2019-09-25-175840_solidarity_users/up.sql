@@ -61,3 +61,5 @@ CREATE TABLE solidarity_users (
     whatsapp TEXT,
     community_id INTEGER REFERENCES communities(id)
 );
+
+ALTER TABLE solidarity_tickets ADD COLUMN webhooks_registry_id INTEGER REFERENCES webhooks_registry(id);
