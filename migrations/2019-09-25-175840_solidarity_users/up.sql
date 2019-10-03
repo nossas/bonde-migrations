@@ -1,6 +1,6 @@
 CREATE TABLE solidarity_users (
     id SERIAL PRIMARY KEY,
-    user_id BIGINT,
+    user_id BIGINT UNIQUE NOT NULL,
     url TEXT,
     name TEXT,
     email TEXT,
@@ -9,7 +9,7 @@ CREATE TABLE solidarity_users (
     time_zone TEXT,
     iana_time_zone TEXT,
     phone TEXT,
-    shared_phone_number TEXT,
+    shared_phone_number BOOLEAN,
     photo JSONB,
     locale_id BIGINT,
     locale TEXT,
