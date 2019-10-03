@@ -1,5 +1,5 @@
 -- Your SQL goes here
-CREATE TABLE solidarity_zd_tickets (
+CREATE TABLE solidarity_tickets (
     id SERIAL PRIMARY KEY,
     assignee_id BIGINT,
     created_at TIMESTAMP,
@@ -25,5 +25,5 @@ CREATE TABLE solidarity_zd_tickets (
     telefone TEXT,
     estado TEXT,
     cidade TEXT,
-    community_id BIGINT
+    community_id INTEGER REFERENCES communities(id)
 );
