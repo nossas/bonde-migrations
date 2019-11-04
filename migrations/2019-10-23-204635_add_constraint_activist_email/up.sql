@@ -1,0 +1,1 @@
+ALTER TABLE public.activists ADD CONSTRAINT activists_email_key UNIQUE (email);
