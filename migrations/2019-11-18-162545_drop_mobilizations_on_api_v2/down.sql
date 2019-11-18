@@ -174,3 +174,64 @@ $BODY$;
 
 ALTER FUNCTION postgraphql.mobilizations_community(postgraphql.mobilizations)
     OWNER TO monkey_user;
+
+-- FUNCTION: postgraphql.mobilizations(integer)
+
+-- DROP FUNCTION postgraphql.mobilizations(integer);
+
+CREATE OR REPLACE FUNCTION postgraphql.mobilizations(
+    days integer)
+    RETURNS json
+    LANGUAGE 'plpgsql'
+
+    COST 100
+    VOLATILE 
+AS $BODY$
+DECLARE
+    _result json;
+BEGIN
+    if current_role = 'anonymous' then
+        raise 'permission_denied';
+    end if;
+
+    select json_agg(row_to_json(t.*)) from (select
+        c.name as community_name,
+        m.name,
+        m.goal,
+        m.facebook_share_image,
+        m.created_at::timestamp as created_at,
+        m.updated_at::timestamp as updated_at,
+        count(m.id) as score
+        -- m.*
+    from
+        activist_actions aa
+        left join mobilizations m on aa.mobilization_id = m.id
+        left join communities c on m.community_id = c.id
+    where
+        -- aa.action_created_date >= now()::date - interval '90days'
+        aa.action_created_date >= now()::date - (days || 'days')::interval
+    group by
+        m.id,
+        c.name
+    order by
+        score desc
+    ) t
+    into _result;
+
+    return _result;
+END
+$BODY$;
+
+ALTER FUNCTION postgraphql.mobilizations(integer)
+    OWNER TO monkey_user;
+
+GRANT EXECUTE ON FUNCTION postgraphql.mobilizations(integer) TO admin;
+
+GRANT EXECUTE ON FUNCTION postgraphql.mobilizations(integer) TO common_user;
+
+GRANT EXECUTE ON FUNCTION postgraphql.mobilizations(integer) TO monkey_user;
+
+GRANT EXECUTE ON FUNCTION postgraphql.mobilizations(integer) TO PUBLIC;
+
+GRANT EXECUTE ON FUNCTION postgraphql.mobilizations(integer) TO postgraphql;
+
