@@ -21,3 +21,5 @@ DROP VIEW postgraphql.mobilizations;
 
 -- Function: postgraphql.mobilizations(integer)
 DROP FUNCTION postgraphql.mobilizations(integer);
+
+drop view postgraphql.user_communities;
