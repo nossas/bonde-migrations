@@ -1,6 +1,6 @@
 -- Drop old view to aggregate actions
 DROP VIEW public.activist_actions;
-
+COMMIT;
 -- Re-create activist_actions like table to use max of performance of Hasura
 CREATE SEQUENCE activist_actions_id_seq
  INCREMENT 1
@@ -39,7 +39,7 @@ WITH (
 COMMENT ON TABLE public.activist_actions
     IS 'Tabela responsável por agregar informações sobre as ações do ativista';
 
-
+COMMIT;
 -- Update table with old actions, now use trigger to update table activist_actions
 INSERT INTO public.activist_actions(action, widget_id, mobilization_id, community_id, activist_id, action_created_at, activist_created_at)
 SELECT 'activist_pressures'::text AS action,
@@ -54,7 +54,7 @@ SELECT 'activist_pressures'::text AS action,
 	 JOIN widgets w ON w.id = fe.widget_id
 	 JOIN blocks b ON b.id = w.block_id
 	 JOIN mobilizations m ON m.id = b.mobilization_id;
-
+COMMIT;
 INSERT INTO public.activist_actions(action, widget_id, mobilization_id, community_id, activist_id, action_created_at, activist_created_at)
 SELECT 'form_entries'::text AS action,
 	w.id AS widget_id,
@@ -68,7 +68,7 @@ SELECT 'form_entries'::text AS action,
 	 JOIN widgets w ON w.id = fe.widget_id
 	 JOIN blocks b ON b.id = w.block_id
 	 JOIN mobilizations m ON m.id = b.mobilization_id;
-
+COMMIT;
 INSERT INTO public.activist_actions(action, widget_id, mobilization_id, community_id, activist_id, action_created_at, activist_created_at)
 SELECT 'donations'::text AS action,
 	w.id AS widget_id,
@@ -82,7 +82,7 @@ SELECT 'donations'::text AS action,
 	 JOIN widgets w ON w.id = fe.widget_id
 	 JOIN blocks b ON b.id = w.block_id
 	 JOIN mobilizations m ON m.id = b.mobilization_id;
-
+COMMIT;
 -- Create triggers to update activist_actions
 -- Pressure
 CREATE OR REPLACE FUNCTION copy_activist_pressures() RETURNS TRIGGER AS
@@ -109,7 +109,7 @@ $BODY$
 language plpgsql;
 
 CREATE TRIGGER trig_copy_activist_pressures AFTER INSERT ON activist_pressures FOR EACH ROW EXECUTE PROCEDURE copy_activist_pressures();
-
+COMMIT;
 -- Donation
 CREATE OR REPLACE FUNCTION copy_donations() RETURNS TRIGGER AS
 $BODY$
@@ -135,7 +135,7 @@ $BODY$
 language plpgsql;
 
 CREATE TRIGGER trig_copy_donations AFTER INSERT ON donations FOR EACH ROW EXECUTE PROCEDURE copy_donations();
-
+COMMIT;
 -- Form Entries
 CREATE OR REPLACE FUNCTION copy_form_entries() RETURNS TRIGGER AS
 $BODY$
@@ -161,3 +161,4 @@ $BODY$
 language plpgsql;
 
 CREATE TRIGGER trig_copy_form_entries AFTER INSERT ON form_entries FOR EACH ROW EXECUTE PROCEDURE copy_form_entries();
+COMMIT;
