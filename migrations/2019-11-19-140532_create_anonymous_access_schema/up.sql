@@ -1,7 +1,7 @@
 -- SCHEMA: anonymous
 -- DROP SCHEMA anonymous;
 
-CREATE SCHEMA anonymous
+CREATE SCHEMA IF NOT EXISTS anonymous
 	AUTHORIZATION monkey_user;
 
 -- View: anonymous.mobilizations

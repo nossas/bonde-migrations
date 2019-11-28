@@ -1,7 +1,7 @@
-DROP VIEW anonymous.mobilizations;
+DROP VIEW IF EXISTS anonymous.mobilizations;
 
-DROP VIEW anonymous.communities;
+DROP VIEW IF EXISTS anonymous.communities;
 
-DROP VIEW anonymous.activist_actions;
+DROP VIEW IF EXISTS anonymous.activist_actions;
 
-DROP SCHEMA anonymous;
+DROP SCHEMA IF EXISTS anonymous;
