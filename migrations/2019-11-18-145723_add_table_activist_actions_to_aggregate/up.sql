@@ -1,5 +1,5 @@
 -- Drop old view to aggregate actions
-DROP VIEW public.activist_actions;
+DROP VIEW IF EXISTS public.activist_actions;
 
 -- Re-create activist_actions like table to use max of performance of Hasura
 CREATE SEQUENCE activist_actions_id_seq
@@ -38,50 +38,6 @@ WITH (
 
 COMMENT ON TABLE public.activist_actions
     IS 'Tabela responsável por agregar informações sobre as ações do ativista';
-
-
--- Update table with old actions, now use trigger to update table activist_actions
-INSERT INTO public.activist_actions(action, widget_id, mobilization_id, community_id, activist_id, action_created_at, activist_created_at)
-SELECT 'activist_pressures'::text AS action,
-	w.id AS widget_id,
-	m.id AS mobilization_id,
-	m.community_id,
-	fe.activist_id,
-	fe.created_at AS action_created_date,
-	a.created_at AS activist_created_at
-   FROM activist_pressures fe
-	 JOIN activists a ON a.id = fe.activist_id
-	 JOIN widgets w ON w.id = fe.widget_id
-	 JOIN blocks b ON b.id = w.block_id
-	 JOIN mobilizations m ON m.id = b.mobilization_id;
-
-INSERT INTO public.activist_actions(action, widget_id, mobilization_id, community_id, activist_id, action_created_at, activist_created_at)
-SELECT 'form_entries'::text AS action,
-	w.id AS widget_id,
-	m.id AS mobilization_id,
-	m.community_id,
-	fe.activist_id,
-	fe.created_at AS action_created_date,
-	a.created_at AS activist_created_at
-   FROM form_entries fe
-	 JOIN activists a ON a.id = fe.activist_id
-	 JOIN widgets w ON w.id = fe.widget_id
-	 JOIN blocks b ON b.id = w.block_id
-	 JOIN mobilizations m ON m.id = b.mobilization_id;
-
-INSERT INTO public.activist_actions(action, widget_id, mobilization_id, community_id, activist_id, action_created_at, activist_created_at)
-SELECT 'donations'::text AS action,
-	w.id AS widget_id,
-	m.id AS mobilization_id,
-	m.community_id,
-	fe.activist_id,
-	fe.created_at AS action_created_date,
-	a.created_at AS activist_created_at
-   FROM donations fe
-	 JOIN activists a ON a.id = fe.activist_id
-	 JOIN widgets w ON w.id = fe.widget_id
-	 JOIN blocks b ON b.id = w.block_id
-	 JOIN mobilizations m ON m.id = b.mobilization_id;
 
 -- Create triggers to update activist_actions
 -- Pressure
