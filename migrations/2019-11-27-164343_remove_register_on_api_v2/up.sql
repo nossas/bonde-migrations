@@ -1,1 +1,1 @@
-DROP FUNCTION postgraphql.register(json);
+DROP FUNCTION IF EXISTS postgraphql.register(json);
