@@ -1,0 +1,1 @@
+DROP TRIGGER IF EXISTS community_users_update_at ON public.community_users;

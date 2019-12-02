@@ -1,0 +1,1 @@
+DROP INDEX public.index_users_on_reset_password_token;
