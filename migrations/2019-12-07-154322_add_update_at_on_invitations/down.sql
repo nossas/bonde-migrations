@@ -1,0 +1,1 @@
+DROP TRIGGER IF EXISTS invitations_update_at ON public.invitations;

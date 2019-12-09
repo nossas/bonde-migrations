@@ -1,0 +1,1 @@
+ALTER TABLE public.invitations DROP COLUMN callback_url;
