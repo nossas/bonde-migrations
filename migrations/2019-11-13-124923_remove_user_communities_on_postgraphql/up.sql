@@ -1,1 +1,1 @@
-DROP VIEW IF EXISTS postgraphql.user_communities;
+DROP VIEW IF EXISTS postgraphql.user_communities CASCADE;

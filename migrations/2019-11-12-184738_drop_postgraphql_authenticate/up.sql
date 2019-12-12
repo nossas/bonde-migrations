@@ -1,1 +1,1 @@
-drop function postgraphql.authenticate;
+DROP FUNCTION IF EXISTS postgraphql.authenticate(text, text);
