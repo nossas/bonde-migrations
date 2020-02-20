@@ -15,6 +15,7 @@ CREATE TABLE public.rede_groups
   updated_at timestamp without time zone DEFAULT now(),
   id integer NOT NULL DEFAULT nextval('rede_groups_id_seq'::regclass),
   name text NOT NULL,
+  is_volunteer boolean NOT NULL DEFAULT false,
   community_id integer NOT NULL,
   widget_id integer NOT NULL,
   metadata jsonb NOT NULL,
@@ -54,16 +55,15 @@ CREATE TABLE public.rede_individuals
   id integer NOT NULL DEFAULT nextval('rede_individuals_id_seq'::regclass),
   name text NOT NULL,
   email text NOT NULL,
-  telefone text NOT NULL,
-  endereco text NOT NULL,
-  cidade text NOT NULL,
-  estado text NOT NULL,
+  phone text NOT NULL,
+  address text NOT NULL,
+  city text NOT NULL,
+  state text NOT NULL,
   latitude text NOT NULL,
   longitude text NOT NULL,
-  numero_registro text NOT NULL,
+  register_occupation text NOT NULL,
   whatsapp text NOT NULL,
-  area_atuacao text NOT NULL,
-  is_volunteer boolean NOT NULL DEFAULT false,
+  field_occupation text NOT NULL,
   rede_group_id integer NOT NULL,
   form_entry_id integer NOT NULL,
   PRIMARY KEY (id),
@@ -108,6 +108,7 @@ CREATE TABLE public.rede_relationships
     metadata jsonb NULL,
     volunteer_id integer NOT NULL,
     recipient_id integer NOT NULL,
+    user_id integer NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (volunteer_id)
         REFERENCES public.rede_individuals (id) MATCH SIMPLE
@@ -117,6 +118,11 @@ CREATE TABLE public.rede_relationships
         REFERENCES public.rede_individuals (id) MATCH SIMPLE
         ON UPDATE NO ACTION
         ON DELETE NO ACTION
+    FOREIGN KEY (user_id)
+        REFERENCES public.users (id) MATCH SIMPLE
+        ON UPDATE NO ACTION
+        ON DELETE NO ACTION
+
 )
 WITH (
     OIDS = FALSE
