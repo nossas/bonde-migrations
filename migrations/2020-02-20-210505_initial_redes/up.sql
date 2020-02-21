@@ -117,7 +117,7 @@ CREATE TABLE public.rede_relationships
     FOREIGN KEY (recipient_id)
         REFERENCES public.rede_individuals (id) MATCH SIMPLE
         ON UPDATE NO ACTION
-        ON DELETE NO ACTION
+        ON DELETE NO ACTION,
     FOREIGN KEY (user_id)
         REFERENCES public.users (id) MATCH SIMPLE
         ON UPDATE NO ACTION
