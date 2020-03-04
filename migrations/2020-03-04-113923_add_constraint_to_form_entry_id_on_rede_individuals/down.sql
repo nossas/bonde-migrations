@@ -1,0 +1,1 @@
+ALTER TABLE public.rede_individuals DROP CONSTRAINT rede_individuals_form_entry_id;
