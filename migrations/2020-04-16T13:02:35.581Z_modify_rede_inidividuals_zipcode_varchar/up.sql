@@ -1,1 +1,1 @@
-ALTER TABLE public.rede_individuals ALTER COLUMN zipcode VARCHAR(100);
+ALTER TABLE public.rede_individuals ALTER COLUMN zipcode TYPE VARCHAR(100);
