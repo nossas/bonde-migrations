@@ -1,0 +1,1 @@
+ALTER TABLE app_settings RENAME TO community_settings;
