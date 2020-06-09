@@ -1,0 +1,1 @@
+ALTER TABLE solidarity_tickets DROP COLUMN external_id;
