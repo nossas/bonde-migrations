@@ -1,0 +1,1 @@
+ALTER TABLE solidarity_tickets ADD COLUMN atrelado_ao_ticket BIGINT;
