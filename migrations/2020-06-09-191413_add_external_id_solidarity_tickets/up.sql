@@ -1,0 +1,1 @@
+ALTER TABLE solidarity_tickets ADD COLUMN external_id BIGINT;

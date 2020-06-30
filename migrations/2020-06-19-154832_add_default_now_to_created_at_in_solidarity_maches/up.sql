@@ -1,0 +1,1 @@
+ALTER TABLE solidarity_matches ALTER COLUMN created_at SET DEFAULT now()

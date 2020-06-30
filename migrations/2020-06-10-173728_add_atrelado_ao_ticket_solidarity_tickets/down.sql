@@ -1,0 +1,1 @@
+ALTER TABLE solidarity_tickets DROP COLUMN atrelado_ao_ticket;
