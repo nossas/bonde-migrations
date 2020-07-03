@@ -1,0 +1,1 @@
+ALTER TABLE public.widgets ALTER COLUMN goal TYPE NUMERIC(8,2);
