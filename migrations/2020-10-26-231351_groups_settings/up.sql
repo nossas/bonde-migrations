@@ -1,0 +1,1 @@
+ALTER TABLE rede_groups ADD COLUMN settings jsonb NOT NULL default '{}'::jsonb
