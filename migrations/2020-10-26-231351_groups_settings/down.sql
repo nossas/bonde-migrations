@@ -1,0 +1,1 @@
+ALTER TABLE rede_groups DROP COLUMN settings; 
