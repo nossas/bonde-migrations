@@ -26,14 +26,14 @@ AS $BODY$
             group by w.id;
         $BODY$;
 
-ALTER FUNCTION postgraphql.get_widget_donation_stats(integer)
-    OWNER TO reboo;
+-- ALTER FUNCTION postgraphql.get_widget_donation_stats(integer)
+--    OWNER TO bonde;
 
 GRANT EXECUTE ON FUNCTION postgraphql.get_widget_donation_stats(integer) TO anonymous;
 
 GRANT EXECUTE ON FUNCTION postgraphql.get_widget_donation_stats(integer) TO PUBLIC;
 
-GRANT EXECUTE ON FUNCTION postgraphql.get_widget_donation_stats(integer) TO reboo;
+-- GRANT EXECUTE ON FUNCTION postgraphql.get_widget_donation_stats(integer) TO bonde;
 
 COMMENT ON FUNCTION postgraphql.get_widget_donation_stats(integer)
     IS 'Returns a json with pledged, progress and goal from widget';
