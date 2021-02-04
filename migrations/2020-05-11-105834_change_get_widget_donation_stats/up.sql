@@ -8,7 +8,7 @@ CREATE OR REPLACE FUNCTION postgraphql.get_widget_donation_stats(
     LANGUAGE 'sql'
 
     COST 100
-    STABLE 
+    STABLE
 AS $BODY$
         select
             json_build_object(
@@ -26,14 +26,14 @@ AS $BODY$
             group by w.id;
         $BODY$;
 
-ALTER FUNCTION postgraphql.get_widget_donation_stats(integer)
-    OWNER TO reboo;
+-- ALTER FUNCTION postgraphql.get_widget_donation_stats(integer)
+--     OWNER TO reboo;
 
 GRANT EXECUTE ON FUNCTION postgraphql.get_widget_donation_stats(integer) TO anonymous;
 
 GRANT EXECUTE ON FUNCTION postgraphql.get_widget_donation_stats(integer) TO PUBLIC;
 
-GRANT EXECUTE ON FUNCTION postgraphql.get_widget_donation_stats(integer) TO reboo;
+-- GRANT EXECUTE ON FUNCTION postgraphql.get_widget_donation_stats(integer) TO reboo;
 
 COMMENT ON FUNCTION postgraphql.get_widget_donation_stats(integer)
     IS 'Returns a json with pledged, progress and goal from widget';
