@@ -1,0 +1,1 @@
+ALTER TABLE public.communities ADD COLUMN signature jsonb;

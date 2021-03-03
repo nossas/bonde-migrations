@@ -1,0 +1,1 @@
+  ALTER TABLE public.communities DROP COLUMN signature;
