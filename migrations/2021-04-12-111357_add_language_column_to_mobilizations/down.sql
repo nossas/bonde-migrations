@@ -1,0 +1,1 @@
+ALTER TABLE public.mobilizations DROP COLUMN language;

@@ -1,0 +1,1 @@
+ALTER TABLE public.mobilizations ADD COLUMN language VARCHAR(5) DEFAULT 'pt-BR';
