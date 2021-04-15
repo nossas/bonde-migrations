@@ -1,0 +1,1 @@
+ALTER TABLE public.communities ADD COLUMN type varchar(50);
