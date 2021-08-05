@@ -1382,7 +1382,7 @@ CREATE TABLE public.template_mobilizations (
     facebook_share_image character varying,
     slug character varying,
     custom_domain character varying,
-    twitter_share_text character varying(140),
+    twitter_share_text character varying(280),
     community_id integer,
     uses_number integer,
     global boolean,
@@ -2109,7 +2109,7 @@ CREATE TABLE public.mobilizations (
     facebook_share_image character varying,
     slug character varying NOT NULL,
     custom_domain character varying,
-    twitter_share_text character varying(140),
+    twitter_share_text character varying(280),
     community_id integer,
     favicon character varying,
     deleted_at timestamp without time zone,
@@ -3733,6 +3733,7 @@ CREATE TABLE public.donations (
     mailchimp_syncronization_at timestamp without time zone,
     mailchimp_syncronization_error_reason text,
     checkout_data jsonb,
+    old_synch boolean default null,
     cached_community_id integer
 );
 
@@ -4570,7 +4571,7 @@ ALTER TABLE public.payable_transfers OWNER TO monkey_user;
 CREATE TABLE public.widgets (
     id integer NOT NULL,
     block_id integer,
-    settings public.hstore,
+    settings jsonb,
     kind character varying,
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL,
@@ -4829,7 +4830,8 @@ CREATE TABLE public.activist_pressures (
     synchronized boolean,
     mailchimp_syncronization_at timestamp without time zone,
     mailchimp_syncronization_error_reason text,
-    cached_community_id integer
+    cached_community_id integer,
+    targets jsonb
 );
 
 
@@ -9666,8 +9668,45 @@ GRANT USAGE ON SEQUENCE public.users_id_seq TO anonymous;
 GRANT USAGE ON SEQUENCE public.users_id_seq TO common_user;
 GRANT USAGE ON SEQUENCE public.users_id_seq TO admin;
 
+CREATE SEQUENCE public.solidarity_zd_tickets_id_seq
+    INCREMENT 1
+    START 1
+    MINVALUE 1
+    MAXVALUE 9223372036854775807
+    CACHE 1;
 
---
--- PostgreSQL database dump complete
---
+-- Table: public.solidarity_zd_tickets
 
+-- DROP TABLE public.solidarity_zd_tickets;
+
+CREATE TABLE public.solidarity_zd_tickets
+(
+    id integer NOT NULL DEFAULT nextval('solidarity_zd_tickets_id_seq'::regclass),
+    assignee_id bigint,
+    created_at timestamp without time zone,
+    custom_fields jsonb,
+    description text COLLATE pg_catalog."default",
+    group_id bigint,
+    ticket_id bigint NOT NULL,
+    organization_id bigint,
+    raw_subject text COLLATE pg_catalog."default",
+    requester_id bigint,
+    status text COLLATE pg_catalog."default",
+    subject text COLLATE pg_catalog."default",
+    submitter_id bigint,
+    tags jsonb,
+    updated_at timestamp without time zone,
+    status_acolhimento text COLLATE pg_catalog."default",
+    nome_voluntaria text COLLATE pg_catalog."default",
+    link_match text COLLATE pg_catalog."default",
+    nome_msr text COLLATE pg_catalog."default",
+    data_inscricao_bonde timestamp without time zone,
+    data_encaminhamento timestamp without time zone,
+    status_inscricao text COLLATE pg_catalog."default",
+    telefone text COLLATE pg_catalog."default",
+    estado text COLLATE pg_catalog."default",
+    cidade text COLLATE pg_catalog."default",
+    community_id bigint,
+    CONSTRAINT solidarity_zd_tickets_pkey PRIMARY KEY (id),
+    CONSTRAINT solidarity_zd_tickets_ticket_id_key UNIQUE (ticket_id)
+)
