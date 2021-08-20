@@ -1,0 +1,1 @@
+ALTER TABLE public.activist_pressures DROP COLUMN status;

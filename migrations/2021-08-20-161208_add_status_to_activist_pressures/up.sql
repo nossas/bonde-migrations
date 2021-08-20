@@ -1,0 +1,1 @@
+ALTER TABLE public.activist_pressures ADD COLUMN status TEXT DEFAULT 'draft';
