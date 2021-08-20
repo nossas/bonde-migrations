@@ -1,0 +1,1 @@
+ALTER TABLE public.activists ADD COLUMN state TEXT;
